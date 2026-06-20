@@ -1,0 +1,32 @@
+{
+	"name": "gepetojj.com",
+	"author": "João Pedro <contato@gepetojj.com>",
+	"type": "module",
+	"version": "0.0.1",
+	"engines": {
+		"node": ">=22.12.0"
+	},
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"lint": "biome check --fix --unsafe",
+		"commit": "git cz"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.3.1",
+		"astro": "^6.4.7",
+		"tailwindcss": "^4.3.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.0",
+		"commitizen": "^4.3.2",
+		"cz-conventional-changelog": "^3.3.0"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
+}
