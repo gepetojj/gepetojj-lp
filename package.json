@@ -11,13 +11,15 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"lint": "biome check --fix --unsafe",
+		"lint": "biome check --fix",
 		"commit": "git cz"
 	},
 	"dependencies": {
+		"@astrojs/check": "^0.9.9",
 		"@tailwindcss/vite": "^4.3.1",
 		"astro": "^6.4.7",
-		"tailwindcss": "^4.3.1"
+		"tailwindcss": "^4.3.1",
+		"typescript": "^6.0.3"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.0",

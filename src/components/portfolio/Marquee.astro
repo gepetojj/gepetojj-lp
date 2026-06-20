@@ -1,0 +1,26 @@
+---
+const phrases = [
+	"ESTRATÉGIA DE PRODUTO",
+	"AUTOMAÇÃO DE PROCESSOS",
+	"PLATAFORMAS & INTEGRAÇÕES",
+	"CONFIABILIDADE & ESCALA",
+] as const;
+
+const copies = 6;
+---
+
+<div class="marquee-wrap">
+	<div class="marquee-track" style={`--marquee-copies: ${copies}`}>
+		{
+			Array.from({ length: copies }).map((_, index) => (
+				<span class="marquee-segment" aria-hidden={index === 0 ? undefined : true}>
+					{phrases.map((phrase) => (
+						<>
+							<b>{phrase}</b> <i>✦</i>{" "}
+						</>
+					))}
+				</span>
+			))
+		}
+	</div>
+</div>

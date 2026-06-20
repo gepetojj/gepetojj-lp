@@ -1,17 +1,38 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import NoiseOverlay from "../components/portfolio/NoiseOverlay.astro";
+import Cursor from "../components/portfolio/Cursor.astro";
+import ProgressBar from "../components/portfolio/ProgressBar.astro";
+import Nav from "../components/portfolio/Nav.astro";
+import Hero from "../components/portfolio/Hero.astro";
+import Marquee from "../components/portfolio/Marquee.astro";
+import About from "../components/portfolio/About.astro";
+import Pillars from "../components/portfolio/Pillars.astro";
+import Compare from "../components/portfolio/Compare.astro";
+import Stack from "../components/portfolio/Stack.astro";
+import Work from "../components/portfolio/Work.astro";
+import OpenSource from "../components/portfolio/OpenSource.astro";
+import Contact from "../components/portfolio/Contact.astro";
+import Footer from "../components/portfolio/Footer.astro";
 ---
 
-<html lang="pt-BR">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+	<NoiseOverlay />
+	<Cursor />
+	<ProgressBar />
+	<Nav />
+	<Hero />
+	<Marquee />
+	<About />
+	<Pillars />
+	<Compare />
+	<Stack />
+	<Work />
+	<OpenSource />
+	<Contact />
+	<Footer />
+
+	<script>
+		import "../scripts/portfolio.ts";
+	</script>
+</Layout>

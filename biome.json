@@ -61,6 +61,24 @@
 			"linter": {
 				"enabled": false
 			}
+		},
+		{
+			"includes": ["**/*.astro"],
+			"assist": {
+				"actions": {
+					"source": {
+						"organizeImports": "off"
+					}
+				}
+			},
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUnusedImports": "off",
+						"noUnusedVariables": "off"
+					}
+				}
+			}
 		}
 	]
 }

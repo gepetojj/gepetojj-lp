@@ -1,0 +1,83 @@
+---
+import ArrowIcon from "../icons/ArrowIcon.astro";
+---
+
+<header class="hero">
+	<div class="hero-bg" id="heroBg"></div>
+	<div class="grid-bg"></div>
+
+	<svg class="ribbon-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+		<defs>
+			<linearGradient id="ribbonGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+				<stop offset="0%" stop-color="#8b6cf7" stop-opacity="0"></stop>
+				<stop offset="50%" stop-color="#8b6cf7" stop-opacity="0.55"></stop>
+				<stop offset="100%" stop-color="#8b6cf7" stop-opacity="0"></stop>
+			</linearGradient>
+			<linearGradient id="ribbonGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+				<stop offset="0%" stop-color="#8b6cf7" stop-opacity="0"></stop>
+				<stop offset="50%" stop-color="#8b6cf7" stop-opacity="0.35"></stop>
+				<stop offset="100%" stop-color="#8b6cf7" stop-opacity="0"></stop>
+			</linearGradient>
+		</defs>
+		<path
+			class="ribbon-path-1"
+			fill="none"
+			stroke="url(#ribbonGrad1)"
+			stroke-width="2.5"
+			stroke-linecap="round"
+			d="M -100,480 C 180,300 340,600 600,380 C 840,180 980,520 1300,300"
+		>
+			<animate
+				attributeName="d"
+				dur="16s"
+				repeatCount="indefinite"
+				values="
+          M -100,480 C 180,300 340,600 600,380 C 840,180 980,520 1300,300;
+          M -100,420 C 220,580 360,220 600,440 C 860,620 1000,260 1300,400;
+          M -100,520 C 160,220 420,500 600,260 C 800,100 1020,460 1300,220;
+          M -100,480 C 180,300 340,600 600,380 C 840,180 980,520 1300,300
+        "></animate>
+		</path>
+		<path
+			class="ribbon-path-2"
+			fill="none"
+			stroke="url(#ribbonGrad2)"
+			stroke-width="1.5"
+			stroke-linecap="round"
+			d="M -100,200 C 200,380 380,80 640,260 C 880,420 1020,140 1300,320"
+		>
+			<animate
+				attributeName="d"
+				dur="20s"
+				repeatCount="indefinite"
+				values="
+          M -100,200 C 200,380 380,80 640,260 C 880,420 1020,140 1300,320;
+          M -100,260 C 240,60 400,340 640,140 C 900,-20 1040,300 1300,140;
+          M -100,160 C 180,420 420,120 640,360 C 860,540 1000,180 1300,380;
+          M -100,200 C 200,380 380,80 640,260 C 880,420 1020,140 1300,320
+        "></animate>
+		</path>
+	</svg>
+
+	<div class="wrap">
+		<span class="eyebrow">CTO · Liderança em Tecnologia</span>
+		<h1>João Nobre</h1>
+		<h2>conhecido como <b>gepetojj</b></h2>
+		<p class="hero-lead">
+			Alinho tecnologia aos objetivos de negócio, transformando tempo, esforço e recursos em
+			resultados tangíveis. Atuo na estratégia e na execução ponta a ponta, do diagnóstico à
+			operação em produção.
+		</p>
+		<div class="hero-actions">
+			<a href="#trabalho" class="btn btn-primary magnetic">
+				Ver atuação
+				<ArrowIcon />
+			</a>
+			<a href="mailto:oi@gepetojj.com" class="btn btn-secondary magnetic">
+				oi@gepetojj.com
+				<ArrowIcon />
+			</a>
+		</div>
+	</div>
+	<div class="scroll-cue"><div class="line"></div> scroll</div>
+</header>

@@ -1,0 +1,88 @@
+---
+import ArrowIcon from "../icons/ArrowIcon.astro";
+---
+
+<section
+	id="opensource"
+	class="section-pad"
+	style="background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);"
+>
+	<div class="wrap">
+		<div class="s-head" data-reveal>
+			<span class="s-tag">Open source</span>
+			<h2>Código que valida ideias.</h2>
+			<p>
+				Projetos pessoais que uso para testar conhecimento técnico e curiosidade — de automação de
+				infraestrutura a hardware.
+			</p>
+		</div>
+		<div class="repo-grid">
+			<a
+				href="https://github.com/gepetojj/carrinho-wireless"
+				target="_blank"
+				rel="noopener"
+				class="repo-card tilt"
+				data-reveal
+			>
+				<div>
+					<h4>carrinho-wireless</h4>
+					<p>Carrinho de controle remoto utilizando o ESP32.</p>
+				</div>
+				<div class="repo-meta">
+					<span class="lang-dot"><span style="background:#f34b7d;"></span>C++</span>
+					<svg
+						class="arrow"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						><path d="M7 17L17 7M17 7H8M17 7V16"></path></svg
+					>
+				</div>
+			</a>
+			<a
+				href="https://github.com/gepetojj/lite-deploy-helper"
+				target="_blank"
+				rel="noopener"
+				class="repo-card tilt"
+				data-reveal
+			>
+				<div>
+					<h4>lite-deploy-helper</h4>
+					<p>Daemon em Go para deploy automatizado em VPS Linux via webhook do GitHub.</p>
+				</div>
+				<div class="repo-meta">
+					<span class="lang-dot"><span style="background:#00add8;"></span>Go</span>
+					<svg
+						class="arrow"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						><path d="M7 17L17 7M17 7H8M17 7V16"></path></svg
+					>
+				</div>
+			</a>
+			<div
+				class="repo-card"
+				data-reveal
+				style="opacity:0.5;justify-content:center;align-items:center;text-align:center;"
+			>
+				<p style="font-size:13px;">Aguardando dados das bibliotecas npm para preencher este espaço.</p>
+			</div>
+			<div
+				class="repo-card"
+				data-reveal
+				style="opacity:0.5;justify-content:center;align-items:center;text-align:center;"
+			>
+				<p style="font-size:13px;">Aguardando dados das bibliotecas npm para preencher este espaço.</p>
+			</div>
+		</div>
+		<div class="gh-more" data-reveal>
+			<a href="https://github.com/gepetojj" target="_blank" rel="noopener" class="btn btn-secondary magnetic">
+				Ver perfil completo no GitHub
+				<ArrowIcon />
+			</a>
+		</div>
+	</div>
+</section>
