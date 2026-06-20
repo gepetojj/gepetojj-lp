@@ -1,0 +1,79 @@
+---
+import { SITE, absoluteUrl } from "../../config/site";
+
+const personId = `${SITE.url}/#person`;
+const websiteId = `${SITE.url}/#website`;
+const webpageId = `${SITE.url}/#webpage`;
+const profilePageId = `${SITE.url}/#profilepage`;
+
+const graph = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			"@id": websiteId,
+			url: SITE.url,
+			name: `${SITE.author.alternateName} — ${SITE.author.name}`,
+			alternateName: SITE.author.alternateName,
+			description: SITE.description,
+			inLanguage: SITE.language,
+			publisher: { "@id": personId },
+		},
+		{
+			"@type": "ProfilePage",
+			"@id": profilePageId,
+			url: SITE.url,
+			name: SITE.title,
+			description: SITE.description,
+			inLanguage: SITE.language,
+			isPartOf: { "@id": websiteId },
+			mainEntity: { "@id": personId },
+			about: { "@id": personId },
+		},
+		{
+			"@type": "WebPage",
+			"@id": webpageId,
+			url: SITE.url,
+			name: SITE.title,
+			description: SITE.description,
+			inLanguage: SITE.language,
+			isPartOf: { "@id": websiteId },
+			about: { "@id": personId },
+			primaryImageOfPage: {
+				"@type": "ImageObject",
+				url: absoluteUrl(SITE.ogImage),
+				width: 1200,
+				height: 630,
+			},
+		},
+		{
+			"@type": "Person",
+			"@id": personId,
+			name: SITE.author.name,
+			alternateName: SITE.author.alternateName,
+			givenName: SITE.author.givenName,
+			familyName: SITE.author.familyName,
+			url: SITE.url,
+			email: SITE.author.email,
+			jobTitle: SITE.author.jobTitle,
+			description: SITE.shortDescription,
+			image: absoluteUrl(SITE.ogImage),
+			worksFor: {
+				"@type": "Organization",
+				name: SITE.author.worksFor.name,
+				url: SITE.author.worksFor.url,
+			},
+			address: {
+				"@type": "PostalAddress",
+				addressLocality: SITE.author.location.city,
+				addressRegion: SITE.author.location.region,
+				addressCountry: SITE.author.location.country,
+			},
+			knowsAbout: SITE.author.knowsAbout,
+			sameAs: SITE.author.sameAs,
+		},
+	],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />

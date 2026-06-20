@@ -1,11 +1,19 @@
 ---
 import "../styles/global.css";
+import SeoHead from "../components/seo/SeoHead.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
 
 interface Props {
 	title?: string;
+	description?: string;
+	canonical?: string;
+	ogImage?: string;
+	ogImageAlt?: string;
+	noindex?: boolean;
 }
 
-const { title = "João Nobre - gepetojj" } = Astro.props;
+const { title, description, canonical, ogImage, ogImageAlt, noindex } =
+	Astro.props;
 ---
 
 <!doctype html>
@@ -19,10 +27,16 @@ const { title = "João Nobre - gepetojj" } = Astro.props;
 			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<SeoHead
+			title={title}
+			description={description}
+			canonical={canonical}
+			ogImage={ogImage}
+			ogImageAlt={ogImageAlt}
+			noindex={noindex}
+		/>
+		<JsonLd />
 	</head>
 	<body>
 		<slot />
