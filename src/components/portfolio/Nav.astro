@@ -1,6 +1,14 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../assets/logo.svg";
+---
+
 <nav id="nav">
 	<div class="wrap">
-		<div class="logo">gepeto<span>jj</span></div>
+		<div class="flex items-center gap-2.5">
+			<Image src={logo} alt="Logo" width={20} />
+			<div class="logo">gepeto<span class="w-0">jj</span></div>
+		</div>
 		<div class="navlinks">
 			<a href="#sobre" data-link>Sobre</a>
 			<a href="#diferencial" data-link>Diferencial</a>
