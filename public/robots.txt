@@ -1,6 +1,19 @@
+# https://gepetojj.com
+# Locales: / (pt-BR), /en/, /es/
+
 User-agent: *
 Allow: /
+Allow: /en/
+Allow: /es/
+Disallow: /_astro/
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI crawlers
 User-agent: GPTBot
 Allow: /
 

@@ -1,3 +1,13 @@
+---
+import type { Translations } from "../../i18n";
+
+interface Props {
+	t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
 <section id="contato" class="contact">
 	<div class="contact-logo-bg" aria-hidden="true">
 		<svg viewBox="0 0 67 85" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,9 +23,11 @@
 		</svg>
 	</div>
 	<div class="wrap">
-		<span class="s-tag" data-reveal style="display:block;text-align:center;">Contato</span>
-		<h2 data-reveal>Tem um desafio técnico ou de produto? <i>Vamos conversar.</i></h2>
-		<p data-reveal>Aberto a conversas sobre tecnologia, liderança técnica e parcerias.</p>
+		<span class="s-tag" data-reveal style="display:block;text-align:center;">{t.contact.tag}</span>
+		<h2 data-reveal>
+			{t.contact.title} <i>{t.contact.titleEmphasis}</i>
+		</h2>
+		<p data-reveal>{t.contact.subtitle}</p>
 		<a href="mailto:oi@gepetojj.com" class="email-btn magnetic" data-reveal>
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
 				><path d="M4 4h16v16H4z" fill="none"></path><path d="M22 6l-10 7L2 6"></path></svg

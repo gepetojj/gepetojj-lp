@@ -9,10 +9,29 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
 	site: "https://gepetojj.com",
 
+	i18n: {
+		locales: ["pt-br", "en", "es"],
+		defaultLocale: "pt-br",
+		routing: {
+			prefixDefaultLocale: false,
+		},
+	},
+
 	vite: {
 		plugins: [tailwindcss()],
 	},
 
-	integrations: [sitemap()],
+	integrations: [
+		sitemap({
+			i18n: {
+				defaultLocale: "pt-br",
+				locales: {
+					"pt-br": "pt-BR",
+					en: "en",
+					es: "es",
+				},
+			},
+		}),
+	],
 	adapter: vercel(),
 });

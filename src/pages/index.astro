@@ -1,38 +1,6 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import NoiseOverlay from "../components/portfolio/NoiseOverlay.astro";
-import Cursor from "../components/portfolio/Cursor.astro";
-import Nav from "../components/portfolio/Nav.astro";
-import Hero from "../components/portfolio/Hero.astro";
-import Marquee from "../components/portfolio/Marquee.astro";
-import About from "../components/portfolio/About.astro";
-import Pillars from "../components/portfolio/Pillars.astro";
-import Compare from "../components/portfolio/Compare.astro";
-import Stack from "../components/portfolio/Stack.astro";
-import Work from "../components/portfolio/Work.astro";
-import OpenSource from "../components/portfolio/OpenSource.astro";
-import Contact from "../components/portfolio/Contact.astro";
-import Footer from "../components/portfolio/Footer.astro";
+import Portfolio from "../components/Portfolio.astro";
+import { DEFAULT_LOCALE } from "../i18n";
 ---
 
-<Layout>
-	<NoiseOverlay />
-	<Cursor />
-	<Nav />
-	<main id="conteudo">
-		<Hero />
-		<Marquee />
-		<About />
-		<Pillars />
-		<Compare />
-		<Stack />
-		<Work />
-		<OpenSource />
-		<Contact />
-	</main>
-	<Footer />
-
-	<script>
-		import "../scripts/portfolio.ts";
-	</script>
-</Layout>
+<Portfolio locale={DEFAULT_LOCALE} />

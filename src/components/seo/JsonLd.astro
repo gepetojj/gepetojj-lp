@@ -1,10 +1,21 @@
 ---
 import { SITE, absoluteUrl } from "../../config/site";
+import type { Locale, Translations } from "../../i18n";
+import { getHtmlLang } from "../../i18n";
 
-const personId = `${SITE.url}/#person`;
-const websiteId = `${SITE.url}/#website`;
-const webpageId = `${SITE.url}/#webpage`;
-const profilePageId = `${SITE.url}/#profilepage`;
+interface Props {
+	locale: Locale;
+	t: Translations;
+	canonical: string;
+}
+
+const { locale, t, canonical } = Astro.props;
+const language = getHtmlLang(locale);
+
+const personId = `${canonical}#person`;
+const websiteId = `${canonical}#website`;
+const webpageId = `${canonical}#webpage`;
+const profilePageId = `${canonical}#profilepage`;
 
 const graph = {
 	"@context": "https://schema.org",
@@ -12,20 +23,20 @@ const graph = {
 		{
 			"@type": "WebSite",
 			"@id": websiteId,
-			url: SITE.url,
+			url: canonical,
 			name: `${SITE.author.alternateName} — ${SITE.author.name}`,
 			alternateName: SITE.author.alternateName,
-			description: SITE.description,
-			inLanguage: SITE.language,
+			description: t.meta.description,
+			inLanguage: language,
 			publisher: { "@id": personId },
 		},
 		{
 			"@type": "ProfilePage",
 			"@id": profilePageId,
-			url: SITE.url,
-			name: SITE.title,
-			description: SITE.description,
-			inLanguage: SITE.language,
+			url: canonical,
+			name: t.meta.title,
+			description: t.meta.description,
+			inLanguage: language,
 			isPartOf: { "@id": websiteId },
 			mainEntity: { "@id": personId },
 			about: { "@id": personId },
@@ -33,10 +44,10 @@ const graph = {
 		{
 			"@type": "WebPage",
 			"@id": webpageId,
-			url: SITE.url,
-			name: SITE.title,
-			description: SITE.description,
-			inLanguage: SITE.language,
+			url: canonical,
+			name: t.meta.title,
+			description: t.meta.description,
+			inLanguage: language,
 			isPartOf: { "@id": websiteId },
 			about: { "@id": personId },
 			primaryImageOfPage: {
@@ -56,7 +67,7 @@ const graph = {
 			url: SITE.url,
 			email: SITE.author.email,
 			jobTitle: SITE.author.jobTitle,
-			description: SITE.shortDescription,
+			description: t.meta.shortDescription,
 			image: absoluteUrl(SITE.ogImage),
 			worksFor: {
 				"@type": "Organization",
@@ -69,7 +80,7 @@ const graph = {
 				addressRegion: SITE.author.location.region,
 				addressCountry: SITE.author.location.country,
 			},
-			knowsAbout: SITE.author.knowsAbout,
+			knowsAbout: t.meta.keywords.slice(3, 10),
 			sameAs: SITE.author.sameAs,
 		},
 	],

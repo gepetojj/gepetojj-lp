@@ -1,5 +1,12 @@
 ---
 import ArrowIcon from "../icons/ArrowIcon.astro";
+import type { Translations } from "../../i18n";
+
+interface Props {
+	t: Translations;
+}
+
+const { t } = Astro.props;
 ---
 
 <section
@@ -9,110 +16,46 @@ import ArrowIcon from "../icons/ArrowIcon.astro";
 >
 	<div class="wrap">
 		<div class="s-head" data-reveal>
-			<span class="s-tag">Open source</span>
-			<h2>Código que valida ideias.</h2>
-			<p>
-				Projetos pessoais que uso para testar conhecimento técnico e curiosidade, de automação de
-				infraestrutura a hardware.
-			</p>
+			<span class="s-tag">{t.openSource.tag}</span>
+			<h2>{t.openSource.title}</h2>
+			<p>{t.openSource.subtitle}</p>
 		</div>
 		<div class="repo-grid">
-			<a
-				href="https://github.com/gepetojj/carrinho-wireless"
-				target="_blank"
-				rel="noopener"
-				class="repo-card tilt"
-				data-reveal
-			>
-				<div>
-					<h4>carrinho-wireless</h4>
-					<p>Carrinho de controle remoto utilizando o ESP32.</p>
-				</div>
-				<div class="repo-meta">
-					<span class="lang-dot"><span style="background:#f34b7d;"></span>C++</span>
-					<svg
-						class="arrow"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						><path d="M7 17L17 7M17 7H8M17 7V16"></path></svg
+			{
+				t.openSource.repos.map((repo) => (
+					<a
+						href={repo.href}
+						target="_blank"
+						rel="noopener"
+						class="repo-card tilt"
+						data-reveal
 					>
-				</div>
-			</a>
-			<a
-				href="https://github.com/gepetojj/lite-deploy-helper"
-				target="_blank"
-				rel="noopener"
-				class="repo-card tilt"
-				data-reveal
-			>
-				<div>
-					<h4>lite-deploy-helper</h4>
-					<p>Daemon em Go para deploy automatizado em VPS Linux via webhook do GitHub.</p>
-				</div>
-				<div class="repo-meta">
-					<span class="lang-dot"><span style="background:#00add8;"></span>Go</span>
-					<svg
-						class="arrow"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						><path d="M7 17L17 7M17 7H8M17 7V16"></path></svg
-					>
-				</div>
-			</a>
-			<a
-				href="https://www.npmjs.com/package/@cosmixclub/crypto"
-				target="_blank"
-				rel="noopener"
-				class="repo-card tilt"
-				data-reveal
-			>
-				<div>
-					<h4>@cosmixclub/crypto</h4>
-					<p>Criptografia determinística de strings e objetos com AES-256-GCM, Argon2 e hash.</p>
-				</div>
-				<div class="repo-meta">
-					<span class="lang-dot"><span style="background:#3178c6;"></span>TypeScript</span>
-					<svg
-						class="arrow"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						><path d="M7 17L17 7M17 7H8M17 7V16"></path></svg
-					>
-				</div>
-			</a>
-			<a
-				href="https://www.npmjs.com/package/sparkcrm"
-				target="_blank"
-				rel="noopener"
-				class="repo-card tilt"
-				data-reveal
-			>
-				<div>
-					<h4>sparkcrm</h4>
-					<p>SDK TypeScript oficial da API do Spark CRM para integrações.</p>
-				</div>
-				<div class="repo-meta">
-					<span class="lang-dot"><span style="background:#3178c6;"></span>TypeScript</span>
-					<svg
-						class="arrow"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						><path d="M7 17L17 7M17 7H8M17 7V16"></path></svg
-					>
-				</div>
-			</a>
+						<div>
+							<h4>{repo.name}</h4>
+							<p>{repo.description}</p>
+						</div>
+						<div class="repo-meta">
+							<span class="lang-dot">
+								<span style={`background:${repo.langColor};`}></span>
+								{repo.lang}
+							</span>
+							<svg
+								class="arrow"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path d="M7 17L17 7M17 7H8M17 7V16"></path>
+							</svg>
+						</div>
+					</a>
+				))
+			}
 		</div>
 		<div class="gh-more" data-reveal>
 			<a href="https://github.com/gepetojj" target="_blank" rel="noopener" class="btn btn-secondary magnetic">
-				Ver perfil completo no GitHub
+				{t.openSource.githubCta}
 				<ArrowIcon />
 			</a>
 		</div>

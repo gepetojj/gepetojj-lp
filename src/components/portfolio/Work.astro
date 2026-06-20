@@ -1,77 +1,24 @@
 ---
 import ArrowIcon from "../icons/ArrowIcon.astro";
+import type { Translations } from "../../i18n";
 
-const projects = [
-	{
-		href: "https://linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
-		tag: "Liderança técnica",
-		name: "Link Soluções",
-		description:
-			"Como CTO, lidero a estratégia técnica e a entrega de software sob medida e soluções com inteligência artificial, atendendo empresas em quatro continentes com desenvolvimento ágil e foco em resultado real.",
-		tags: ["CTO", "Software sob medida", "IA", "Times de produto"],
-		domain: "linksolucoesbr.com",
-	},
-	{
-		href: "https://crmspark.com.br/?utm_source=gepetojj.com&utm_medium=referral",
-		tag: "Produto",
-		name: "Spark",
-		description:
-			"CRM com agente de inteligência artificial para WhatsApp e Instagram, criado para centralizar conversas, qualificar leads e automatizar atendimento, com onboarding rápido para times comerciais.",
-		tags: ["CRM", "IA aplicada", "Automação", "Produto B2B"],
-		domain: "crmspark.com.br",
-	},
-	{
-		href: "https://scfinance.linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
-		tag: "Plataforma",
-		name: "SC Finance",
-		description:
-			"Plataforma executiva de inteligência financeira com visão unificada de pipeline, brokers, territórios e leads premium. Construída para operações que exigem clareza e refinamento em cada decisão.",
-		tags: ["FinTech", "B2B", "Dashboards", "Inteligência comercial"],
-		domain: "scfinance.linksolucoesbr.com",
-	},
-	{
-		href: "https://triglit.com/?utm_source=gepetojj.com&utm_medium=referral",
-		tag: "Plataforma",
-		name: "Triglit",
-		description:
-			"Plataforma white-label de automação embarcada para SaaS, integração via SDK, editor visual, multi-tenancy e observabilidade para lançar automação como diferencial em semanas.",
-		tags: ["Automação", "White-label", "SaaS B2B", "SDK"],
-		domain: "triglit.com",
-	},
-	{
-		href: "https://capi.legal/?utm_source=gepetojj.com&utm_medium=referral",
-		tag: "Produto",
-		name: "Capi Legal",
-		description:
-			"Solução que combina inteligência artificial e expertise jurídica para apoiar negócios no Brasil com orientação legal acessível e integrada ao fluxo de trabalho.",
-		tags: ["LegalTech", "IA", "B2B", "Produto digital"],
-		domain: "capi.legal",
-	},
-	{
-		href: "https://rifasimples.com.br/?utm_source=gepetojj.com&utm_medium=referral",
-		tag: "Produto",
-		name: "RifaSimples",
-		description:
-			"Plataforma para criar, publicar e gerenciar rifas digitais com pagamentos diretos, ranking de contribuidores, cotas premiadas e personalização por domínio próprio.",
-		tags: ["Plataforma", "Pagamentos", "Growth", "Produto digital"],
-		domain: "rifasimples.com.br",
-	},
-] as const;
+interface Props {
+	t: Translations;
+}
+
+const { t } = Astro.props;
 ---
 
 <section id="trabalho" class="section-pad">
 	<div class="wrap">
 		<div class="s-head" data-reveal>
-			<span class="s-tag">Onde atuo</span>
-			<h2>Produtos que construo e nos quais participo.</h2>
-			<p>
-				Projetos onde aplico tecnologia, liderança e produto no dia a dia. De consultoria e SaaS B2B a
-				plataformas verticais.
-			</p>
+			<span class="s-tag">{t.work.tag}</span>
+			<h2>{t.work.title}</h2>
+			<p>{t.work.subtitle}</p>
 		</div>
 		<div class="work-grid">
 			{
-				projects.map((project) => (
+				t.work.projects.map((project) => (
 					<a
 						href={project.href}
 						target="_blank"

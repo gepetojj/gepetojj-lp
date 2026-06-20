@@ -1,11 +1,11 @@
 ---
-const phrases = [
-	"ESTRATÉGIA DE PRODUTO",
-	"AUTOMAÇÃO DE PROCESSOS",
-	"PLATAFORMAS & INTEGRAÇÕES",
-	"CONFIABILIDADE & ESCALA",
-] as const;
+import type { Translations } from "../../i18n";
 
+interface Props {
+	t: Translations;
+}
+
+const { t } = Astro.props;
 const copies = 6;
 ---
 
@@ -14,7 +14,7 @@ const copies = 6;
 		{
 			Array.from({ length: copies }).map((_, index) => (
 				<span class="marquee-segment" aria-hidden={index === 0 ? undefined : true}>
-					{phrases.map((phrase) => (
+					{t.marquee.phrases.map((phrase) => (
 						<>
 							<b>{phrase}</b> <i>✦</i>{" "}
 						</>

@@ -57,7 +57,7 @@
 	},
 	"overrides": [
 		{
-			"includes": [".agents/**"],
+			"includes": [".agents/**", "src/assets/logo.svg"],
 			"linter": {
 				"enabled": false
 			}

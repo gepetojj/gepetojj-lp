@@ -44,6 +44,43 @@ if (!isTouch) {
 
 const progress = document.getElementById("progress");
 const nav = document.getElementById("nav");
+const navToggle = document.getElementById("navToggle");
+const navDrawer = document.getElementById("navDrawer");
+
+const closeMenu = () => {
+	nav?.classList.remove("menu-open");
+	navDrawer?.classList.remove("is-open");
+	navDrawer?.setAttribute("aria-hidden", "true");
+	navDrawer?.setAttribute("inert", "");
+	navToggle?.setAttribute("aria-expanded", "false");
+	document.body.classList.remove("nav-open");
+};
+
+const openMenu = () => {
+	nav?.classList.add("menu-open");
+	navDrawer?.classList.add("is-open");
+	navDrawer?.setAttribute("aria-hidden", "false");
+	navDrawer?.removeAttribute("inert");
+	navToggle?.setAttribute("aria-expanded", "true");
+	document.body.classList.add("nav-open");
+};
+
+if (navToggle && nav && navDrawer) {
+	navToggle.addEventListener("click", () => {
+		if (nav.classList.contains("menu-open")) {
+			closeMenu();
+		} else {
+			openMenu();
+		}
+	});
+
+	document.addEventListener("keydown", (e) => {
+		if (e.key === "Escape" && nav.classList.contains("menu-open")) {
+			closeMenu();
+			navToggle.focus();
+		}
+	});
+}
 
 const onScroll = () => {
 	const h = document.documentElement;
@@ -108,7 +145,7 @@ for (const el of revealEls) {
 }
 
 const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".navlinks a[data-link]");
+const navLinks = document.querySelectorAll("a[data-link]");
 
 const navIo = new IntersectionObserver(
 	(entries) => {
@@ -118,11 +155,11 @@ const navIo = new IntersectionObserver(
 					link.classList.remove("active");
 				}
 
-				const match = document.querySelector(
-					`.navlinks a[href="#${entry.target.id}"]`,
+				const matches = document.querySelectorAll(
+					`a[data-link][href="#${entry.target.id}"]`,
 				);
 
-				if (match) {
+				for (const match of matches) {
 					match.classList.add("active");
 				}
 			}
@@ -190,6 +227,10 @@ for (const anchor of document.querySelectorAll('a[href^="#"]')) {
 		const id = anchor.getAttribute("href");
 
 		if (!id) return;
+
+		if (nav?.classList.contains("menu-open")) {
+			closeMenu();
+		}
 
 		if (id.length > 1) {
 			const target = document.querySelector(id);

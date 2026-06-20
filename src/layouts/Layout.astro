@@ -1,23 +1,22 @@
 ---
 import "../styles/global.css";
+import type { Locale, Translations } from "../i18n";
+import { getHtmlLang } from "../i18n";
 import SeoHead from "../components/seo/SeoHead.astro";
 import JsonLd from "../components/seo/JsonLd.astro";
 
 interface Props {
-	title?: string;
-	description?: string;
-	canonical?: string;
-	ogImage?: string;
-	ogImageAlt?: string;
+	locale: Locale;
+	t: Translations;
+	canonical: string;
 	noindex?: boolean;
 }
 
-const { title, description, canonical, ogImage, ogImageAlt, noindex } =
-	Astro.props;
+const { locale, t, canonical, noindex } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="pt-BR" id="top">
+<html lang={getHtmlLang(locale)} id="top">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,14 +28,15 @@ const { title, description, canonical, ogImage, ogImageAlt, noindex } =
 		/>
 		<link rel="icon" href="/favicon.ico" />
 		<SeoHead
-			title={title}
-			description={description}
+			locale={locale}
+			title={t.meta.title}
+			description={t.meta.description}
+			keywords={t.meta.keywords}
+			ogImageAlt={t.meta.ogImageAlt}
 			canonical={canonical}
-			ogImage={ogImage}
-			ogImageAlt={ogImageAlt}
 			noindex={noindex}
 		/>
-		<JsonLd />
+		<JsonLd locale={locale} t={t} canonical={canonical} />
 	</head>
 	<body>
 		<slot />

@@ -1,5 +1,12 @@
 ---
 import ArrowIcon from "../icons/ArrowIcon.astro";
+import type { Translations } from "../../i18n";
+
+interface Props {
+	t: Translations;
+}
+
+const { t } = Astro.props;
 ---
 
 <header class="hero">
@@ -60,17 +67,13 @@ import ArrowIcon from "../icons/ArrowIcon.astro";
 	</svg>
 
 	<div class="wrap">
-		<span class="eyebrow">CTO · Liderança em Tecnologia</span>
-		<h1>João Nobre</h1>
-		<h2>conhecido como <b>gepetojj</b></h2>
-		<p class="hero-lead">
-			Alinho tecnologia aos objetivos de negócio, transformando tempo, esforço e recursos em
-			resultados tangíveis. Atuo na estratégia e na execução ponta a ponta, do diagnóstico à
-			operação em produção.
-		</p>
+		<span class="eyebrow">{t.hero.eyebrow}</span>
+		<h1>{t.hero.name}</h1>
+		<h2>{t.hero.alias} <b>gepetojj</b></h2>
+		<p class="hero-lead">{t.hero.lead}</p>
 		<div class="hero-actions">
 			<a href="#trabalho" class="btn btn-primary magnetic">
-				Ver atuação
+				{t.hero.ctaWork}
 				<ArrowIcon />
 			</a>
 			<a href="mailto:oi@gepetojj.com" class="btn btn-secondary magnetic">
@@ -79,5 +82,5 @@ import ArrowIcon from "../icons/ArrowIcon.astro";
 			</a>
 		</div>
 	</div>
-	<div class="scroll-cue"><div class="line"></div> scroll</div>
+	<div class="scroll-cue"><div class="line"></div> {t.hero.scroll}</div>
 </header>

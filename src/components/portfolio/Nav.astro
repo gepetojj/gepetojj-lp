@@ -1,22 +1,117 @@
 ---
 import { Image } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import logo from "../../assets/logo.svg";
+import ArrowIcon from "../icons/ArrowIcon.astro";
+import {
+	LOCALE_LABELS,
+	LOCALES,
+	type Locale,
+	type Translations,
+} from "../../i18n";
+
+interface Props {
+	t: Translations;
+	locale: Locale;
+}
+
+const { t, locale } = Astro.props;
+
+const menuLabels: Record<Locale, string> = {
+	"pt-br": "Navegação",
+	en: "Navigation",
+	es: "Navegación",
+};
+
+const navLinks = [
+	{ href: "#sobre", label: t.nav.about },
+	{ href: "#diferencial", label: t.nav.differential },
+	{ href: "#stack", label: t.nav.stack },
+	{ href: "#trabalho", label: t.nav.work },
+	{ href: "#opensource", label: t.nav.openSource },
+	{ href: "#contato", label: t.nav.contact },
+] as const;
 ---
 
 <nav id="nav">
 	<div class="wrap">
-		<div class="flex items-center gap-2.5">
-			<Image src={logo} alt="gepetojj — logo" width={20} />
+		<a href="#top" class="nav-brand" aria-label="gepetojj">
+			<Image src={logo} alt="Logo" width={20} aria-hidden="true" loading="eager" />
 			<div class="logo">gepeto<span class="w-0">jj</span></div>
+		</a>
+
+		<div class="navlinks navlinks--desktop">
+			{
+				navLinks.map((link) => (
+					<a href={link.href} data-link>
+						{link.label}
+					</a>
+				))
+			}
 		</div>
-		<div class="navlinks">
-			<a href="#sobre" data-link>Sobre</a>
-			<a href="#diferencial" data-link>Diferencial</a>
-			<a href="#stack" data-link>Stack</a>
-			<a href="#trabalho" data-link>Atuação</a>
-			<a href="#opensource" data-link>Open Source</a>
-			<a href="#contato" data-link>Contato</a>
+
+		<div class="nav-end">
+			<div class="locale-switcher" role="navigation" aria-label={t.nav.localeSwitcher}>
+				{
+					LOCALES.map((code) => (
+						<a
+							href={getRelativeLocaleUrl(code)}
+							class:list={["locale-link", { active: code === locale }]}
+							hreflang={code}
+							aria-current={code === locale ? "page" : undefined}
+						>
+							{LOCALE_LABELS[code]}
+						</a>
+					))
+				}
+			</div>
+			<a href="mailto:oi@gepetojj.com" class="nav-cta nav-cta--bar magnetic">{t.nav.cta}</a>
+			<button
+				type="button"
+				class="nav-toggle"
+				id="navToggle"
+				aria-expanded="false"
+				aria-controls="navDrawer"
+				aria-label="Menu"
+			>
+				<span class="nav-toggle-icon" aria-hidden="true">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+			</button>
 		</div>
-		<a href="mailto:oi@gepetojj.com" class="nav-cta magnetic">Vamos falar</a>
 	</div>
 </nav>
+
+<div class="nav-drawer" id="navDrawer" aria-hidden="true" inert>
+	<div class="nav-drawer-bg" aria-hidden="true">
+		<div class="nav-drawer-grid"></div>
+		<div class="nav-drawer-glow"></div>
+	</div>
+
+	<div class="nav-drawer-content wrap">
+		<p class="nav-drawer-eyebrow">{menuLabels[locale]}</p>
+
+		<ul class="nav-drawer-list">
+			{
+				navLinks.map((link, index) => (
+					<li style={`--i: ${index}`}>
+						<a href={link.href} data-link class="nav-drawer-link">
+							<span class="nav-drawer-num">{String(index + 1).padStart(2, "0")}</span>
+							<span class="nav-drawer-label">{link.label}</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<div class="nav-drawer-footer">
+			<a href="mailto:oi@gepetojj.com" class="btn btn-primary magnetic nav-drawer-cta">
+				{t.nav.cta}
+				<ArrowIcon />
+			</a>
+			<span class="nav-drawer-email">oi@gepetojj.com</span>
+		</div>
+	</div>
+</div>

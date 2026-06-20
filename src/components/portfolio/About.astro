@@ -1,45 +1,35 @@
+---
+import type { Translations } from "../../i18n";
+
+interface Props {
+	t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
 <section id="sobre" class="section-pad">
 	<div class="wrap about-grid">
 		<div class="about-text" data-reveal>
-			<span class="s-tag">Sobre</span>
+			<span class="s-tag">{t.about.tag}</span>
 			<h2 style="font-size:clamp(28px,4vw,40px);margin-bottom:24px;">
-				Tecnologia a serviço de resultado, não o contrário.
+				{t.about.title}
 			</h2>
-			<p>
-				Sou <strong>CTO da Link Soluções</strong>, onde lidero a estratégia técnica e a entrega de
-				software sob medida e soluções com inteligência artificial. Minha abordagem é de ponta a
-				ponta: do diagnóstico e priorização à entrega e operação em produção.
-			</p>
-			<p>
-				Trabalho diretamente nas áreas onde tecnologia gera valor real: estratégia de produto,
-				automação de processos, integrações críticas e confiabilidade de sistemas em escala. Baseado
-				em <strong>Arapiraca, Alagoas</strong>, construo software que funciona, com times que
-				entregam.
-			</p>
-			<p>
-				Para mim, tecnologia só faz sentido quando nasce do fluxo real de quem usa. Antes de
-				qualquer decisão de arquitetura, mapeio a jornada do usuário e o impacto no negócio, só
-				depois desenho a solução técnica que sustenta essa experiência. 
-				<strong>Visão de produto e execução técnica andam juntas</strong>, não em paralelo.
-			</p>
+			{
+				t.about.paragraphs.map((paragraph) => (
+					<p set:html={paragraph} />
+				))
+			}
 		</div>
 		<div class="stats" data-reveal>
-			<div class="stat">
-				<div class="num">34+</div>
-				<div class="lbl">empresas transformadas com tecnologia</div>
-			</div>
-			<div class="stat">
-				<div class="num">R$600k+</div>
-				<div class="lbl">movimentados em plataformas desenvolvidas</div>
-			</div>
-			<div class="stat">
-				<div class="num">50k+</div>
-				<div class="lbl">usuários em tráfego simultâneo</div>
-			</div>
-			<div class="stat">
-				<div class="num">4</div>
-				<div class="lbl">continentes atendidos via Link Soluções</div>
-			</div>
+			{
+				t.about.stats.map((stat) => (
+					<div class="stat">
+						<div class="num">{stat.value}</div>
+						<div class="lbl">{stat.label}</div>
+					</div>
+				))
+			}
 		</div>
 	</div>
 </section>
