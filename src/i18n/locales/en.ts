@@ -27,8 +27,7 @@ const en: Translations = {
 	},
 	nav: {
 		about: "About",
-		differential: "Approach",
-		stack: "Stack",
+		stack: "Skills",
 		work: "Work",
 		openSource: "Open Source",
 		contact: "Contact",
@@ -95,43 +94,30 @@ const en: Translations = {
 			},
 		],
 	},
-	compare: {
-		tag: "What sets me apart",
-		title: "I start from the user flow, not the code.",
-		subtitle:
-			"Most technical leaders solve inside out, starting with technology. I work outside in: the experience of the people who use the product defines the architecture, not the other way around.",
-		common: "Common approach",
-		mine: "How I work",
-		rows: [
-			{
-				left: "Prioritizes by stack or technical preference.",
-				right: "Prioritizes by impact on user flow and business outcomes.",
-			},
-			{
-				left: "Ships isolated features without the full journey context.",
-				right: "Designs the entire journey, from first screen to production operations.",
-			},
-			{
-				left: "Measures success by lines of code or closed sprints.",
-				right: "Measures success by adoption, revenue generated, and real friction reduced.",
-			},
-			{
-				left: "Treats technical leadership and product vision as separate areas.",
-				right: "Combines both — architecture decisions informed by experience, and experience design informed by technical feasibility.",
-			},
-		],
-	},
 	stack: {
-		tag: "Technical capabilities",
+		tag: "Skills",
 		title: "From interface to hardware.",
 		subtitle:
-			"Tools and technologies I use to go from diagnosis to delivery with quality.",
+			"Technologies and competencies I apply from diagnosis to delivery — in code, operations, and team leadership.",
+		technicalLabel: "Technical",
 		categories: [
 			{
 				title: "Frontend",
 				description:
 					"Interfaces that translate product into experience.",
 				tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+			},
+			{
+				title: "Mobile",
+				description:
+					"Native and cross-platform apps with a consistent experience.",
+				tags: ["React Native", "Expo", "TypeScript"],
+			},
+			{
+				title: "Desktop",
+				description:
+					"Desktop applications for operations and productivity.",
+				tags: ["Electron", "Tauri", "TypeScript"],
 			},
 			{
 				title: "Backend",
@@ -147,6 +133,29 @@ const en: Translations = {
 				title: "Embedded & IoT",
 				description: "Hardware prototyping and validation.",
 				tags: ["ESP-32", "C++"],
+			},
+		],
+		leadershipLabel: "Leadership & management",
+		leadership: [
+			{
+				title: "Technical leadership",
+				description:
+					"Technical strategy, architecture, and prioritization — aligning team, stack, and roadmap with the business.",
+			},
+			{
+				title: "Communication",
+				description:
+					"Clear translation between business, product, and engineering for stakeholders and teams.",
+			},
+			{
+				title: "Governance",
+				description:
+					"Processes, standards, and rituals that keep delivery predictable without unnecessary bureaucracy.",
+			},
+			{
+				title: "Quality control",
+				description:
+					"Review, testing, observability, and acceptance criteria that protect what ships to production.",
 			},
 		],
 	},
@@ -221,12 +230,13 @@ const en: Translations = {
 		tag: "Open source",
 		title: "Code that validates ideas.",
 		subtitle:
-			"Personal projects I use to test technical knowledge and curiosity — from infrastructure automation to hardware.",
+			"Public experiments that prove concepts in practice — from infrastructure automation to hardware and reusable libraries.",
 		repos: [
 			{
 				href: "https://github.com/gepetojj/carrinho-wireless",
 				name: "carrinho-wireless",
-				description: "Remote-controlled cart using ESP32.",
+				description:
+					"Proof of concept combining IoT and gamification for remotely controlling a custom-built RC cart.",
 				lang: "C++",
 				langColor: "#f34b7d",
 			},
@@ -234,7 +244,7 @@ const en: Translations = {
 				href: "https://github.com/gepetojj/lite-deploy-helper",
 				name: "lite-deploy-helper",
 				description:
-					"Go daemon for automated deployment on Linux VPS via GitHub webhook.",
+					"Automates server releases: every code update goes live in minutes, without repetitive manual steps or a team dedicated only to deployments.",
 				lang: "Go",
 				langColor: "#00add8",
 			},
@@ -245,6 +255,7 @@ const en: Translations = {
 					"Deterministic encryption for strings and objects with AES-256-GCM, Argon2, and hashing.",
 				lang: "TypeScript",
 				langColor: "#3178c6",
+				npm: true,
 			},
 			{
 				href: "https://www.npmjs.com/package/sparkcrm",
@@ -253,6 +264,7 @@ const en: Translations = {
 					"Official TypeScript SDK for the Spark CRM API integrations.",
 				lang: "TypeScript",
 				langColor: "#3178c6",
+				npm: true,
 			},
 		],
 		githubCta: "View full GitHub profile",

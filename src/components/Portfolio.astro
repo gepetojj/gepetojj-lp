@@ -1,6 +1,6 @@
 ---
-import type { Locale, Translations } from "../i18n";
-import { getHtmlLang, getLocaleUrl, useTranslations } from "../i18n";
+import type { Locale } from "../i18n";
+import { getLocaleUrl, useTranslations } from "../i18n";
 import Layout from "../layouts/Layout.astro";
 import NoiseOverlay from "./portfolio/NoiseOverlay.astro";
 import Cursor from "./portfolio/Cursor.astro";
@@ -9,7 +9,6 @@ import Hero from "./portfolio/Hero.astro";
 import Marquee from "./portfolio/Marquee.astro";
 import About from "./portfolio/About.astro";
 import Pillars from "./portfolio/Pillars.astro";
-import Compare from "./portfolio/Compare.astro";
 import Stack from "./portfolio/Stack.astro";
 import Work from "./portfolio/Work.astro";
 import OpenSource from "./portfolio/OpenSource.astro";
@@ -34,7 +33,6 @@ const canonical = getLocaleUrl(locale);
 		<Marquee t={t} />
 		<About t={t} />
 		<Pillars t={t} />
-		<Compare t={t} />
 		<Stack t={t} />
 		<Work t={t} />
 		<OpenSource t={t} />

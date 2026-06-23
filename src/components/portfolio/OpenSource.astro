@@ -1,5 +1,6 @@
 ---
 import ArrowIcon from "../icons/ArrowIcon.astro";
+import NpmIcon from "../icons/NpmIcon.astro";
 import type { Translations } from "../../i18n";
 
 interface Props {
@@ -31,7 +32,12 @@ const { t } = Astro.props;
 						data-reveal
 					>
 						<div>
-							<h4>{repo.name}</h4>
+							<h4 class="repo-name">
+								{repo.npm && (
+									<NpmIcon size={18} className="repo-npm-icon" />
+								)}
+								{repo.name}
+							</h4>
 							<p>{repo.description}</p>
 						</div>
 						<div class="repo-meta">

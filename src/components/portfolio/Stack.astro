@@ -9,7 +9,7 @@ const { t } = Astro.props;
 ---
 
 <section
-	id="stack"
+	id="skills"
 	class="section-pad"
 	style="background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);"
 >
@@ -19,66 +19,48 @@ const { t } = Astro.props;
 			<h2>{t.stack.title}</h2>
 			<p>{t.stack.subtitle}</p>
 		</div>
-		<div class="stack-grid">
-			<div class="stack-card tilt" data-reveal>
-				<svg class="sicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-					><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"
-					></polyline></svg
-				>
-				<h3>{t.stack.categories[0].title}</h3>
-				<div class="sdesc">{t.stack.categories[0].description}</div>
-				<div class="tags">
-					{
-						t.stack.categories[0].tags.map((tag) => (
-							<span class="tag">{tag}</span>
-						))
-					}
-				</div>
+
+		<div class="skills-group" data-reveal>
+			<h3 class="skills-group-label">{t.stack.technicalLabel}</h3>
+			<div class="stack-grid">
+				{
+					t.stack.categories.map((category) => (
+						<div class="stack-card tilt" data-reveal>
+							<svg
+								class="sicon"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								aria-hidden="true"
+							>
+								<polyline points="16 18 22 12 16 6" />
+								<polyline points="8 6 2 12 8 18" />
+							</svg>
+							<h4>{category.title}</h4>
+							<div class="sdesc">{category.description}</div>
+							<div class="tags">
+								{category.tags.map((tag) => (
+									<span class="tag">{tag}</span>
+								))}
+							</div>
+						</div>
+					))
+				}
 			</div>
-			<div class="stack-card tilt" data-reveal>
-				<svg class="sicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-					><rect x="2" y="3" width="20" height="6" rx="1"></rect><rect x="2" y="15" width="20" height="6" rx="1"
-					></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"
-					></line></svg
-				>
-				<h3>{t.stack.categories[1].title}</h3>
-				<div class="sdesc">{t.stack.categories[1].description}</div>
-				<div class="tags">
-					{
-						t.stack.categories[1].tags.map((tag) => (
-							<span class="tag">{tag}</span>
-						))
-					}
-				</div>
-			</div>
-			<div class="stack-card tilt" data-reveal>
-				<svg class="sicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-					><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"></path></svg
-				>
-				<h3>{t.stack.categories[2].title}</h3>
-				<div class="sdesc">{t.stack.categories[2].description}</div>
-				<div class="tags">
-					{
-						t.stack.categories[2].tags.map((tag) => (
-							<span class="tag">{tag}</span>
-						))
-					}
-				</div>
-			</div>
-			<div class="stack-card tilt" data-reveal>
-				<svg class="sicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-					><rect x="6" y="6" width="12" height="12" rx="2"></rect><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"
-					></path></svg
-				>
-				<h3>{t.stack.categories[3].title}</h3>
-				<div class="sdesc">{t.stack.categories[3].description}</div>
-				<div class="tags">
-					{
-						t.stack.categories[3].tags.map((tag) => (
-							<span class="tag">{tag}</span>
-						))
-					}
-				</div>
+		</div>
+
+		<div class="skills-group skills-group--leadership" data-reveal>
+			<h3 class="skills-group-label">{t.stack.leadershipLabel}</h3>
+			<div class="skills-leadership">
+				{
+					t.stack.leadership.map((item) => (
+						<div class="skills-leadership-item" data-reveal>
+							<h4>{item.title}</h4>
+							<p>{item.description}</p>
+						</div>
+					))
+				}
 			</div>
 		</div>
 	</div>

@@ -27,8 +27,7 @@ const es: Translations = {
 	},
 	nav: {
 		about: "Sobre mí",
-		differential: "Diferencial",
-		stack: "Stack",
+		stack: "Skills",
 		work: "Trayectoria",
 		openSource: "Open Source",
 		contact: "Contacto",
@@ -97,42 +96,29 @@ const es: Translations = {
 			},
 		],
 	},
-	compare: {
-		tag: "Lo que me diferencia",
-		title: "Parto del flujo del usuario, no del código.",
-		subtitle:
-			"La mayoría de los liderazgos técnicos resuelven de adentro hacia afuera, empezando por la tecnología. Yo trabajo de afuera hacia adentro: la experiencia de quien usa define la arquitectura, no al revés.",
-		common: "Enfoque común",
-		mine: "Cómo trabajo",
-		rows: [
-			{
-				left: "Prioriza por stack o preferencia técnica.",
-				right: "Prioriza por el impacto en el flujo del usuario y en el resultado de negocio.",
-			},
-			{
-				left: "Entrega features aisladas, sin contexto de la jornada completa.",
-				right: "Diseña la jornada completa, desde la primera pantalla hasta la operación en producción.",
-			},
-			{
-				left: "Mide el éxito por líneas de código o sprints cerrados.",
-				right: "Mide el éxito por adopción, ingresos generados y fricción real reducida.",
-			},
-			{
-				left: "Trata el liderazgo técnico y la visión de producto como áreas separadas.",
-				right: "Combina ambas: decide la arquitectura pensando en la experiencia, y diseña la experiencia pensando en la viabilidad técnica.",
-			},
-		],
-	},
 	stack: {
-		tag: "Capacidades técnicas",
+		tag: "Skills",
 		title: "De la interfaz al hardware.",
 		subtitle:
-			"Herramientas y tecnologías que uso para ir del diagnóstico a la entrega con calidad.",
+			"Tecnologías y competencias que aplico del diagnóstico a la entrega — en código, operación y liderazgo de equipos.",
+		technicalLabel: "Técnicas",
 		categories: [
 			{
 				title: "Frontend",
 				description: "Interfaces que traducen producto en experiencia.",
 				tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+			},
+			{
+				title: "Mobile",
+				description:
+					"Apps nativas y multiplataforma con experiencia consistente.",
+				tags: ["React Native", "Expo", "TypeScript"],
+			},
+			{
+				title: "Desktop",
+				description:
+					"Aplicaciones de escritorio para operaciones y productividad.",
+				tags: ["Electron", "Tauri", "TypeScript"],
 			},
 			{
 				title: "Backend",
@@ -148,6 +134,29 @@ const es: Translations = {
 				title: "Embebidos e IoT",
 				description: "Prototipado y validación de hardware.",
 				tags: ["ESP-32", "C++"],
+			},
+		],
+		leadershipLabel: "Liderazgo y gestión",
+		leadership: [
+			{
+				title: "Liderazgo tecnológico",
+				description:
+					"Estrategia técnica, arquitectura y priorización — alineando equipo, stack y roadmap con el negocio.",
+			},
+			{
+				title: "Comunicación",
+				description:
+					"Traducción clara entre negocio, producto e ingeniería para stakeholders y equipos.",
+			},
+			{
+				title: "Gobernanza",
+				description:
+					"Procesos, estándares y rituales que mantienen entregas predecibles sin burocracia innecesaria.",
+			},
+			{
+				title: "Control de calidad",
+				description:
+					"Revisión, pruebas, observabilidad y criterios de aceptación que protegen lo que llega a producción.",
 			},
 		],
 	},
@@ -222,12 +231,13 @@ const es: Translations = {
 		tag: "Open source",
 		title: "Código que valida ideas.",
 		subtitle:
-			"Proyectos personales que uso para probar conocimiento técnico y curiosidad — de automatización de infraestructura a hardware.",
+			"Experimentos públicos que prueban conceptos en la práctica — de automatización de infraestructura a hardware y bibliotecas reutilizables.",
 		repos: [
 			{
 				href: "https://github.com/gepetojj/carrinho-wireless",
 				name: "carrinho-wireless",
-				description: "Carrito de control remoto utilizando ESP32.",
+				description:
+					"Prueba de concepto que une IoT y gamificación en el control a distancia de un carrito de control remoto construido en hardware propio.",
 				lang: "C++",
 				langColor: "#f34b7d",
 			},
@@ -235,7 +245,7 @@ const es: Translations = {
 				href: "https://github.com/gepetojj/lite-deploy-helper",
 				name: "lite-deploy-helper",
 				description:
-					"Daemon en Go para deploy automatizado en VPS Linux vía webhook de GitHub.",
+					"Automatiza publicaciones en el servidor: cada actualización de código sale al aire en minutos, sin procesos manuales repetitivos ni equipo dedicado solo al deploy.",
 				lang: "Go",
 				langColor: "#00add8",
 			},
@@ -246,6 +256,7 @@ const es: Translations = {
 					"Criptografía determinística de strings y objetos con AES-256-GCM, Argon2 y hash.",
 				lang: "TypeScript",
 				langColor: "#3178c6",
+				npm: true,
 			},
 			{
 				href: "https://www.npmjs.com/package/sparkcrm",
@@ -254,6 +265,7 @@ const es: Translations = {
 					"SDK TypeScript oficial de la API de Spark CRM para integraciones.",
 				lang: "TypeScript",
 				langColor: "#3178c6",
+				npm: true,
 			},
 		],
 		githubCta: "Ver perfil completo en GitHub",

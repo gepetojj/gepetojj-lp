@@ -13,11 +13,7 @@ export interface OpenSourceRepo {
 	description: string;
 	lang: string;
 	langColor: string;
-}
-
-export interface CompareRow {
-	left: string;
-	right: string;
+	npm?: boolean;
 }
 
 export interface Pillar {
@@ -41,7 +37,6 @@ export interface Translations {
 	};
 	nav: {
 		about: string;
-		differential: string;
 		stack: string;
 		work: string;
 		openSource: string;
@@ -72,19 +67,14 @@ export interface Translations {
 		subtitle: string;
 		items: readonly Pillar[];
 	};
-	compare: {
-		tag: string;
-		title: string;
-		subtitle: string;
-		common: string;
-		mine: string;
-		rows: readonly CompareRow[];
-	};
 	stack: {
 		tag: string;
 		title: string;
 		subtitle: string;
+		technicalLabel: string;
 		categories: readonly StackCategory[];
+		leadershipLabel: string;
+		leadership: readonly Pillar[];
 	};
 	work: {
 		tag: string;
