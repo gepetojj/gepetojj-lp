@@ -2,9 +2,9 @@ import type { Translations } from "../types";
 
 const en: Translations = {
 	meta: {
-		title: "João Nobre — CTO & Technology Leadership | gepetojj",
+		title: "João Nobre, CTO & Technology Leadership | gepetojj",
 		description:
-			"João Nobre (gepetojj) is CTO at Link Soluções. Technical leadership, product strategy, automation, platforms, and AI — from diagnosis to production operations. Based in Arapiraca, Alagoas, Brazil.",
+			"João Nobre (gepetojj) is CTO at Link Soluções. Technical leadership, product strategy, automation, platforms, and AI, from diagnosis to production operations. Based in Arapiraca, Alagoas, Brazil.",
 		shortDescription:
 			"CTO and technical leadership. Product strategy, automation, platforms, and AI focused on business outcomes.",
 		keywords: [
@@ -23,7 +23,7 @@ const en: Translations = {
 			"SaaS platforms",
 		],
 		ogImageAlt:
-			"João Nobre (gepetojj) — CTO and technology leadership, product strategy and AI",
+			"João Nobre (gepetojj), CTO and technology leadership, product strategy and AI",
 	},
 	nav: {
 		about: "About",
@@ -37,7 +37,7 @@ const en: Translations = {
 	hero: {
 		name: "João Nobre",
 		alias: "known as",
-		lead: "I align technology with business goals, turning time, effort, and resources into tangible results. I work end to end — from diagnosis to production operations — across strategy and execution.",
+		lead: "I align technology with business goals, turning time, effort, and resources into tangible results. I work end to end, from diagnosis to production operations, across strategy and execution.",
 		ctaWork: "See my work",
 		scroll: "scroll",
 		portraitAlt:
@@ -57,7 +57,7 @@ const en: Translations = {
 		paragraphs: [
 			"I'm <strong>CTO at Link Soluções</strong>, where I lead technical strategy and the delivery of custom software and AI-powered solutions. My approach is end to end: from diagnosis and prioritization to delivery and production operations.",
 			"I work directly where technology creates real value: product strategy, process automation, critical integrations, and system reliability at scale. Based in <strong>Arapiraca, Alagoas</strong>, I build software that works with teams that ship.",
-			"For me, technology only makes sense when it comes from the real flow of the people who use it. Before any architecture decision, I map the user journey and business impact — only then do I design the technical solution that supports that experience. <strong>Product vision and technical execution go together</strong>, not in parallel.",
+			"For me, technology only makes sense when it comes from the real flow of the people who use it. Before any architecture decision, I map the user journey and business impact; only then do I design the technical solution that supports that experience. <strong>Product vision and technical execution go together</strong>, not in parallel.",
 		],
 		stats: [
 			{ value: "34+", label: "companies transformed with technology" },
@@ -75,7 +75,7 @@ const en: Translations = {
 			{
 				title: "Product strategy & execution",
 				description:
-					"Prioritization, architecture, delivery, and operations — connecting technical decisions to business outcomes.",
+					"Prioritization, architecture, delivery, and operations, connecting technical decisions to business outcomes.",
 			},
 			{
 				title: "Process automation",
@@ -98,7 +98,7 @@ const en: Translations = {
 		tag: "Skills",
 		title: "From interface to hardware.",
 		subtitle:
-			"Technologies and competencies I apply from diagnosis to delivery — in code, operations, and team leadership.",
+			"Technologies and competencies I apply from diagnosis to delivery, in code, operations, and team leadership.",
 		technicalLabel: "Technical",
 		categories: [
 			{
@@ -146,7 +146,7 @@ const en: Translations = {
 			{
 				title: "Technical leadership",
 				description:
-					"Technical strategy, architecture, and prioritization — aligning team, stack, and roadmap with the business.",
+					"Technical strategy, architecture, and prioritization, aligning team, stack, and roadmap with the business.",
 			},
 			{
 				title: "Communication",
@@ -169,7 +169,7 @@ const en: Translations = {
 		tag: "Where I work",
 		title: "Products I build and contribute to.",
 		subtitle:
-			"Projects where I apply technology, leadership, and product day to day — from consulting and B2B SaaS to vertical platforms.",
+			"Projects where I apply technology, leadership, and product day to day, from consulting and B2B SaaS to vertical platforms.",
 		projects: [
 			{
 				href: "https://linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -208,7 +208,7 @@ const en: Translations = {
 				tag: "Platform",
 				name: "Triglit",
 				description:
-					"White-label embedded automation platform for SaaS — SDK integration, visual editor, multi-tenancy, and observability to launch automation as a differentiator in weeks.",
+					"White-label embedded automation platform for SaaS, with SDK integration, visual editor, multi-tenancy, and observability to launch automation as a differentiator in weeks.",
 				tags: ["Automation", "White-label", "B2B SaaS", "SDK"],
 				domain: "triglit.com",
 			},
@@ -236,7 +236,7 @@ const en: Translations = {
 		tag: "Open source",
 		title: "Code that validates ideas.",
 		subtitle:
-			"Public experiments that prove concepts in practice — from infrastructure automation to hardware and reusable libraries.",
+			"Public experiments that prove concepts in practice, from infrastructure automation to hardware and reusable libraries.",
 		repos: [
 			{
 				href: "https://github.com/gepetojj/carrinho-wireless",

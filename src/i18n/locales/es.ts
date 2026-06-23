@@ -2,9 +2,9 @@ import type { Translations } from "../types";
 
 const es: Translations = {
 	meta: {
-		title: "João Nobre — CTO y Liderazgo Tecnológico | gepetojj",
+		title: "João Nobre, CTO y Liderazgo Tecnológico | gepetojj",
 		description:
-			"João Nobre (gepetojj) es CTO de Link Soluções. Liderazgo técnico, estrategia de producto, automatización, plataformas e IA — del diagnóstico a la operación en producción. Con base en Arapiraca, Alagoas, Brasil.",
+			"João Nobre (gepetojj) es CTO de Link Soluções. Liderazgo técnico, estrategia de producto, automatización, plataformas e IA, del diagnóstico a la operación en producción. Con base en Arapiraca, Alagoas, Brasil.",
 		shortDescription:
 			"CTO y liderazgo técnico. Estrategia de producto, automatización, plataformas e IA con foco en resultados de negocio.",
 		keywords: [
@@ -23,7 +23,7 @@ const es: Translations = {
 			"plataformas SaaS",
 		],
 		ogImageAlt:
-			"João Nobre (gepetojj) — CTO y liderazgo tecnológico, estrategia de producto e IA",
+			"João Nobre (gepetojj), CTO y liderazgo tecnológico, estrategia de producto e IA",
 	},
 	nav: {
 		about: "Sobre mí",
@@ -37,7 +37,7 @@ const es: Translations = {
 	hero: {
 		name: "João Nobre",
 		alias: "conocido como",
-		lead: "Alineo la tecnología con los objetivos de negocio, transformando tiempo, esfuerzo y recursos en resultados tangibles. Actúo de punta a punta — del diagnóstico a la operación en producción — en estrategia y ejecución.",
+		lead: "Alineo la tecnología con los objetivos de negocio, transformando tiempo, esfuerzo y recursos en resultados tangibles. Actúo de punta a punta, del diagnóstico a la operación en producción, en estrategia y ejecución.",
 		ctaWork: "Ver trayectoria",
 		scroll: "scroll",
 		portraitAlt: "João Nobre, CTO, retrato de estudio mirando al horizonte",
@@ -100,7 +100,7 @@ const es: Translations = {
 		tag: "Skills",
 		title: "De la interfaz al hardware.",
 		subtitle:
-			"Tecnologías y competencias que aplico del diagnóstico a la entrega — en código, operación y liderazgo de equipos.",
+			"Tecnologías y competencias que aplico del diagnóstico a la entrega, en código, operación y liderazgo de equipos.",
 		technicalLabel: "Técnicas",
 		categories: [
 			{
@@ -147,7 +147,7 @@ const es: Translations = {
 			{
 				title: "Liderazgo tecnológico",
 				description:
-					"Estrategia técnica, arquitectura y priorización — alineando equipo, stack y roadmap con el negocio.",
+					"Estrategia técnica, arquitectura y priorización, alineando equipo, stack y roadmap con el negocio.",
 			},
 			{
 				title: "Comunicación",
@@ -170,7 +170,7 @@ const es: Translations = {
 		tag: "Donde actúo",
 		title: "Productos que construyo y en los que participo.",
 		subtitle:
-			"Proyectos donde aplico tecnología, liderazgo y producto en el día a día — de consultoría y SaaS B2B a plataformas verticales.",
+			"Proyectos donde aplico tecnología, liderazgo y producto en el día a día, de consultoría y SaaS B2B a plataformas verticales.",
 		projects: [
 			{
 				href: "https://linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -209,7 +209,7 @@ const es: Translations = {
 				tag: "Plataforma",
 				name: "Triglit",
 				description:
-					"Plataforma white-label de automatización embebida para SaaS — integración vía SDK, editor visual, multi-tenancy y observabilidad para lanzar automatización como diferencial en semanas.",
+					"Plataforma white-label de automatización embebida para SaaS, con integración vía SDK, editor visual, multi-tenancy y observabilidad para lanzar automatización como diferencial en semanas.",
 				tags: ["Automatización", "White-label", "SaaS B2B", "SDK"],
 				domain: "triglit.com",
 			},
@@ -237,7 +237,7 @@ const es: Translations = {
 		tag: "Open source",
 		title: "Código que valida ideas.",
 		subtitle:
-			"Experimentos públicos que prueban conceptos en la práctica — de automatización de infraestructura a hardware y bibliotecas reutilizables.",
+			"Experimentos públicos que prueban conceptos en la práctica, de automatización de infraestructura a hardware y bibliotecas reutilizables.",
 		repos: [
 			{
 				href: "https://github.com/gepetojj/carrinho-wireless",

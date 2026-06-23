@@ -2,9 +2,9 @@ import type { Translations } from "../types";
 
 const ptBr: Translations = {
 	meta: {
-		title: "João Nobre — CTO & Liderança em Tecnologia | gepetojj",
+		title: "João Nobre, CTO & Liderança em Tecnologia | gepetojj",
 		description:
-			"João Nobre (gepetojj) é CTO da Link Soluções. Liderança técnica, estratégia de produto, automação, plataformas e IA — do diagnóstico à operação em produção. Baseado em Arapiraca, Alagoas.",
+			"João Nobre (gepetojj) é CTO da Link Soluções. Liderança técnica, estratégia de produto, automação, plataformas e IA, do diagnóstico à operação em produção. Baseado em Arapiraca, Alagoas.",
 		shortDescription:
 			"CTO e liderança técnica. Estratégia de produto, automação, plataformas e IA com foco em resultado de negócio.",
 		keywords: [
@@ -23,7 +23,7 @@ const ptBr: Translations = {
 			"plataformas SaaS",
 		],
 		ogImageAlt:
-			"João Nobre (gepetojj) — CTO e liderança em tecnologia, estratégia de produto e IA",
+			"João Nobre (gepetojj), CTO e liderança em tecnologia, estratégia de produto e IA",
 	},
 	nav: {
 		about: "Sobre",
@@ -101,7 +101,7 @@ const ptBr: Translations = {
 		tag: "Skills",
 		title: "Da interface ao hardware.",
 		subtitle:
-			"Tecnologias e competências que uso do diagnóstico à entrega — no código, na operação e na liderança de times.",
+			"Tecnologias e competências que uso do diagnóstico à entrega, no código, na operação e na liderança de times.",
 		technicalLabel: "Técnicas",
 		categories: [
 			{
@@ -148,7 +148,7 @@ const ptBr: Translations = {
 			{
 				title: "Liderança tecnológica",
 				description:
-					"Estratégia técnica, arquitetura e priorização — alinhando time, stack e roadmap ao negócio.",
+					"Estratégia técnica, arquitetura e priorização, alinhando time, stack e roadmap ao negócio.",
 			},
 			{
 				title: "Comunicação",
@@ -238,7 +238,7 @@ const ptBr: Translations = {
 		tag: "Open source",
 		title: "Código que valida ideias.",
 		subtitle:
-			"Experimentos públicos que provam conceitos na prática — de automação de infraestrutura a hardware e bibliotecas reutilizáveis.",
+			"Experimentos públicos que provam conceitos na prática, de automação de infraestrutura a hardware e bibliotecas reutilizáveis.",
 		repos: [
 			{
 				href: "https://github.com/gepetojj/carrinho-wireless",
