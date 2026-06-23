@@ -36,12 +36,13 @@ const ptBr: Translations = {
 		localeSwitcher: "Idioma",
 	},
 	hero: {
-		eyebrow: "CTO · Liderança em Tecnologia",
 		name: "João Nobre",
 		alias: "conhecido como",
 		lead: "Alinho tecnologia aos objetivos de negócio, transformando tempo, esforço e recursos em resultados tangíveis. Atuo na estratégia e na execução ponta a ponta, do diagnóstico à operação em produção.",
 		ctaWork: "Ver atuação",
 		scroll: "scroll",
+		portraitAlt:
+			"João Nobre, CTO, em retrato de estúdio olhando para o horizonte",
 	},
 	marquee: {
 		phrases: [

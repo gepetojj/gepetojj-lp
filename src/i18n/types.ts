@@ -50,12 +50,12 @@ export interface Translations {
 		localeSwitcher: string;
 	};
 	hero: {
-		eyebrow: string;
 		name: string;
 		alias: string;
 		lead: string;
 		ctaWork: string;
 		scroll: string;
+		portraitAlt: string;
 	};
 	marquee: {
 		phrases: readonly string[];

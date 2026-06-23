@@ -36,12 +36,13 @@ const en: Translations = {
 		localeSwitcher: "Language",
 	},
 	hero: {
-		eyebrow: "CTO · Technology Leadership",
 		name: "João Nobre",
 		alias: "known as",
 		lead: "I align technology with business goals, turning time, effort, and resources into tangible results. I work end to end — from diagnosis to production operations — across strategy and execution.",
 		ctaWork: "See my work",
 		scroll: "scroll",
+		portraitAlt:
+			"João Nobre, CTO, studio portrait looking toward the horizon",
 	},
 	marquee: {
 		phrases: [

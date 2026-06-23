@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import ArrowIcon from "../icons/ArrowIcon.astro";
+import portrait from "../../assets/eu.png";
 import type { Translations } from "../../i18n";
 
 interface Props {
@@ -66,20 +68,34 @@ const { t } = Astro.props;
 		</path>
 	</svg>
 
-	<div class="wrap">
-		<span class="eyebrow">{t.hero.eyebrow}</span>
-		<h1>{t.hero.name}</h1>
-		<h2>{t.hero.alias} <b>gepetojj</b></h2>
-		<p class="hero-lead">{t.hero.lead}</p>
-		<div class="hero-actions">
-			<a href="#trabalho" class="btn btn-primary magnetic">
-				{t.hero.ctaWork}
-				<ArrowIcon />
-			</a>
-			<a href="mailto:oi@gepetojj.com" class="btn btn-secondary magnetic">
-				oi@gepetojj.com
-				<ArrowIcon />
-			</a>
+	<div class="wrap hero-layout">
+		<figure class="hero-portrait">
+			<Image
+				src={portrait}
+				alt={t.hero.portraitAlt}
+				class="hero-portrait-img"
+				widths={[400, 600, 800]}
+				sizes="(max-width: 900px) 72vw, 42vw"
+				loading="eager"
+				fetchpriority="high"
+			/>
+			<div class="hero-portrait-fade" aria-hidden="true"></div>
+		</figure>
+
+		<div class="hero-content">
+			<h1>{t.hero.name}</h1>
+			<h2>{t.hero.alias} <b>gepetojj</b></h2>
+			<p class="hero-lead">{t.hero.lead}</p>
+			<div class="hero-actions">
+				<a href="#trabalho" class="btn btn-primary magnetic">
+					{t.hero.ctaWork}
+					<ArrowIcon />
+				</a>
+				<a href="mailto:oi@gepetojj.com" class="btn btn-secondary magnetic">
+					oi@gepetojj.com
+					<ArrowIcon />
+				</a>
+			</div>
 		</div>
 	</div>
 	<div class="scroll-cue"><div class="line"></div> {t.hero.scroll}</div>

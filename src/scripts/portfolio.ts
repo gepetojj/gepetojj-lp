@@ -100,6 +100,7 @@ onScroll();
 
 const heroBg = document.getElementById("heroBg");
 const hero = document.querySelector(".hero");
+const heroPortrait = document.querySelector(".hero-portrait-img");
 
 if (!isTouch && heroBg && hero instanceof HTMLElement) {
 	hero.addEventListener("mousemove", (e: MouseEvent) => {
@@ -108,6 +109,13 @@ if (!isTouch && heroBg && hero instanceof HTMLElement) {
 		heroBg.style.setProperty("--mx", `${x}%`);
 		heroBg.style.setProperty("--my", `${y}%`);
 		heroBg.style.setProperty("--mx2", `${100 - Number(x)}%`);
+
+		if (heroPortrait instanceof HTMLElement) {
+			const rect = hero.getBoundingClientRect();
+			const px = (e.clientX - rect.left) / rect.width - 0.5;
+			const py = (e.clientY - rect.top) / rect.height - 0.5;
+			heroPortrait.style.transform = `translate(${px * 10}px, ${py * 6}px)`;
+		}
 	});
 }
 
