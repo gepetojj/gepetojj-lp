@@ -21,10 +21,19 @@ export interface Pillar {
 	description: string;
 }
 
+export type SkillIconId =
+	| "frontend"
+	| "mobile"
+	| "desktop"
+	| "backend"
+	| "cloud"
+	| "iot";
+
 export interface StackCategory {
 	title: string;
 	description: string;
 	tags: readonly string[];
+	icon: SkillIconId;
 }
 
 export interface Translations {

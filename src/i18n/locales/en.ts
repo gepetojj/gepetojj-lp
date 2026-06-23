@@ -106,33 +106,39 @@ const en: Translations = {
 				description:
 					"Interfaces that translate product into experience.",
 				tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+				icon: "frontend",
 			},
 			{
 				title: "Mobile",
 				description:
 					"Native and cross-platform apps with a consistent experience.",
-				tags: ["React Native", "Expo", "TypeScript"],
+				tags: ["React Native", "Expo", "TypeScript", "Java"],
+				icon: "mobile",
 			},
 			{
 				title: "Desktop",
 				description:
 					"Desktop applications for operations and productivity.",
-				tags: ["Electron", "Tauri", "TypeScript"],
+				tags: ["Electron", "Tauri", "TypeScript", "Java"],
+				icon: "desktop",
 			},
 			{
 				title: "Backend",
 				description: "APIs and integrations that support the product.",
-				tags: ["Node.js", "TypeScript", "Java", "Python"],
+				tags: ["Node.js", "TypeScript", "Java", "Python", "Go"],
+				icon: "backend",
 			},
 			{
 				title: "Cloud & DevOps",
 				description: "Infrastructure treated as a product.",
-				tags: ["AWS", "CI/CD", "Automation"],
+				tags: ["AWS", "GCP", "Azure", "CI/CD", "Automation"],
+				icon: "cloud",
 			},
 			{
 				title: "Embedded & IoT",
 				description: "Hardware prototyping and validation.",
-				tags: ["ESP-32", "C++"],
+				tags: ["ESP-32", "C++", "Python", "C"],
+				icon: "iot",
 			},
 		],
 		leadershipLabel: "Leadership & management",
