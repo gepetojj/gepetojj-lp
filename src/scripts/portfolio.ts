@@ -1,3 +1,15 @@
+document.documentElement.classList.add("js");
+
+document.addEventListener("keydown", (e) => {
+	if (e.key === "Tab") {
+		document.documentElement.classList.add("keyboard-nav");
+	}
+});
+
+document.addEventListener("mousedown", () => {
+	document.documentElement.classList.remove("keyboard-nav");
+});
+
 const isTouch = window.matchMedia("(pointer: coarse)").matches;
 
 if (isTouch) {

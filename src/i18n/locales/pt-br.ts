@@ -52,25 +52,16 @@ const ptBr: Translations = {
 		],
 	},
 	about: {
-		tag: "Sobre",
 		title: "Tecnologia a serviço de resultado, não o contrário.",
 		paragraphs: [
 			"Sou <strong>CTO da Link Soluções</strong>, onde lidero a estratégia técnica e a entrega de software sob medida e soluções com inteligência artificial. Minha abordagem é de ponta a ponta: do diagnóstico e priorização à entrega e operação em produção.",
 			"Trabalho diretamente nas áreas onde tecnologia gera valor real: estratégia de produto, automação de processos, integrações críticas e confiabilidade de sistemas em escala. Baseado em <strong>Arapiraca, Alagoas</strong>, construo software que funciona, com times que entregam.",
 			"Para mim, tecnologia só faz sentido quando nasce do fluxo real de quem usa. Antes de qualquer decisão de arquitetura, mapeio a jornada do usuário e o impacto no negócio, só depois desenho a solução técnica que sustenta essa experiência. <strong>Visão de produto e execução técnica andam juntas</strong>, não em paralelo.",
 		],
-		stats: [
-			{ value: "34+", label: "empresas transformadas com tecnologia" },
-			{
-				value: "R$600k+",
-				label: "movimentados em plataformas desenvolvidas",
-			},
-			{ value: "50k+", label: "usuários em tráfego simultâneo" },
-			{ value: "4", label: "continentes atendidos via Link Soluções" },
-		],
+		proofLine:
+			"34+ empresas em 4 continentes · R$600k+ movimentados em plataformas · picos de 50k+ usuários simultâneos",
 	},
 	pillars: {
-		tag: "Onde gero valor",
 		title: "Quatro frentes, um mesmo objetivo.",
 		subtitle:
 			"As áreas em que minha atuação como liderança técnica costuma fazer mais diferença para o negócio.",
@@ -98,7 +89,6 @@ const ptBr: Translations = {
 		],
 	},
 	stack: {
-		tag: "Skills",
 		title: "Da interface ao hardware.",
 		subtitle:
 			"Tecnologias e competências que uso do diagnóstico à entrega, no código, na operação e na liderança de times.",
@@ -168,7 +158,6 @@ const ptBr: Translations = {
 		],
 	},
 	work: {
-		tag: "Onde atuo",
 		title: "Produtos que construo e nos quais participo.",
 		subtitle:
 			"Projetos onde aplico tecnologia, liderança e produto no dia a dia. De consultoria e SaaS B2B a plataformas verticais.",
@@ -181,6 +170,7 @@ const ptBr: Translations = {
 					"Como CTO, lidero a estratégia técnica e a entrega de software sob medida e soluções com inteligência artificial, atendendo empresas em quatro continentes com desenvolvimento ágil e foco em resultado real.",
 				tags: ["CTO", "Software sob medida", "IA", "Times de produto"],
 				domain: "linksolucoesbr.com",
+				accent: "#d6ff3f",
 			},
 			{
 				href: "https://crmspark.com.br/?utm_source=gepetojj.com&utm_medium=referral",
@@ -190,6 +180,7 @@ const ptBr: Translations = {
 					"CRM com agente de inteligência artificial para WhatsApp e Instagram, criado para centralizar conversas, qualificar leads e automatizar atendimento, com onboarding rápido para times comerciais.",
 				tags: ["CRM", "IA aplicada", "Automação", "Produto B2B"],
 				domain: "crmspark.com.br",
+				accent: "#8b6cf7",
 			},
 			{
 				href: "https://scfinance.linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -204,6 +195,7 @@ const ptBr: Translations = {
 					"Inteligência comercial",
 				],
 				domain: "scfinance.linksolucoesbr.com",
+				accent: "#34d399",
 			},
 			{
 				href: "https://triglit.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -213,6 +205,7 @@ const ptBr: Translations = {
 					"Plataforma white-label de automação embarcada para SaaS, integração via SDK, editor visual, multi-tenancy e observabilidade para lançar automação como diferencial em semanas.",
 				tags: ["Automação", "White-label", "SaaS B2B", "SDK"],
 				domain: "triglit.com",
+				accent: "#38bdf8",
 			},
 			{
 				href: "https://capi.legal/?utm_source=gepetojj.com&utm_medium=referral",
@@ -222,6 +215,7 @@ const ptBr: Translations = {
 					"Solução que combina inteligência artificial e expertise jurídica para apoiar negócios no Brasil com orientação legal acessível e integrada ao fluxo de trabalho.",
 				tags: ["LegalTech", "IA", "B2B", "Produto digital"],
 				domain: "capi.legal",
+				accent: "#fb923c",
 			},
 			{
 				href: "https://rifasimples.com.br/?utm_source=gepetojj.com&utm_medium=referral",
@@ -231,11 +225,11 @@ const ptBr: Translations = {
 					"Plataforma para criar, publicar e gerenciar rifas digitais com pagamentos diretos, ranking de contribuidores, cotas premiadas e personalização por domínio próprio.",
 				tags: ["Plataforma", "Pagamentos", "Growth", "Produto digital"],
 				domain: "rifasimples.com.br",
+				accent: "#f472b6",
 			},
 		],
 	},
 	openSource: {
-		tag: "Open source",
 		title: "Código que valida ideias.",
 		subtitle:
 			"Experimentos públicos que provam conceitos na prática, de automação de infraestrutura a hardware e bibliotecas reutilizáveis.",
@@ -278,7 +272,6 @@ const ptBr: Translations = {
 		githubCta: "Ver perfil completo no GitHub",
 	},
 	contact: {
-		tag: "Contato",
 		title: "Tem um desafio técnico ou de produto?",
 		titleEmphasis: "Vamos conversar.",
 		subtitle:

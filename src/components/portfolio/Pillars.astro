@@ -14,13 +14,11 @@ const { t } = Astro.props;
 >
 	<div class="wrap">
 		<div class="s-head" data-reveal>
-			<span class="s-tag">{t.pillars.tag}</span>
-			<h2>{t.pillars.title}</h2>
+			<h2 class="section-title">{t.pillars.title}</h2>
 			<p>{t.pillars.subtitle}</p>
 		</div>
 		<div class="pillars">
 			<div class="pillar tilt" data-reveal>
-				<div class="pnum">01</div>
 				<svg class="picon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
 					><path d="M3 12h4l3 8 4-16 3 8h4"></path></svg
 				>
@@ -28,7 +26,6 @@ const { t } = Astro.props;
 				<p>{t.pillars.items[0].description}</p>
 			</div>
 			<div class="pillar tilt" data-reveal>
-				<div class="pnum">02</div>
 				<svg class="picon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
 					><path d="M17 1l4 4-4 4M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 01-4 4H3"
 					></path></svg
@@ -37,7 +34,6 @@ const { t } = Astro.props;
 				<p>{t.pillars.items[1].description}</p>
 			</div>
 			<div class="pillar tilt" data-reveal>
-				<div class="pnum">03</div>
 				<svg class="picon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
 					><circle cx="12" cy="12" r="3"></circle><path
 						d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 005 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09c0 .68.39 1.27 1 1.51a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019 9c0 .68.39 1.27 1 1.51h.09a2 2 0 010 4H20a1.65 1.65 0 00-1.51 1z"
@@ -47,7 +43,6 @@ const { t } = Astro.props;
 				<p>{t.pillars.items[2].description}</p>
 			</div>
 			<div class="pillar tilt" data-reveal>
-				<div class="pnum">04</div>
 				<svg class="picon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
 					><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg
 				>

@@ -52,22 +52,16 @@ const en: Translations = {
 		],
 	},
 	about: {
-		tag: "About",
 		title: "Technology in service of outcomes, not the other way around.",
 		paragraphs: [
 			"I'm <strong>CTO at Link Soluções</strong>, where I lead technical strategy and the delivery of custom software and AI-powered solutions. My approach is end to end: from diagnosis and prioritization to delivery and production operations.",
 			"I work directly where technology creates real value: product strategy, process automation, critical integrations, and system reliability at scale. Based in <strong>Arapiraca, Alagoas</strong>, I build software that works with teams that ship.",
 			"For me, technology only makes sense when it comes from the real flow of the people who use it. Before any architecture decision, I map the user journey and business impact; only then do I design the technical solution that supports that experience. <strong>Product vision and technical execution go together</strong>, not in parallel.",
 		],
-		stats: [
-			{ value: "34+", label: "companies transformed with technology" },
-			{ value: "R$600k+", label: "processed through platforms built" },
-			{ value: "50k+", label: "users in concurrent traffic" },
-			{ value: "4", label: "continents served via Link Soluções" },
-		],
+		proofLine:
+			"34+ companies across 4 continents · R$600k+ processed through platforms · peaks of 50k+ concurrent users",
 	},
 	pillars: {
-		tag: "Where I create value",
 		title: "Four fronts, one goal.",
 		subtitle:
 			"The areas where my work as technical leadership tends to make the biggest difference for the business.",
@@ -95,7 +89,6 @@ const en: Translations = {
 		],
 	},
 	stack: {
-		tag: "Skills",
 		title: "From interface to hardware.",
 		subtitle:
 			"Technologies and competencies I apply from diagnosis to delivery, in code, operations, and team leadership.",
@@ -166,7 +159,6 @@ const en: Translations = {
 		],
 	},
 	work: {
-		tag: "Where I work",
 		title: "Products I build and contribute to.",
 		subtitle:
 			"Projects where I apply technology, leadership, and product day to day, from consulting and B2B SaaS to vertical platforms.",
@@ -179,6 +171,7 @@ const en: Translations = {
 					"As CTO, I lead technical strategy and the delivery of custom software and AI solutions, serving companies across four continents with agile development and a focus on real outcomes.",
 				tags: ["CTO", "Custom software", "AI", "Product teams"],
 				domain: "linksolucoesbr.com",
+				accent: "#d6ff3f",
 			},
 			{
 				href: "https://crmspark.com.br/?utm_source=gepetojj.com&utm_medium=referral",
@@ -188,6 +181,7 @@ const en: Translations = {
 					"CRM with an AI agent for WhatsApp and Instagram, built to centralize conversations, qualify leads, and automate support with fast onboarding for sales teams.",
 				tags: ["CRM", "Applied AI", "Automation", "B2B product"],
 				domain: "crmspark.com.br",
+				accent: "#8b6cf7",
 			},
 			{
 				href: "https://scfinance.linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -202,6 +196,7 @@ const en: Translations = {
 					"Commercial intelligence",
 				],
 				domain: "scfinance.linksolucoesbr.com",
+				accent: "#34d399",
 			},
 			{
 				href: "https://triglit.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -211,6 +206,7 @@ const en: Translations = {
 					"White-label embedded automation platform for SaaS, with SDK integration, visual editor, multi-tenancy, and observability to launch automation as a differentiator in weeks.",
 				tags: ["Automation", "White-label", "B2B SaaS", "SDK"],
 				domain: "triglit.com",
+				accent: "#38bdf8",
 			},
 			{
 				href: "https://capi.legal/?utm_source=gepetojj.com&utm_medium=referral",
@@ -220,6 +216,7 @@ const en: Translations = {
 					"Solution combining artificial intelligence and legal expertise to support businesses in Brazil with accessible legal guidance integrated into their workflow.",
 				tags: ["LegalTech", "AI", "B2B", "Digital product"],
 				domain: "capi.legal",
+				accent: "#fb923c",
 			},
 			{
 				href: "https://rifasimples.com.br/?utm_source=gepetojj.com&utm_medium=referral",
@@ -229,11 +226,11 @@ const en: Translations = {
 					"Platform to create, publish, and manage digital raffles with direct payments, contributor rankings, prize quotas, and custom domain branding.",
 				tags: ["Platform", "Payments", "Growth", "Digital product"],
 				domain: "rifasimples.com.br",
+				accent: "#f472b6",
 			},
 		],
 	},
 	openSource: {
-		tag: "Open source",
 		title: "Code that validates ideas.",
 		subtitle:
 			"Public experiments that prove concepts in practice, from infrastructure automation to hardware and reusable libraries.",
@@ -276,7 +273,6 @@ const en: Translations = {
 		githubCta: "View full GitHub profile",
 	},
 	contact: {
-		tag: "Contact",
 		title: "Have a technical or product challenge?",
 		titleEmphasis: "Let's talk.",
 		subtitle:

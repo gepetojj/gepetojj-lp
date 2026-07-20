@@ -2,15 +2,15 @@
 @import "./portfolio.css";
 
 @theme {
-	--font-sans: "Inter", sans-serif;
-	--font-display: "Space Grotesk", sans-serif;
+	--font-sans: "Source Sans 3", sans-serif;
+	--font-display: "Bricolage Grotesque", sans-serif;
 
 	--color-bg: #08080a;
 	--color-bg-soft: #0f0f12;
 	--color-bg-card: #121215;
 	--color-text: #f2f2ed;
-	--color-text-dim: #8d8d92;
-	--color-text-dimmer: #5c5c61;
+	--color-text-dim: #a8a8ad;
+	--color-text-dimmer: #78787e;
 	--color-accent: #d6ff3f;
 	--color-accent-2: #8b6cf7;
 }

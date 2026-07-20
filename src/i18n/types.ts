@@ -5,6 +5,7 @@ export interface WorkProject {
 	description: string;
 	tags: readonly string[];
 	domain: string;
+	accent: string;
 }
 
 export interface OpenSourceRepo {
@@ -65,19 +66,16 @@ export interface Translations {
 		phrases: readonly string[];
 	};
 	about: {
-		tag: string;
 		title: string;
 		paragraphs: readonly string[];
-		stats: readonly { value: string; label: string }[];
+		proofLine: string;
 	};
 	pillars: {
-		tag: string;
 		title: string;
 		subtitle: string;
 		items: readonly Pillar[];
 	};
 	stack: {
-		tag: string;
 		title: string;
 		subtitle: string;
 		technicalLabel: string;
@@ -86,20 +84,17 @@ export interface Translations {
 		leadership: readonly Pillar[];
 	};
 	work: {
-		tag: string;
 		title: string;
 		subtitle: string;
 		projects: readonly WorkProject[];
 	};
 	openSource: {
-		tag: string;
 		title: string;
 		subtitle: string;
 		repos: readonly OpenSourceRepo[];
 		githubCta: string;
 	};
 	contact: {
-		tag: string;
 		title: string;
 		titleEmphasis: string;
 		subtitle: string;

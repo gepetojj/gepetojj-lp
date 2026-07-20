@@ -11,25 +11,13 @@ const { t } = Astro.props;
 <section id="sobre" class="section-pad">
 	<div class="wrap about-grid">
 		<div class="about-text" data-reveal>
-			<span class="s-tag">{t.about.tag}</span>
-			<h2 style="font-size:clamp(28px,4vw,40px);margin-bottom:24px;">
-				{t.about.title}
-			</h2>
+			<h2 class="section-title">{t.about.title}</h2>
 			{
 				t.about.paragraphs.map((paragraph) => (
 					<p set:html={paragraph} />
 				))
 			}
-		</div>
-		<div class="stats" data-reveal>
-			{
-				t.about.stats.map((stat) => (
-					<div class="stat">
-						<div class="num">{stat.value}</div>
-						<div class="lbl">{stat.label}</div>
-					</div>
-				))
-			}
+			<p class="about-proof" data-reveal>{t.about.proofLine}</p>
 		</div>
 	</div>
 </section>

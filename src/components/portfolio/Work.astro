@@ -7,45 +7,92 @@ interface Props {
 }
 
 const { t } = Astro.props;
+const [flagship, runnerUp, ...rest] = t.work.projects;
 ---
 
 <section id="trabalho" class="section-pad">
 	<div class="wrap">
 		<div class="s-head" data-reveal>
-			<span class="s-tag">{t.work.tag}</span>
-			<h2>{t.work.title}</h2>
+			<h2 class="section-title">{t.work.title}</h2>
 			<p>{t.work.subtitle}</p>
 		</div>
-		<div class="work-grid">
-			{
-				t.work.projects.map((project) => (
-					<a
-						href={project.href}
-						target="_blank"
-						rel="noopener"
-						class="work-card tilt"
-						data-reveal
-					>
-						<div class="glow" />
-						<div class="work-top">
-							<span class="wk-tag">{project.tag}</span>
-							<h3>{project.name}</h3>
-							<p>{project.description}</p>
+
+		<div class="work-showcase">
+			<a
+				href={flagship.href}
+				target="_blank"
+				rel="noopener"
+				class="work-flagship tilt"
+				data-reveal
+				style={`--work-accent: ${flagship.accent}`}
+			>
+				<div class="work-preview" aria-hidden="true">
+					<span class="work-preview-domain">{flagship.domain}</span>
+				</div>
+				<div class="work-body">
+					<span class="work-tag">{flagship.tag}</span>
+					<h3>{flagship.name}</h3>
+					<p>{flagship.description}</p>
+					<div class="work-bottom">
+						<div class="tags">
+							{flagship.tags.map((tag) => (
+								<span class="tag">{tag}</span>
+							))}
 						</div>
-						<div class="work-bottom">
-							<div class="tags">
-								{project.tags.map((tag) => (
-									<span class="tag">{tag}</span>
-								))}
+						<span class="work-link">
+							{flagship.domain}
+							<ArrowIcon size={14} />
+						</span>
+					</div>
+				</div>
+			</a>
+
+			<a
+				href={runnerUp.href}
+				target="_blank"
+				rel="noopener"
+				class="work-runner tilt"
+				data-reveal
+				style={`--work-accent: ${runnerUp.accent}`}
+			>
+				<div class="work-preview work-preview--compact" aria-hidden="true">
+					<span class="work-preview-domain">{runnerUp.domain}</span>
+				</div>
+				<div class="work-body">
+					<span class="work-tag">{runnerUp.tag}</span>
+					<h3>{runnerUp.name}</h3>
+					<p>{runnerUp.description}</p>
+					<span class="work-link">
+						{runnerUp.domain}
+						<ArrowIcon size={14} />
+					</span>
+				</div>
+			</a>
+
+			<div class="work-compact-grid">
+				{
+					rest.map((project) => (
+						<a
+							href={project.href}
+							target="_blank"
+							rel="noopener"
+							class="work-compact tilt"
+							data-reveal
+							style={`--work-accent: ${project.accent}`}
+						>
+							<div class="work-compact-top">
+								<span class="work-tag">{project.tag}</span>
+								<h3>{project.name}</h3>
 							</div>
+							<p>{project.description}</p>
 							<span class="work-link">
 								{project.domain}
 								<ArrowIcon size={14} />
 							</span>
-						</div>
-					</a>
-				))
-			}
+						</a>
+					))
+				}
+			</div>
 		</div>
 	</div>
 </section>
