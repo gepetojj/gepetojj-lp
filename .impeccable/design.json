@@ -1,0 +1,344 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-07-20T13:50:00.000Z",
+	"title": "Design System: gepetojj.com",
+	"extensions": {
+		"colorMeta": {
+			"accent-signal": {
+				"role": "primary",
+				"displayName": "Signal Lime",
+				"canonical": "oklch(94% 0.19 118)",
+				"tonalRamp": [
+					"oklch(18% 0.04 118)",
+					"oklch(28% 0.08 118)",
+					"oklch(38% 0.11 118)",
+					"oklch(50% 0.14 118)",
+					"oklch(62% 0.16 118)",
+					"oklch(74% 0.18 118)",
+					"oklch(86% 0.19 118)",
+					"oklch(94% 0.19 118)"
+				]
+			},
+			"accent-iris": {
+				"role": "secondary",
+				"displayName": "Iris Glow",
+				"canonical": "oklch(62% 0.18 285)",
+				"tonalRamp": [
+					"oklch(18% 0.06 285)",
+					"oklch(26% 0.09 285)",
+					"oklch(34% 0.11 285)",
+					"oklch(44% 0.14 285)",
+					"oklch(52% 0.16 285)",
+					"oklch(58% 0.17 285)",
+					"oklch(62% 0.18 285)",
+					"oklch(78% 0.12 285)"
+				]
+			},
+			"bg-void": {
+				"role": "neutral",
+				"displayName": "Void Black",
+				"canonical": "oklch(4% 0.005 285)",
+				"tonalRamp": [
+					"oklch(4% 0.005 285)",
+					"oklch(8% 0.006 285)",
+					"oklch(12% 0.007 285)",
+					"oklch(18% 0.008 285)",
+					"oklch(26% 0.009 285)",
+					"oklch(36% 0.01 285)",
+					"oklch(52% 0.01 285)",
+					"oklch(72% 0.008 285)"
+				]
+			},
+			"bg-soft": {
+				"role": "neutral",
+				"displayName": "Soft Carbon",
+				"canonical": "oklch(8% 0.006 285)",
+				"tonalRamp": [
+					"oklch(4% 0.005 285)",
+					"oklch(8% 0.006 285)",
+					"oklch(12% 0.007 285)",
+					"oklch(18% 0.008 285)",
+					"oklch(26% 0.009 285)",
+					"oklch(36% 0.01 285)",
+					"oklch(52% 0.01 285)",
+					"oklch(72% 0.008 285)"
+				]
+			},
+			"bg-card": {
+				"role": "neutral",
+				"displayName": "Card Slate",
+				"canonical": "oklch(10% 0.007 285)",
+				"tonalRamp": [
+					"oklch(4% 0.005 285)",
+					"oklch(8% 0.006 285)",
+					"oklch(10% 0.007 285)",
+					"oklch(14% 0.008 285)",
+					"oklch(20% 0.009 285)",
+					"oklch(30% 0.01 285)",
+					"oklch(45% 0.01 285)",
+					"oklch(65% 0.008 285)"
+				]
+			},
+			"text-ink": {
+				"role": "neutral",
+				"displayName": "Ink White",
+				"canonical": "oklch(95% 0.01 100)",
+				"tonalRamp": [
+					"oklch(15% 0.01 100)",
+					"oklch(28% 0.01 100)",
+					"oklch(40% 0.01 100)",
+					"oklch(52% 0.01 100)",
+					"oklch(64% 0.01 100)",
+					"oklch(76% 0.01 100)",
+					"oklch(88% 0.01 100)",
+					"oklch(95% 0.01 100)"
+				]
+			},
+			"text-muted": {
+				"role": "neutral",
+				"displayName": "Muted Steel",
+				"canonical": "oklch(72% 0.01 285)",
+				"tonalRamp": [
+					"oklch(18% 0.01 285)",
+					"oklch(30% 0.01 285)",
+					"oklch(42% 0.01 285)",
+					"oklch(52% 0.01 285)",
+					"oklch(62% 0.01 285)",
+					"oklch(72% 0.01 285)",
+					"oklch(82% 0.01 285)",
+					"oklch(92% 0.01 285)"
+				]
+			},
+			"text-dim": {
+				"role": "neutral",
+				"displayName": "Dim Steel",
+				"canonical": "oklch(56% 0.01 285)",
+				"tonalRamp": [
+					"oklch(15% 0.01 285)",
+					"oklch(25% 0.01 285)",
+					"oklch(35% 0.01 285)",
+					"oklch(45% 0.01 285)",
+					"oklch(56% 0.01 285)",
+					"oklch(66% 0.01 285)",
+					"oklch(76% 0.01 285)",
+					"oklch(88% 0.01 285)"
+				]
+			},
+			"ink-on-accent": {
+				"role": "neutral",
+				"displayName": "Ink on Accent",
+				"canonical": "oklch(6% 0.005 285)",
+				"tonalRamp": [
+					"oklch(6% 0.005 285)",
+					"oklch(12% 0.006 285)",
+					"oklch(20% 0.007 285)",
+					"oklch(30% 0.008 285)",
+					"oklch(42% 0.009 285)",
+					"oklch(55% 0.01 285)",
+					"oklch(70% 0.01 285)",
+					"oklch(85% 0.008 285)"
+				]
+			}
+		},
+		"typographyMeta": {
+			"display": {
+				"displayName": "Display",
+				"purpose": "Hero name only. Bricolage Grotesque at clamp(3rem, 8vw, 6rem). Never below −0.04em letter-spacing."
+			},
+			"headline": {
+				"displayName": "Headline",
+				"purpose": "Section titles (.section-title). Bricolage Grotesque at clamp(1.75rem, 3.5vw, 2.75rem)."
+			},
+			"body": {
+				"displayName": "Body",
+				"purpose": "Prose and descriptions. Source Sans 3 at 1rem, line-height 1.6."
+			},
+			"label": {
+				"displayName": "Label",
+				"purpose": "Work tags, skill group labels. Source Sans 3 600 at 0.72rem, uppercase, 0.08em tracking."
+			}
+		},
+		"shadows": [],
+		"motion": [
+			{
+				"name": "ease-standard",
+				"value": "cubic-bezier(0.16, 0.8, 0.3, 1)",
+				"purpose": "Default easing for card hovers, drawer transitions, and reveal animations."
+			},
+			{
+				"name": "ease-nav",
+				"value": "ease",
+				"purpose": "Nav link color and underline transitions."
+			},
+			{
+				"name": "duration-fast",
+				"value": "0.25s",
+				"purpose": "Border and color state changes on tags and nav links."
+			},
+			{
+				"name": "duration-medium",
+				"value": "0.35s",
+				"purpose": "Card hover border and transform transitions."
+			},
+			{
+				"name": "duration-reveal",
+				"value": "0.8s",
+				"purpose": "Scroll reveal fade-up animations."
+			},
+			{
+				"name": "reduced-motion",
+				"value": "0.01ms",
+				"purpose": "All transitions collapse to instant when prefers-reduced-motion: reduce."
+			}
+		],
+		"breakpoints": [
+			{ "name": "xs", "value": "560px" },
+			{ "name": "sm", "value": "600px" },
+			{ "name": "md", "value": "640px" },
+			{ "name": "lg", "value": "900px" },
+			{ "name": "nav-mobile", "value": "1016px" },
+			{ "name": "nav-desktop", "value": "1017px" },
+			{ "name": "nav-compact", "value": "1140px" },
+			{ "name": "stack-2col", "value": "1000px" }
+		],
+		"zIndex": [
+			{ "name": "hero-bg", "value": -2 },
+			{ "name": "drawer", "value": 490 },
+			{ "name": "nav", "value": 500 },
+			{ "name": "noise", "value": 9990 },
+			{ "name": "progress", "value": 9998 },
+			{ "name": "cursor", "value": 9999 },
+			{ "name": "skip-link", "value": 10000 }
+		]
+	},
+	"components": [
+		{
+			"name": "Primary Button",
+			"kind": "button",
+			"refersTo": "button-primary",
+			"description": "Main CTA — signal lime fill, ink text, pill shape. Used in hero, nav, and contact.",
+			"html": "<button class=\"ds-btn-primary\">Falar comigo <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+			"css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 9px; padding: 15px 28px; border-radius: 40px; font-family: \"Source Sans 3\", sans-serif; font-size: 14.5px; font-weight: 500; background: #d6ff3f; color: #0a0a0a; border: none; cursor: pointer; transition: transform 0.3s ease; } .ds-btn-primary:hover { transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid #d6ff3f; outline-offset: 3px; } .ds-btn-primary svg { transition: transform 0.3s ease; } .ds-btn-primary:hover svg { transform: translate(2px, -2px); }"
+		},
+		{
+			"name": "Secondary Button",
+			"kind": "button",
+			"refersTo": "button-secondary",
+			"description": "Ghost CTA with whisper border. Used alongside primary actions.",
+			"html": "<button class=\"ds-btn-secondary\">Ver projetos</button>",
+			"css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 9px; padding: 15px 28px; border-radius: 40px; font-family: \"Source Sans 3\", sans-serif; font-size: 14.5px; font-weight: 500; background: transparent; color: #f2f2ed; border: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: border-color 0.25s ease; } .ds-btn-secondary:hover { border-color: rgba(255,255,255,0.25); } .ds-btn-secondary:focus-visible { outline: 2px solid #d6ff3f; outline-offset: 3px; }"
+		},
+		{
+			"name": "Tag / Chip",
+			"kind": "chip",
+			"refersTo": "tag",
+			"description": "Skill and project tags. Transparent with border; hover shifts to signal lime border.",
+			"html": "<span class=\"ds-tag\">TypeScript</span>",
+			"css": ".ds-tag { display: inline-block; font-family: \"Source Sans 3\", sans-serif; font-size: 12.5px; padding: 7px 13px; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; color: #a8a8ad; transition: border-color 0.25s ease, color 0.25s ease; } .ds-tag:hover { color: #f2f2ed; border-color: #d6ff3f; }"
+		},
+		{
+			"name": "Card Surface",
+			"kind": "card",
+			"refersTo": "card-surface",
+			"description": "Default card container for pillars, stack tiles, and repo items.",
+			"html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Liderança técnica</h3><p class=\"ds-card-body\">Arquitetura, times e entrega orientada a resultado.</p></div>",
+			"css": ".ds-card { background: #121215; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; color: #f2f2ed; transition: border-color 0.35s cubic-bezier(0.16, 0.8, 0.3, 1), transform 0.35s cubic-bezier(0.16, 0.8, 0.3, 1); } .ds-card:hover { border-color: rgba(214,255,63,0.4); transform: translateY(-4px); } .ds-card-title { font-family: \"Bricolage Grotesque\", sans-serif; font-size: 17px; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 8px; } .ds-card-body { font-family: \"Source Sans 3\", sans-serif; font-size: 13px; color: #a8a8ad; line-height: 1.6; }"
+		},
+		{
+			"name": "Work Flagship Card",
+			"kind": "card",
+			"refersTo": "card-surface",
+			"description": "Featured project card with domain preview panel and per-project accent glow.",
+			"html": "<a class=\"ds-work-flagship\" href=\"#\" style=\"--work-accent: #d6ff3f\"><div class=\"ds-work-preview\"><span class=\"ds-work-domain\">linksolucoesbr.com</span></div><div class=\"ds-work-body\"><h3>Link Soluções</h3><p>Consultoria e produtos digitais para empresas em crescimento.</p></div></a>",
+			"css": ".ds-work-flagship { display: flex; flex-direction: column; background: #121215; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; color: #f2f2ed; text-decoration: none; transition: border-color 0.35s cubic-bezier(0.16, 0.8, 0.3, 1), transform 0.35s cubic-bezier(0.16, 0.8, 0.3, 1); } .ds-work-flagship:hover { border-color: color-mix(in srgb, var(--work-accent, #d6ff3f) 40%, rgba(255,255,255,0.08)); transform: translateY(-4px); } .ds-work-preview { min-height: 220px; display: flex; align-items: flex-end; padding: 28px; background: radial-gradient(ellipse 80% 70% at 20% 0%, color-mix(in srgb, var(--work-accent, #d6ff3f) 28%, transparent), transparent 65%), linear-gradient(160deg, #0f0f12 0%, #121215 100%); border-bottom: 1px solid rgba(255,255,255,0.08); } .ds-work-domain { font-family: \"Bricolage Grotesque\", sans-serif; font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 600; letter-spacing: -0.03em; } .ds-work-body { padding: 28px; } .ds-work-body h3 { font-family: \"Bricolage Grotesque\", sans-serif; font-size: 1.25rem; margin-bottom: 8px; } .ds-work-body p { font-family: \"Source Sans 3\", sans-serif; font-size: 14px; color: #a8a8ad; line-height: 1.6; }"
+		},
+		{
+			"name": "Navigation Link",
+			"kind": "nav",
+			"refersTo": "button-secondary",
+			"description": "Desktop nav link with scaleX underline on active state.",
+			"html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link ds-nav-link--active\" href=\"#sobre\">Sobre</a><a class=\"ds-nav-link\" href=\"#trabalho\">Trabalho</a></nav>",
+			"css": ".ds-nav { display: flex; gap: 32px; } .ds-nav-link { position: relative; font-family: \"Source Sans 3\", sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #a8a8ad; text-decoration: none; padding-bottom: 4px; transition: color 0.25s ease; } .ds-nav-link:hover, .ds-nav-link--active { color: #f2f2ed; } .ds-nav-link::after { content: \"\"; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: #d6ff3f; transform: scaleX(0); transform-origin: left; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav-link--active::after, .ds-nav-link:hover::after { transform: scaleX(1); } .ds-nav-link:focus-visible { outline: 2px solid #d6ff3f; outline-offset: 3px; }"
+		},
+		{
+			"name": "Locale Pill",
+			"kind": "chip",
+			"refersTo": "tag",
+			"description": "Language switcher with 44×44px touch targets and active lime tint.",
+			"html": "<div class=\"ds-locale\"><a class=\"ds-locale-link ds-locale-link--active\" href=\"#\">PT</a><a class=\"ds-locale-link\" href=\"#\">EN</a><a class=\"ds-locale-link\" href=\"#\">ES</a></div>",
+			"css": ".ds-locale { display: flex; gap: 4px; padding: 4px; border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; } .ds-locale-link { display: flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 12px; font-family: \"Source Sans 3\", sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: #78787e; text-decoration: none; border-radius: 999px; transition: color 0.25s ease, background 0.25s ease; } .ds-locale-link:hover { color: #f2f2ed; } .ds-locale-link--active { color: #0a0a0a; background: #d6ff3f; } .ds-locale-link:focus-visible { outline: 2px solid #d6ff3f; outline-offset: 3px; }"
+		},
+		{
+			"name": "Section Title",
+			"kind": "custom",
+			"refersTo": "headline",
+			"description": "Standard section heading — Bricolage Grotesque, no eyebrow kicker above.",
+			"html": "<h2 class=\"ds-section-title\">Projetos que entregam resultado</h2>",
+			"css": ".ds-section-title { font-family: \"Bricolage Grotesque\", sans-serif; font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.03em; color: #f2f2ed; text-wrap: balance; margin-bottom: 1rem; }"
+		}
+	],
+	"narrative": {
+		"northStar": "The Executive Engine Room",
+		"overview": "A near-black technical environment where confidence comes from precision, not decoration. The site reads like a CTO who ships: asymmetric hero with real portrait, business-outcome copy, and a single loud accent (signal lime) reserved for action and focus. Purple iris appears as atmospheric depth — hero ribbons, secondary glows — never as a second primary voice.\n\nThe system explicitly rejects generic developer-portfolio templates: no hero metric grids, no repeated section eyebrows, no interchangeable card clones, no glassmorphism defaults. Depth is tonal (surface steps + 1px borders), not shadow stacks.",
+		"keyCharacteristics": [
+			"Near-black canvas (#08080a) with three surface steps (void → soft → card)",
+			"Signal lime accent on ≤15% of any viewport — CTAs, focus rings, selection, progress bar",
+			"Bricolage Grotesque display + Source Sans 3 body — geometric voice, humanist readability",
+			"16px card radius; pill buttons and tags; no ghost-card shadows",
+			"Motion enhances visible defaults; prefers-reduced-motion collapses to instant",
+			"Bento work layout: one flagship project, one runner, compact grid below"
+		],
+		"rules": [
+			{
+				"name": "The One Signal Rule",
+				"body": "Signal lime appears on primary actions, focus, and progress — nowhere else as a fill larger than a chip. If lime covers more than ~15% of a fold, you've lost hierarchy.",
+				"section": "colors"
+			},
+			{
+				"name": "The Iris Is Atmosphere Rule",
+				"body": "Purple never competes with lime for CTAs. It lives in gradients, glows, and ambient SVG — never as button fills or heading color.",
+				"section": "colors"
+			},
+			{
+				"name": "The −0.03em Floor Rule",
+				"body": "Display letter-spacing never goes below −0.04em. Tighter tracking makes Bricolage feel cramped, not designed.",
+				"section": "typography"
+			},
+			{
+				"name": "The Pairing Rule",
+				"body": "Bricolage carries hierarchy; Source Sans 3 carries reading. Never set body copy in Bricolage or section titles in Source Sans 3.",
+				"section": "typography"
+			},
+			{
+				"name": "The No Ghost Card Rule",
+				"body": "Never pair border: 1px solid with wide soft box-shadow on the same element. Pick border OR a tight shadow (≤8px blur), never both.",
+				"section": "elevation"
+			},
+			{
+				"name": "The Flat Surface Rule",
+				"body": "Cards rest flat. Lift on hover is translateY(-4px) max via transform — not shadow bloom.",
+				"section": "elevation"
+			}
+		],
+		"dos": [
+			"Do use signal lime exclusively for primary actions, focus rings, and progress — its scarcity is the hierarchy.",
+			"Do pair Bricolage display with Source Sans 3 body on a contrast axis (geometric + humanist).",
+			"Do cap hero display at 6rem and section titles at ~2.75rem max.",
+			"Do show work with varied layout (flagship → runner → compact) and per-project accent previews.",
+			"Do keep content visible without JavaScript; reveal animations enhance, never gate.",
+			"Do maintain 44×44px touch targets on mobile locale and nav controls.",
+			"Do respect prefers-reduced-motion — collapse all transitions to 0.01ms."
+		],
+		"donts": [
+			"Don't use generic dark-mode developer portfolio templates (Inter/Space Grotesk clones, lime-accent SaaS aesthetic).",
+			"Don't build hero metric dashboards (2×2 stats grids as section scaffolding).",
+			"Don't repeat uppercase section kickers on every block (\"SOBRE\" / \"SKILLS\" / \"WORK\" eyebrows).",
+			"Don't ship identical card grids with icon + heading + blurb, repeated endlessly.",
+			"Don't use glassmorphism defaults, gradient text, or over-rounded cards (24px+ radius on surfaces).",
+			"Don't use side-stripe borders (border-left >1px as accent).",
+			"Don't pair 1px borders with wide soft drop shadows on the same element.",
+			"Don't hide primary CTA on mobile without a drawer or bar alternative.",
+			"Don't animate width, height, or padding for UI feedback — use transform and opacity only."
+		]
+	}
+}
