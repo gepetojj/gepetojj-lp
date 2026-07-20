@@ -161,6 +161,7 @@ const ptBr: Translations = {
 		title: "Produtos que construo e nos quais participo.",
 		subtitle:
 			"Projetos onde aplico tecnologia, liderança e produto no dia a dia. De consultoria e SaaS B2B a plataformas verticais.",
+		visitLive: "Visitar site",
 		projects: [
 			{
 				href: "https://linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -171,6 +172,7 @@ const ptBr: Translations = {
 				tags: ["CTO", "Software sob medida", "IA", "Times de produto"],
 				domain: "linksolucoesbr.com",
 				accent: "#d6ff3f",
+				highlight: "34+ empresas · 4 continentes",
 			},
 			{
 				href: "https://crmspark.com.br/?utm_source=gepetojj.com&utm_medium=referral",
@@ -181,6 +183,7 @@ const ptBr: Translations = {
 				tags: ["CRM", "IA aplicada", "Automação", "Produto B2B"],
 				domain: "crmspark.com.br",
 				accent: "#8b6cf7",
+				highlight: "Agente IA · WhatsApp & Instagram",
 			},
 			{
 				href: "https://scfinance.linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -196,6 +199,7 @@ const ptBr: Translations = {
 				],
 				domain: "scfinance.linksolucoesbr.com",
 				accent: "#34d399",
+				highlight: "Pipeline e territórios unificados",
 			},
 			{
 				href: "https://triglit.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -206,6 +210,7 @@ const ptBr: Translations = {
 				tags: ["Automação", "White-label", "SaaS B2B", "SDK"],
 				domain: "triglit.com",
 				accent: "#38bdf8",
+				highlight: "Automação embarcada · SDK",
 			},
 			{
 				href: "https://capi.legal/?utm_source=gepetojj.com&utm_medium=referral",
@@ -216,6 +221,7 @@ const ptBr: Translations = {
 				tags: ["LegalTech", "IA", "B2B", "Produto digital"],
 				domain: "capi.legal",
 				accent: "#fb923c",
+				highlight: "Jurídico integrado ao fluxo de trabalho",
 			},
 			{
 				href: "https://rifasimples.com.br/?utm_source=gepetojj.com&utm_medium=referral",
@@ -226,6 +232,7 @@ const ptBr: Translations = {
 				tags: ["Plataforma", "Pagamentos", "Growth", "Produto digital"],
 				domain: "rifasimples.com.br",
 				accent: "#f472b6",
+				highlight: "Rifas digitais · pagamento direto",
 			},
 		],
 	},

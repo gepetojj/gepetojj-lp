@@ -1,6 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import ArrowIcon from "../icons/ArrowIcon.astro";
-import type { Translations } from "../../i18n";
+import WorkPreviewFrame from "./WorkPreviewFrame.astro";
+import { getWorkPreviewImage } from "../../data/work-preview-images";
+import type { Translations, WorkProject } from "../../i18n";
 
 interface Props {
 	t: Translations;
@@ -8,27 +11,35 @@ interface Props {
 
 const { t } = Astro.props;
 const [flagship, runnerUp, ...rest] = t.work.projects;
+
+function previewAlt(project: WorkProject) {
+	return `${project.name} — ${t.work.visitLive}`;
+}
 ---
 
 <section id="trabalho" class="section-pad">
 	<div class="wrap">
 		<div class="s-head" data-reveal>
 			<h2 class="section-title">{t.work.title}</h2>
-			<p>{t.work.subtitle}</p>
+			<p class="work-lead">{t.work.subtitle}</p>
 		</div>
 
 		<div class="work-showcase">
 			<a
 				href={flagship.href}
 				target="_blank"
-				rel="noopener"
+				rel="noopener noreferrer"
 				class="work-flagship tilt"
 				data-reveal
 				style={`--work-accent: ${flagship.accent}`}
+				aria-label={`${flagship.name} — ${t.work.visitLive}`}
 			>
-				<div class="work-preview" aria-hidden="true">
-					<span class="work-preview-domain">{flagship.domain}</span>
-				</div>
+				<WorkPreviewFrame
+					domain={flagship.domain}
+					previewImage={getWorkPreviewImage(flagship.domain)}
+					alt={previewAlt(flagship)}
+					highlight={flagship.highlight}
+				/>
 				<div class="work-body">
 					<span class="work-tag">{flagship.tag}</span>
 					<h3>{flagship.name}</h3>
@@ -40,7 +51,7 @@ const [flagship, runnerUp, ...rest] = t.work.projects;
 							))}
 						</div>
 						<span class="work-link">
-							{flagship.domain}
+							{t.work.visitLive}
 							<ArrowIcon size={14} />
 						</span>
 					</div>
@@ -50,20 +61,25 @@ const [flagship, runnerUp, ...rest] = t.work.projects;
 			<a
 				href={runnerUp.href}
 				target="_blank"
-				rel="noopener"
+				rel="noopener noreferrer"
 				class="work-runner tilt"
 				data-reveal
-				style={`--work-accent: ${runnerUp.accent}`}
+				style={`--work-accent: ${runnerUp.accent}; --reveal-delay: 0.08s`}
+				aria-label={`${runnerUp.name} — ${t.work.visitLive}`}
 			>
-				<div class="work-preview work-preview--compact" aria-hidden="true">
-					<span class="work-preview-domain">{runnerUp.domain}</span>
-				</div>
+				<WorkPreviewFrame
+					domain={runnerUp.domain}
+					previewImage={getWorkPreviewImage(runnerUp.domain)}
+					alt={previewAlt(runnerUp)}
+					highlight={runnerUp.highlight}
+					compact
+				/>
 				<div class="work-body">
 					<span class="work-tag">{runnerUp.tag}</span>
 					<h3>{runnerUp.name}</h3>
 					<p>{runnerUp.description}</p>
 					<span class="work-link">
-						{runnerUp.domain}
+						{t.work.visitLive}
 						<ArrowIcon size={14} />
 					</span>
 				</div>
@@ -71,22 +87,37 @@ const [flagship, runnerUp, ...rest] = t.work.projects;
 
 			<div class="work-compact-grid">
 				{
-					rest.map((project) => (
+					rest.map((project, index) => (
 						<a
 							href={project.href}
 							target="_blank"
-							rel="noopener"
+							rel="noopener noreferrer"
 							class="work-compact tilt"
 							data-reveal
-							style={`--work-accent: ${project.accent}`}
+							style={`--work-accent: ${project.accent}; --reveal-delay: ${0.12 + index * 0.06}s`}
+							aria-label={`${project.name} — ${t.work.visitLive}`}
 						>
+							<div class="work-compact-media">
+								<Image
+									src={getWorkPreviewImage(project.domain)}
+									alt=""
+									class="work-preview-img"
+									widths={[320, 480, 640, 800]}
+									sizes="(max-width: 640px) 100vw, 50vw"
+									loading="lazy"
+									decoding="async"
+								/>
+								<span class="work-highlight work-highlight--compact">
+									{project.highlight}
+								</span>
+							</div>
 							<div class="work-compact-top">
 								<span class="work-tag">{project.tag}</span>
 								<h3>{project.name}</h3>
 							</div>
 							<p>{project.description}</p>
 							<span class="work-link">
-								{project.domain}
+								{t.work.visitLive}
 								<ArrowIcon size={14} />
 							</span>
 						</a>

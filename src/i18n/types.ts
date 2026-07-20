@@ -6,6 +6,7 @@ export interface WorkProject {
 	tags: readonly string[];
 	domain: string;
 	accent: string;
+	highlight: string;
 }
 
 export interface OpenSourceRepo {
@@ -86,6 +87,7 @@ export interface Translations {
 	work: {
 		title: string;
 		subtitle: string;
+		visitLive: string;
 		projects: readonly WorkProject[];
 	};
 	openSource: {

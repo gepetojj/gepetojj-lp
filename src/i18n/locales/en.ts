@@ -162,6 +162,7 @@ const en: Translations = {
 		title: "Products I build and contribute to.",
 		subtitle:
 			"Projects where I apply technology, leadership, and product day to day, from consulting and B2B SaaS to vertical platforms.",
+		visitLive: "Visit site",
 		projects: [
 			{
 				href: "https://linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -172,6 +173,7 @@ const en: Translations = {
 				tags: ["CTO", "Custom software", "AI", "Product teams"],
 				domain: "linksolucoesbr.com",
 				accent: "#d6ff3f",
+				highlight: "34+ companies · 4 continents",
 			},
 			{
 				href: "https://crmspark.com.br/?utm_source=gepetojj.com&utm_medium=referral",
@@ -182,6 +184,7 @@ const en: Translations = {
 				tags: ["CRM", "Applied AI", "Automation", "B2B product"],
 				domain: "crmspark.com.br",
 				accent: "#8b6cf7",
+				highlight: "AI agent · WhatsApp & Instagram",
 			},
 			{
 				href: "https://scfinance.linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -197,6 +200,7 @@ const en: Translations = {
 				],
 				domain: "scfinance.linksolucoesbr.com",
 				accent: "#34d399",
+				highlight: "Unified pipeline & territories",
 			},
 			{
 				href: "https://triglit.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -207,6 +211,7 @@ const en: Translations = {
 				tags: ["Automation", "White-label", "B2B SaaS", "SDK"],
 				domain: "triglit.com",
 				accent: "#38bdf8",
+				highlight: "Embedded automation · SDK",
 			},
 			{
 				href: "https://capi.legal/?utm_source=gepetojj.com&utm_medium=referral",
@@ -217,6 +222,7 @@ const en: Translations = {
 				tags: ["LegalTech", "AI", "B2B", "Digital product"],
 				domain: "capi.legal",
 				accent: "#fb923c",
+				highlight: "Legal guidance in your workflow",
 			},
 			{
 				href: "https://rifasimples.com.br/?utm_source=gepetojj.com&utm_medium=referral",
@@ -227,6 +233,7 @@ const en: Translations = {
 				tags: ["Platform", "Payments", "Growth", "Digital product"],
 				domain: "rifasimples.com.br",
 				accent: "#f472b6",
+				highlight: "Digital raffles · direct payments",
 			},
 		],
 	},

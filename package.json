@@ -27,7 +27,8 @@
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.0",
 		"commitizen": "^4.3.2",
-		"cz-conventional-changelog": "^3.3.0"
+		"cz-conventional-changelog": "^3.3.0",
+		"playwright": "1.51.0"
 	},
 	"config": {
 		"commitizen": {
