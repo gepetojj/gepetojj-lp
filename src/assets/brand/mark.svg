@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 2 42 60" fill="none">
+	<title>gepetojj</title>
+	<g stroke="#efece6" stroke-width="6">
+		<path d="M32 5V59" />
+		<path d="M32 8H41C55 8 55 25 32 32C9 39 9 56 23 56H32" />
+	</g>
+	<circle cx="32" cy="32" r="3.4" fill="#f26a2c" />
+</svg>
