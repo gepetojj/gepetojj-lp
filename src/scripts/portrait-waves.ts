@@ -17,10 +17,10 @@ import { Mesh, Program, Renderer, RenderTarget, Texture, Triangle } from "ogl";
 
 const CELL = 4; // CSS px between dots, and between water samples
 const STEPS_PER_SECOND = 60;
-const DAMPING = 0.986; // how long a ripple keeps travelling
+const DAMPING = 0.98; // how long a ripple keeps travelling
 const DRY = 0.982; // how fast the colour fades behind the water
 const WET_GAIN = 2.6;
-const IDLE_DROP_MS = 1300; // a resting pointer keeps dropping a wave
+const IDLE_DROP_MS = 3200; // a resting pointer keeps dropping a wave
 
 const vertex = /* glsl */ `#version 300 es
 in vec2 position;
@@ -92,9 +92,9 @@ void main() {
       float hx = texture(tWater, uv + vec2(uWaterTexel.x, 0.0)).r - texture(tWater, uv - vec2(uWaterTexel.x, 0.0)).r;
       float hy = texture(tWater, uv + vec2(0.0, uWaterTexel.y)).r - texture(tWater, uv - vec2(0.0, uWaterTexel.y)).r;
       // a slow swell under everything, so the surface is never dead still
-      vec2 swell = 0.018 * vec2(
-        sin(uv.y * 9.0 + uTime * 0.7) + 0.5 * sin(uv.x * 13.0 - uTime * 0.5),
-        cos(uv.x * 8.0 - uTime * 0.6)
+      vec2 swell = 0.007 * vec2(
+        sin(uv.y * 9.0 + uTime * 0.35) + 0.5 * sin(uv.x * 13.0 - uTime * 0.25),
+        cos(uv.x * 8.0 - uTime * 0.3)
       );
       vec2 slope = vec2(hx, hy) * 1.6 + swell;
 
@@ -104,9 +104,9 @@ void main() {
       float glint = pow(shade, 28.0) * clamp(length(slope) * 5.0, 0.0, 1.0);
 
       float lum = dot(photo.rgb, vec3(0.2126, 0.7152, 0.0722));
-      lum = 0.05 + 0.95 * pow(clamp(lum * 1.15, 0.0, 1.0), 0.68);
-      float level = clamp(lum * (0.7 + 0.45 * shade) + glint * 0.5, 0.0, 1.0);
-      float radius = 0.5 * uPitch * 0.98 * sqrt(level);
+      lum = 0.05 + 0.95 * pow(clamp(lum * 1.1, 0.0, 1.0), 0.95);
+      float level = clamp(lum * (0.8 + 0.3 * shade) + glint * 0.4, 0.0, 1.0);
+      float radius = 0.5 * uPitch * 0.9 * sqrt(level);
 
       float cov = clamp(0.5 - (length(frag - center) - radius), 0.0, 1.0);
       cov *= smoothstep(0.35, 0.65, photo.a);
@@ -114,7 +114,9 @@ void main() {
 
       float wet = smoothstep(0.06, 0.55, w.b);
       float crest = smoothstep(0.06, 0.3, w.r);
-      vec3 col = mix(uInk, photo.rgb * (0.85 + 0.35 * shade), wet);
+      // at rest the dots carry the photo's tone, not one flat white
+      vec3 tone = uInk * mix(0.45, 1.0, smoothstep(0.0, 0.8, lum));
+      vec3 col = mix(tone, photo.rgb * (0.85 + 0.35 * shade), wet);
       col = mix(col, uEmber, crest * 0.75);
       col += glint * 0.35;
       best = vec4(col * cov, cov);
@@ -299,7 +301,7 @@ export async function startPortraitWaves(figure: HTMLElement) {
 			pointer.still += dt * 1000;
 			if (pointer.still > IDLE_DROP_MS) {
 				pointer.still = 0;
-				impulse += 0.45;
+				impulse += 0.2;
 			}
 		} else {
 			pointer.still = 0;
