@@ -60,11 +60,7 @@ export interface Translations {
 		alias: string;
 		lead: string;
 		ctaWork: string;
-		scroll: string;
 		portraitAlt: string;
-	};
-	marquee: {
-		phrases: readonly string[];
 	};
 	about: {
 		title: string;
@@ -100,6 +96,25 @@ export interface Translations {
 		title: string;
 		titleEmphasis: string;
 		subtitle: string;
+	};
+	ui: {
+		skip: string;
+		greeting: string;
+		role: string;
+		status: string;
+		location: string;
+		localTime: string;
+		proofTitle: string;
+		copy: string;
+		copied: string;
+		footerNav: string;
+		footerStart: string;
+		footerElsewhere: string;
+		statusLabel: string;
+		viewProject: string;
+		capabilitiesLabel: string;
+		stackLabel: string;
+		moreWork: string;
 	};
 	footer: {
 		copyright: string;

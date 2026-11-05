@@ -39,17 +39,8 @@ const ptBr: Translations = {
 		alias: "conhecido como",
 		lead: "Alinho tecnologia aos objetivos de negócio, transformando tempo, esforço e recursos em resultados tangíveis. Atuo na estratégia e na execução ponta a ponta, do diagnóstico à operação em produção.",
 		ctaWork: "Ver atuação",
-		scroll: "scroll",
 		portraitAlt:
 			"João Nobre, CTO, em retrato de estúdio olhando para o horizonte",
-	},
-	marquee: {
-		phrases: [
-			"ESTRATÉGIA DE PRODUTO",
-			"AUTOMAÇÃO DE PROCESSOS",
-			"PLATAFORMAS & INTEGRAÇÕES",
-			"CONFIABILIDADE & ESCALA",
-		],
 	},
 	about: {
 		title: "Tecnologia a serviço de resultado, não o contrário.",
@@ -171,7 +162,7 @@ const ptBr: Translations = {
 					"Como CTO, lidero a estratégia técnica e a entrega de software sob medida e soluções com inteligência artificial, atendendo empresas em quatro continentes com desenvolvimento ágil e foco em resultado real.",
 				tags: ["CTO", "Software sob medida", "IA", "Times de produto"],
 				domain: "linksolucoesbr.com",
-				accent: "#d6ff3f",
+				accent: "#ff6a2b",
 				highlight: "34+ empresas · 4 continentes",
 			},
 			{
@@ -184,6 +175,33 @@ const ptBr: Translations = {
 				domain: "crmspark.com.br",
 				accent: "#8b6cf7",
 				highlight: "Agente IA · WhatsApp & Instagram",
+			},
+			{
+				href: "https://disppa.com/?utm_source=gepetojj.com&utm_medium=referral",
+				tag: "Produto",
+				name: "Disppa",
+				description:
+					"API oficial do WhatsApp sem dor de cabeça: webhooks, templates e sandbox configurados em minutos, com documentação pensada para desenvolvedores e agentes de IA, logs pesquisáveis e entrega confiável.",
+				tags: ["WhatsApp API", "DX", "Webhooks", "MCP"],
+				domain: "disppa.com",
+				accent: "#6d5efc",
+				highlight: "Da conta à primeira mensagem em minutos",
+			},
+			{
+				href: "https://comentta.com.br/?utm_source=gepetojj.com&utm_medium=referral",
+				tag: "Produto",
+				name: "Comentta",
+				description:
+					"Plataforma de automação para Instagram que usa IA para responder comentários, DMs, stories e lives no tom da marca, sem fluxogramas nem código, transformando interações em conversas e vendas.",
+				tags: [
+					"Instagram",
+					"IA aplicada",
+					"Automação",
+					"Social commerce",
+				],
+				domain: "comentta.com.br",
+				accent: "#3b82f6",
+				highlight: "Comentários, DMs e lives respondidos por IA",
 			},
 			{
 				href: "https://scfinance.linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -283,6 +301,25 @@ const ptBr: Translations = {
 		titleEmphasis: "Vamos conversar.",
 		subtitle:
 			"Aberto a conversas sobre tecnologia, liderança técnica e parcerias.",
+	},
+	ui: {
+		skip: "Pular para o conteúdo",
+		greeting: "Olá, eu sou",
+		role: "CTO na Link Soluções",
+		status: "Aberto a conversas e parcerias",
+		location: "Arapiraca, AL — Brasil",
+		localTime: "horário local",
+		proofTitle: "Prova de execução",
+		copy: "Copiar e-mail",
+		copied: "Copiado",
+		footerNav: "Navegação",
+		footerStart: "Comece por aqui",
+		footerElsewhere: "Em outros lugares",
+		statusLabel: "Status",
+		viewProject: "Ver projeto",
+		capabilitiesLabel: "Frentes",
+		stackLabel: "Stack",
+		moreWork: "Mais produtos",
 	},
 	footer: {
 		copyright:

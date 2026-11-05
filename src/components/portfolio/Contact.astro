@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "../icons/ArrowIcon.astro";
 import type { Translations } from "../../i18n";
 
 interface Props {
@@ -6,53 +7,82 @@ interface Props {
 }
 
 const { t } = Astro.props;
+
+const navLinks = [
+	{ href: "#sobre", label: t.nav.about },
+	{ href: "#trabalho", label: t.nav.work },
+	{ href: "#skills", label: t.nav.stack },
+	{ href: "#opensource", label: t.nav.openSource },
+];
+
+const elsewhere = [
+	{ href: "https://www.linkedin.com/in/nobrejoaox/", label: "LinkedIn" },
+	{ href: "https://github.com/gepetojj", label: "GitHub" },
+];
 ---
 
-<section id="contato" class="contact">
-	<div class="contact-logo-bg" aria-hidden="true">
-		<svg viewBox="0 0 67 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path
-				d="M4.89391 72.2662C37.4865 70.9082 32.7334 45.7847 33.6132 5.72298L6.52779 23.9671L59.8939 43.7477L32.3822 61.402C32.3822 60.2587 31.8938 56.8752 32.7939 43.3838M32.3822 61.8918V84.7546"
-				stroke="currentColor"
-				stroke-width="6"
-				stroke-dasharray="9 9"></path>
-			<path
-				d="M6.52779 23.9671L33.6132 5.72298C32.7334 45.7847 37.4865 70.9082 4.89391 72.2662M59.8939 43.7477L32.3822 61.402C32.3822 60.2587 31.8938 56.8752 32.7939 43.3838M32.3822 61.8918V84.7546"
-				stroke="currentColor"
-				stroke-width="6"></path>
-		</svg>
-	</div>
+<footer id="contato" class="closing">
 	<div class="wrap">
-		<h2 class="section-title contact-title" data-reveal>
-			{t.contact.title} <i>{t.contact.titleEmphasis}</i>
-		</h2>
-		<p data-reveal>{t.contact.subtitle}</p>
-		<a href="mailto:oi@gepetojj.com" class="email-btn magnetic" data-reveal>
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-				><path d="M4 4h16v16H4z" fill="none"></path><path d="M22 6l-10 7L2 6"></path></svg
-			>
-			oi@gepetojj.com
-		</a>
-		<div class="social-row" data-reveal>
-			<a href="https://github.com/gepetojj" target="_blank" rel="noopener" aria-label="GitHub">
-				<svg viewBox="0 0 24 24" fill="currentColor"
-					><path
-						d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.93c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 015.74 0c2.18-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.42.36.78 1.08.78 2.18v3.24c0 .31.21.66.79.55C20.21 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"
-					></path></svg
+		<div class="closing-cta">
+			<h2 class="closing-title" data-reveal>
+				{t.contact.title}
+				<span class="closing-emph">{t.contact.titleEmphasis}</span>
+			</h2>
+			<div class="closing-actions" data-reveal>
+				<a href="mailto:oi@gepetojj.com" class="closing-email">
+					oi@gepetojj.com
+					<ArrowIcon size={22} />
+				</a>
+				<button
+					type="button"
+					class="btn btn-quiet btn-sm copy-btn"
+					data-copy="oi@gepetojj.com"
+					data-copied-label={t.ui.copied}
 				>
-			</a>
-			<a href="https://www.linkedin.com/in/nobrejoaox/" target="_blank" rel="noopener" aria-label="LinkedIn">
-				<svg viewBox="0 0 24 24" fill="currentColor"
-					><path
-						d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"
-					></path></svg
-				>
-			</a>
-			<a href="mailto:oi@gepetojj.com" aria-label="Email">
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-					><path d="M4 4h16v16H4z" fill="none"></path><path d="M22 6l-10 7L2 6"></path></svg
-				>
-			</a>
+					<span class="copy-label">{t.ui.copy}</span>
+				</button>
+			</div>
+		</div>
+
+		<div class="footer-cols">
+			<div class="footer-col">
+				<h3 class="sub-label">{t.ui.footerNav}</h3>
+				<ul>
+					{navLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3 class="sub-label">{t.ui.footerStart}</h3>
+				<ul>
+					<li><a href="mailto:oi@gepetojj.com">oi@gepetojj.com</a></li>
+					<li><a href="https://linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral" target="_blank" rel="noopener">Link Soluções</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3 class="sub-label">{t.ui.footerElsewhere}</h3>
+				<ul>
+					{
+						elsewhere.map((link) => (
+							<li>
+								<a href={link.href} target="_blank" rel="noopener">
+									{link.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div class="footer-col footer-status">
+				<h3 class="sub-label">{t.ui.statusLabel}</h3>
+				<p><i class="status-dot" aria-hidden="true"></i>{t.contact.subtitle}</p>
+			</div>
+		</div>
+
+		<div class="footer-base">
+			<p>{t.footer.copyright}</p>
+			<a href="#top" class="link-arrow">{t.footer.backToTop}</a>
 		</div>
 	</div>
-</section>
+
+	<div class="footer-wordmark" aria-hidden="true">gepetojj</div>
+</footer>

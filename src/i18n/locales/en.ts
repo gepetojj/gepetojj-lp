@@ -39,17 +39,8 @@ const en: Translations = {
 		alias: "known as",
 		lead: "I align technology with business goals, turning time, effort, and resources into tangible results. I work end to end, from diagnosis to production operations, across strategy and execution.",
 		ctaWork: "See my work",
-		scroll: "scroll",
 		portraitAlt:
 			"João Nobre, CTO, studio portrait looking toward the horizon",
-	},
-	marquee: {
-		phrases: [
-			"PRODUCT STRATEGY",
-			"PROCESS AUTOMATION",
-			"PLATFORMS & INTEGRATIONS",
-			"RELIABILITY & SCALE",
-		],
 	},
 	about: {
 		title: "Technology in service of outcomes, not the other way around.",
@@ -172,7 +163,7 @@ const en: Translations = {
 					"As CTO, I lead technical strategy and the delivery of custom software and AI solutions, serving companies across four continents with agile development and a focus on real outcomes.",
 				tags: ["CTO", "Custom software", "AI", "Product teams"],
 				domain: "linksolucoesbr.com",
-				accent: "#d6ff3f",
+				accent: "#ff6a2b",
 				highlight: "34+ companies · 4 continents",
 			},
 			{
@@ -185,6 +176,33 @@ const en: Translations = {
 				domain: "crmspark.com.br",
 				accent: "#8b6cf7",
 				highlight: "AI agent · WhatsApp & Instagram",
+			},
+			{
+				href: "https://disppa.com/?utm_source=gepetojj.com&utm_medium=referral",
+				tag: "Product",
+				name: "Disppa",
+				description:
+					"The official WhatsApp API without the headache: webhooks, templates, and sandbox set up in minutes, with documentation built for developers and AI agents, searchable logs, and reliable delivery.",
+				tags: ["WhatsApp API", "DX", "Webhooks", "MCP"],
+				domain: "disppa.com",
+				accent: "#6d5efc",
+				highlight: "Zero to first message in minutes",
+			},
+			{
+				href: "https://comentta.com.br/?utm_source=gepetojj.com&utm_medium=referral",
+				tag: "Product",
+				name: "Comentta",
+				description:
+					"Instagram automation platform that uses AI to reply to comments, DMs, stories, and lives in the brand's voice, with no flowcharts or code, turning interactions into conversations and sales.",
+				tags: [
+					"Instagram",
+					"Applied AI",
+					"Automation",
+					"Social commerce",
+				],
+				domain: "comentta.com.br",
+				accent: "#3b82f6",
+				highlight: "AI replies to comments, DMs & lives",
 			},
 			{
 				href: "https://scfinance.linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -284,6 +302,25 @@ const en: Translations = {
 		titleEmphasis: "Let's talk.",
 		subtitle:
 			"Open to conversations about technology, technical leadership, and partnerships.",
+	},
+	ui: {
+		skip: "Skip to content",
+		greeting: "Hi, I'm",
+		role: "CTO at Link Soluções",
+		status: "Open to conversations & partnerships",
+		location: "Arapiraca, AL — Brazil",
+		localTime: "local time",
+		proofTitle: "Proof of execution",
+		copy: "Copy email",
+		copied: "Copied",
+		footerNav: "Navigation",
+		footerStart: "Start here",
+		footerElsewhere: "Elsewhere",
+		statusLabel: "Status",
+		viewProject: "View project",
+		capabilitiesLabel: "Focus areas",
+		stackLabel: "Stack",
+		moreWork: "More products",
 	},
 	footer: {
 		copyright: "© 2026 João Nobre · gepetojj. All rights reserved.",

@@ -10,59 +10,45 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<section
-	id="opensource"
-	class="section-pad"
-	style="background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);"
->
+<section id="opensource" class="section oss">
 	<div class="wrap">
-		<div class="s-head" data-reveal>
+		<header class="section-head" data-reveal>
 			<h2 class="section-title">{t.openSource.title}</h2>
-			<p>{t.openSource.subtitle}</p>
-		</div>
-		<div class="repo-grid">
+			<p class="section-sub">{t.openSource.subtitle}</p>
+		</header>
+
+		<ul class="repo-list" data-reveal>
 			{
 				t.openSource.repos.map((repo) => (
-					<a
-						href={repo.href}
-						target="_blank"
-						rel="noopener"
-						class="repo-card tilt"
-						data-reveal
-					>
-						<div>
-							<h4 class="repo-name">
-								{repo.npm && (
-									<NpmIcon size={18} className="repo-npm-icon" />
-								)}
+					<li>
+						<a href={repo.href} target="_blank" rel="noopener" class="repo">
+							<span class="repo-name">
+								{repo.npm && <NpmIcon size={16} className="repo-npm" />}
 								{repo.name}
-							</h4>
-							<p>{repo.description}</p>
-						</div>
-						<div class="repo-meta">
-							<span class="lang-dot">
-								<span style={`background:${repo.langColor};`}></span>
+							</span>
+							<span class="repo-desc">{repo.description}</span>
+							<span class="repo-lang">
+								<i style={`background:${repo.langColor}`} aria-hidden="true" />
 								{repo.lang}
 							</span>
-							<svg
-								class="arrow"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<path d="M7 17L17 7M17 7H8M17 7V16"></path>
-							</svg>
-						</div>
-					</a>
+							<span class="repo-arrow" aria-hidden="true">
+								<ArrowIcon size={16} />
+							</span>
+						</a>
+					</li>
 				))
 			}
-		</div>
-		<div class="gh-more" data-reveal>
-			<a href="https://github.com/gepetojj" target="_blank" rel="noopener" class="btn btn-secondary magnetic">
-				{t.openSource.githubCta}
-				<ArrowIcon />
-			</a>
-		</div>
+		</ul>
+
+		<a
+			href="https://github.com/gepetojj"
+			target="_blank"
+			rel="noopener"
+			class="link-arrow oss-more"
+			data-reveal
+		>
+			{t.openSource.githubCta}
+			<ArrowIcon size={14} />
+		</a>
 	</div>
 </section>

@@ -1,222 +1,132 @@
 ---
 name: gepetojj.com
-description: CTO portfolio — dark, outcome-driven, signal-lime accent on near-black
+description: CTO portfolio — warm graphite canvas, regular-weight type, one committed ember accent
 colors:
-  accent-signal: "#d6ff3f"
-  accent-iris: "#8b6cf7"
-  bg-void: "#08080a"
-  bg-soft: "#0f0f12"
-  bg-card: "#121215"
-  text-ink: "#f2f2ed"
-  text-muted: "#a8a8ad"
-  text-dim: "#78787e"
-  border-default: "#ffffff14"
-  ink-on-accent: "#0a0a0a"
+  bg: "oklch(0.165 0.005 55)"
+  bg-sunk: "oklch(0.135 0.004 55)"
+  bg-raise: "oklch(0.205 0.006 55)"
+  bg-raise-2: "oklch(0.245 0.007 55)"
+  ink: "oklch(0.945 0.008 80)"
+  ink-2: "oklch(0.79 0.008 70)"
+  ink-3: "oklch(0.66 0.008 70)"
+  line: "oklch(1 0 0 / 0.08)"
+  accent-ember: "oklch(0.7 0.19 42)"
+  accent-ember-hi: "oklch(0.76 0.17 48)"
+  accent-ink: "oklch(0.18 0.03 40)"
 typography:
   display:
-    fontFamily: "Bricolage Grotesque, sans-serif"
-    fontSize: "clamp(3rem, 8vw, 6rem)"
-    fontWeight: 600
-    lineHeight: 0.98
-    letterSpacing: "-0.03em"
+    fontFamily: "Schibsted Grotesk, sans-serif"
+    fontSize: "clamp(3.25rem, 7.6vw, 6rem)"
+    fontWeight: 500
+    lineHeight: 0.95
+    letterSpacing: "-0.04em"
   headline:
-    fontFamily: "Bricolage Grotesque, sans-serif"
-    fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)"
-    fontWeight: 600
-    lineHeight: 1.12
+    fontFamily: "Schibsted Grotesk, sans-serif"
+    fontSize: "clamp(2rem, 4.2vw, 3.4rem)"
+    fontWeight: 400
+    lineHeight: 1.04
     letterSpacing: "-0.03em"
   body:
-    fontFamily: "Source Sans 3, sans-serif"
-    fontSize: "1rem"
+    fontFamily: "Schibsted Grotesk, sans-serif"
+    fontSize: "1.0625rem"
     fontWeight: 400
-    lineHeight: 1.6
-    letterSpacing: "normal"
-  label:
-    fontFamily: "Source Sans 3, sans-serif"
-    fontSize: "0.72rem"
-    fontWeight: 600
-    lineHeight: 1.2
-    letterSpacing: "0.08em"
+    lineHeight: 1.65
+  meta:
+    fontFamily: "JetBrains Mono, monospace"
+    fontSize: "0.75rem"
+    fontWeight: 500
+    letterSpacing: "0.02–0.04em"
 rounded:
-  card: "16px"
-  button: "40px"
-  tag: "20px"
-  pill: "999px"
+  surface: "14px"
+  button: "10px"
+  chip: "6px"
 spacing:
-  section-y: "140px"
-  section-y-mobile: "90px"
-  container-x: "32px"
-  container-max: "1180px"
-  card-padding: "28px"
-components:
-  button-primary:
-    backgroundColor: "{colors.accent-signal}"
-    textColor: "{colors.ink-on-accent}"
-    rounded: "{rounded.button}"
-    padding: "15px 28px"
-  button-secondary:
-    backgroundColor: "transparent"
-    textColor: "{colors.text-ink}"
-    rounded: "{rounded.button}"
-    padding: "15px 28px"
-  tag:
-    backgroundColor: "transparent"
-    textColor: "{colors.text-muted}"
-    rounded: "{rounded.tag}"
-    padding: "7px 13px"
-  card-surface:
-    backgroundColor: "{colors.bg-card}"
-    textColor: "{colors.text-ink}"
-    rounded: "{rounded.card}"
-    padding: "28px"
+  section-y: "clamp(96px, 13vw, 184px)"
+  gutter: "clamp(20px, 4vw, 48px)"
+  container-max: "1280px"
 ---
 
 # Design System: gepetojj.com
 
-## Overview
+## North Star: "Ember on Graphite"
 
-**Creative North Star: "The Executive Engine Room"**
+Premium comes from restraint, scale and real proof — not decoration. The page reads like
+a quiet, expensive office at night: warm graphite walls, ink-white type at regular weight,
+and a single ember-orange light that is switched on only where it matters (primary action,
+the focus-areas panel, the closing call to action).
 
-A near-black technical environment where confidence comes from precision, not decoration. The site reads like a CTO who ships: asymmetric hero with real portrait, business-outcome copy, and a single loud accent (signal lime) reserved for action and focus. Purple iris appears as atmospheric depth — hero ribbons, secondary glows — never as a second primary voice.
+Reference studied: opusjake.ai — what we took is the *method*, not the look:
 
-The system explicitly rejects generic developer-portfolio templates: no hero metric grids, no repeated section eyebrows, no interchangeable card clones, no glassmorphism defaults. Depth is tonal (surface steps + 1px borders), not shadow stacks.
+- Headings at **regular weight** and large size (confidence without shouting).
+- **Treated portrait** as signature imagery (here: an 8×8 ordered-dither, 1-bit, ink on graphite).
+- Few elements per viewport, lots of air, generous section padding.
+- **One committed colour** used as a full surface once, not sprinkled.
+- **Monospace meta details** (status, local time, domains, stacks) that signal "real system".
+- Closing footer as a destination: big statement, columns, status line.
 
-**Key Characteristics:**
+What we deliberately do differently: dark canvas (identity), ember instead of cobalt,
+no pixel font, real product screenshots instead of illustrations.
 
-- Near-black canvas (`#08080a`) with three surface steps (void → soft → card)
-- Signal lime accent on ≤15% of any viewport — CTAs, focus rings, selection, progress bar
-- Bricolage Grotesque display + Source Sans 3 body — geometric voice, humanist readability
-- 16px card radius; pill buttons and tags; no ghost-card shadows
-- Motion enhances visible defaults; `prefers-reduced-motion` collapses to instant
-- Bento work layout: one flagship project, one runner, compact grid below
+## Colour
 
-## Colors
+Strategy: **restrained + one committed moment**. Tinted neutrals (hue 55, chroma ≤0.008)
+carry 90% of the page. Ember appears as:
 
-Dark committed palette: the void background carries the brand; lime signals action.
+1. Primary buttons (`.btn-accent`), focus rings, selection.
+2. The Pillars panel — the only drenched surface on the page.
+3. The closing emphasis line and the email underline.
 
-### Primary
+Project accents (`--work-accent`) only tint each case stage via radial gradients. They never
+colour text or buttons.
 
-- **Signal Lime** (`#d6ff3f`): Primary CTAs (`.btn-primary`), focus rings, scroll progress, text selection, active locale pill tint, skip link background. The only color allowed to shout.
-
-### Secondary
-
-- **Iris Glow** (`#8b6cf7`): Atmospheric accents only — hero SVG ribbons, radial glows in work preview panels, scrollbar thumb hover. Never used for body text or primary buttons.
-
-### Neutral
-
-- **Void Black** (`#08080a`): Page background, deepest surface.
-- **Soft Carbon** (`#0f0f12`): Alternating section backgrounds, marquee band, drawer backdrop.
-- **Card Slate** (`#121215`): Cards, pillars, stack tiles, repo tiles.
-- **Ink White** (`#f2f2ed`): Primary text, headings.
-- **Muted Steel** (`#a8a8ad`): Body copy, nav links at rest, descriptions.
-- **Dim Steel** (`#78787e`): Labels, metadata, scroll cue, work tags.
-- **Whisper Border** (`rgba(255,255,255,0.08)`): Card and nav borders. **Soft Border** (`0.05` opacity): internal dividers.
-
-### Named Rules
-
-**The One Signal Rule.** Signal lime appears on primary actions, focus, and progress — nowhere else as a fill larger than a chip. If lime covers more than ~15% of a fold, you've lost hierarchy.
-
-**The Iris Is Atmosphere Rule.** Purple never competes with lime for CTAs. It lives in gradients, glows, and ambient SVG — never as button fills or heading color.
+Contrast: `ink-2` body on `bg` ≈ 9:1; `ink-3` meta ≈ 5:1; `accent-ink` on ember ≈ 7:1.
 
 ## Typography
 
-**Display Font:** Bricolage Grotesque (Google Fonts, `opsz` variable)  
-**Body Font:** Source Sans 3 (Google Fonts, weights 300–600)
+- **Schibsted Grotesk** for everything readable. Display/name at 500; all other headings at
+  400. Letter-spacing floor −0.04em.
+- **JetBrains Mono** only for meta: status, clock, domains, tags, stack lists, ledger, labels.
+  Never for headings or paragraphs.
+- No uppercase eyebrows above sections. The only uppercase is the mono `.sub-label` used
+  inside a section to name a sub-group (Técnicas, Liderança, Mais produtos, footer columns).
 
-**Character:** Display is angular and opinionated — signals craft without editorial serif cliché. Body is clean and executive-readable at 16px base with 1.6 line-height on dark.
+## Layout & components
 
-### Hierarchy
+- **Hero**: dithered portrait (hover reveals the real photo with a clip-path wipe on fine
+  pointers) + greeting / name / role / lead / two actions. Meta strip below: status,
+  location, live local clock (America/Maceio).
+- **About**: one big statement, prose on the left, sticky "proof ledger" on the right
+  (mono rows with checks; figures highlighted inline — not a metric grid).
+- **Work**: 4 featured cases alternating left/right. Each stage is an accent-tinted panel
+  with the real screenshot rising from the bottom edge inside a minimal window (domain in
+  mono). Then "Mais produtos" in a 2-column grid of smaller stages.
+- **Pillars**: ember panel, 2×2 rows separated by hairlines.
+- **Stack**: table rows (icon · title + description · mono stack list), leadership as a
+  4-column definition list.
+- **Open source**: hairline list rows, mono names, language dot, arrow.
+- **Closing/footer**: statement + ember emphasis, big email link + copy button, four
+  columns, base line, oversized cropped wordmark in `bg-raise`.
 
-- **Display** (600, `clamp(3rem, 8vw, 6rem)`, lh 0.98, ls −0.03em): Hero name only. Max 6rem. `text-wrap: balance`.
-- **Headline** (600, `clamp(1.75rem, 3.5vw, 2.75rem)`, lh 1.12): Section titles (`.section-title`). `text-wrap: balance`.
-- **Title** (600, 1.125–1.85rem): Card headings, pillar titles, project names.
-- **Body** (400, 1rem–1.05rem, lh 1.6–1.75): Prose, descriptions. Max ~42–65ch in about/contact. `text-wrap: pretty` on long paragraphs.
-- **Label** (600, 0.72rem, ls 0.08em, uppercase): Work tags, skill group labels, nav drawer numbers.
+Surfaces: 14px radius max. No border + wide shadow on the same element. Screens inside
+stages use a shadow only.
 
-### Named Rules
+## Motion
 
-**The −0.03em Floor Rule.** Display letter-spacing never goes below −0.04em. Tighter tracking makes Bricolage feel cramped, not designed.
+- Easing: `cubic-bezier(0.16, 1, 0.3, 1)` (expo-out) for everything.
+- Hero: staggered rise on load; dither portrait fades in in 8 steps.
+- Reveal: content is visible by default; JS adds `.reveal-ready` and fades sections in.
+  Elements already in view on load are never hidden.
+- Hover: case windows drift 2%, screenshots scale 1.025; arrows nudge up-right.
+- Cursor label "Ver projeto" follows the pointer over work stages (fine pointers only; the
+  system cursor is never hidden).
+- `prefers-reduced-motion`: everything collapses to instant, reveals disabled.
 
-**The Pairing Rule.** Bricolage carries hierarchy; Source Sans 3 carries reading. Never set body copy in Bricolage or section titles in Source Sans 3.
+## Do / Don't
 
-## Elevation
-
-Flat-by-default. This system does not use `box-shadow` on cards or buttons. Depth is conveyed through:
-
-1. **Surface stepping:** void → soft → card (three background tokens)
-2. **1px borders** at `rgba(255,255,255,0.08)` — never paired with drop shadows
-3. **Radial gradients** in work preview panels and hero background (atmospheric, not structural)
-4. **Hover state:** border-color shift and subtle `translateY` on cards — transform only, never layout properties
-
-Progress bar (2px top), custom cursor ring, and noise overlay sit above content via z-index scale — not elevation shadows.
-
-### Named Rules
-
-**The No Ghost Card Rule.** Never pair `border: 1px solid` with wide soft `box-shadow` on the same element. Pick border OR a tight shadow (≤8px blur), never both.
-
-**The Flat Surface Rule.** Cards rest flat. Lift on hover is `translateY(-4px)` max via transform — not shadow bloom.
-
-## Components
-
-### Buttons
-
-- **Shape:** Full pill (`border-radius: 40px`)
-- **Primary:** Signal lime fill, ink-on-accent text (`#0a0a0a`), padding 15×28px, Source Sans 3 500 at 14.5px. Arrow icon nudges on hover (`translate(2px, -2px)`).
-- **Secondary:** Transparent, 1px whisper border, ink text. Hover: border lightens to `rgba(255,255,255,0.25)`.
-- **Focus:** 2px signal lime outline, 3px offset — all interactive elements.
-
-### Chips / Tags
-
-- **Style:** Transparent, 1px border, dim steel text, 20px radius, 7×13px padding
-- **Hover:** Border shifts toward signal lime; text brightens to ink white
-- **Context:** Stack skills, work project tags — never used as section eyebrows
-
-### Cards / Containers
-
-- **Corner Style:** 16px radius (cards, pillars grid, stack tiles, work cards)
-- **Background:** Card slate (`#121215`)
-- **Border:** 1px whisper border — hover shifts toward accent tint via `color-mix`
-- **Padding:** 28–44px depending on card type
-- **Work flagship:** Horizontal split on desktop — preview panel (domain typography + radial accent) + body. Runner and compact variants below.
-
-### Inputs / Fields
-
-No form inputs on the marketing surface. Contact is `mailto:` links and social icons only.
-
-### Navigation
-
-- **Desktop:** Fixed top bar, 500 z-index. Logo left, centered uppercase links (13px, ls 0.08em), locale pill + CTA right. Active link: ink color + underline via `scaleX` transform (not width animation).
-- **Mobile (≤1016px):** Hamburger opens full-screen drawer (490 z-index). Numbered links at large display size. CTA duplicated in drawer footer. Mobile bar shows compact CTA pill.
-- **Locale switcher:** Pill container, 44×44px min touch targets per locale.
-
-### Signature: Work Preview Panel
-
-Domain name rendered in Bricolage at large scale inside a radial gradient tinted by per-project `--work-accent`. Replaces screenshot placeholders until real product imagery ships. Each project carries its own accent hex (lime, iris, emerald, sky, amber, pink).
-
-### Signature: Custom Cursor (desktop only)
-
-6px lime dot + 34px ring with 1px lime border at 50% opacity. Hidden on touch devices and when `.keyboard-nav` is active. Never blocks focus visibility.
-
-## Do's and Don'ts
-
-### Do:
-
-- **Do** use signal lime exclusively for primary actions, focus rings, and progress — its scarcity is the hierarchy.
-- **Do** pair Bricolage display with Source Sans 3 body on a contrast axis (geometric + humanist).
-- **Do** cap hero display at 6rem and section titles at ~2.75rem max.
-- **Do** show work with varied layout (flagship → runner → compact) and per-project accent previews.
-- **Do** keep content visible without JavaScript; reveal animations enhance, never gate.
-- **Do** maintain 44×44px touch targets on mobile locale and nav controls.
-- **Do** respect `prefers-reduced-motion` — collapse all transitions to 0.01ms.
-
-### Don't:
-
-- **Don't** use generic dark-mode developer portfolio templates (Inter/Space Grotesk clones, lime-accent SaaS aesthetic).
-- **Don't** build hero metric dashboards (2×2 stats grids as section scaffolding).
-- **Don't** repeat uppercase section kickers on every block ("SOBRE" / "SKILLS" / "WORK" eyebrows).
-- **Don't** ship identical card grids with icon + heading + blurb, repeated endlessly.
-- **Don't** use glassmorphism defaults, gradient text, or over-rounded cards (24px+ radius on surfaces).
-- **Don't** use side-stripe borders (`border-left` >1px as accent).
-- **Don't** pair 1px borders with wide soft drop shadows on the same element.
-- **Don't** hide primary CTA on mobile without a drawer or bar alternative.
-- **Don't** animate `width`, `height`, or `padding` for UI feedback — use `transform` and `opacity` only.
+- **Do** keep ember to actions, the pillars panel and the closing — nowhere else.
+- **Do** use real product screenshots; regenerate the portrait with
+  `node scripts/dither-portrait.mjs` when `src/assets/eu.png` changes.
+- **Don't** add section eyebrows, metric grids, glassmorphism cards, gradient text or a
+  second accent colour.
+- **Don't** bold headings beyond 500 or tighten tracking past −0.04em.
+- **Don't** animate layout properties; transform, opacity and clip-path only.

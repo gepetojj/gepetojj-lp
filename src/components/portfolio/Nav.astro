@@ -1,7 +1,5 @@
 ---
-import { Image } from "astro:assets";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import logo from "../../assets/logo.svg";
 import ArrowIcon from "../icons/ArrowIcon.astro";
 import {
 	LOCALE_LABELS,
@@ -19,21 +17,25 @@ const { t, locale } = Astro.props;
 
 const navLinks = [
 	{ href: "#sobre", label: t.nav.about },
-	{ href: "#skills", label: t.nav.stack },
 	{ href: "#trabalho", label: t.nav.work },
+	{ href: "#skills", label: t.nav.stack },
 	{ href: "#opensource", label: t.nav.openSource },
-	{ href: "#contato", label: t.nav.contact },
 ] as const;
 ---
 
-<nav id="nav">
-	<div class="wrap">
-		<a href="#top" class="nav-brand" aria-label="gepetojj">
-			<Image src={logo} alt="Logo" width={20} aria-hidden="true" loading="eager" />
-			<div class="logo">gepeto<span class="w-0">jj</span></div>
+<nav id="nav" class="nav">
+	<div class="wrap nav-inner">
+		<a href="#top" class="nav-brand" aria-label="gepetojj — João Nobre">
+			<svg class="nav-mark" viewBox="0 0 67 85" fill="none" aria-hidden="true">
+				<path
+					d="M6.52779 23.9671L33.6132 5.72298C32.7334 45.7847 37.4865 70.9082 4.89391 72.2662M59.8939 43.7477L32.3822 61.402C32.3822 60.2587 31.8938 56.8752 32.7939 43.3838M32.3822 61.8918V84.7546"
+					stroke="currentColor"
+					stroke-width="7"></path>
+			</svg>
+			<span class="nav-wordmark">gepetojj</span>
 		</a>
 
-		<div class="navlinks navlinks--desktop">
+		<div class="nav-links">
 			{
 				navLinks.map((link) => (
 					<a href={link.href} data-link>
@@ -58,10 +60,7 @@ const navLinks = [
 					))
 				}
 			</div>
-			<a href="mailto:oi@gepetojj.com" class="nav-cta nav-cta--bar magnetic">{t.nav.cta}</a>
-			<a href="mailto:oi@gepetojj.com" class="nav-cta nav-cta--mobile magnetic" aria-label={t.nav.cta}>
-				{t.nav.cta}
-			</a>
+			<a href="#contato" class="btn btn-accent btn-sm nav-cta">{t.nav.cta}</a>
 			<button
 				type="button"
 				class="nav-toggle"
@@ -70,42 +69,44 @@ const navLinks = [
 				aria-controls="navDrawer"
 				aria-label="Menu"
 			>
-				<span class="nav-toggle-icon" aria-hidden="true">
-					<i></i>
-					<i></i>
-					<i></i>
-				</span>
+				<span class="nav-toggle-icon" aria-hidden="true"><i></i><i></i></span>
 			</button>
 		</div>
 	</div>
 </nav>
 
 <div class="nav-drawer" id="navDrawer" aria-hidden="true" inert>
-	<div class="nav-drawer-bg" aria-hidden="true">
-		<div class="nav-drawer-grid"></div>
-		<div class="nav-drawer-glow"></div>
-	</div>
-
-	<div class="nav-drawer-content wrap">
+	<div class="wrap nav-drawer-inner">
 		<ul class="nav-drawer-list">
 			{
-				navLinks.map((link, index) => (
+				[...navLinks, { href: "#contato", label: t.nav.contact }].map((link, index) => (
 					<li style={`--i: ${index}`}>
 						<a href={link.href} data-link class="nav-drawer-link">
-							<span class="nav-drawer-num">{String(index + 1).padStart(2, "0")}</span>
-							<span class="nav-drawer-label">{link.label}</span>
+							{link.label}
 						</a>
 					</li>
 				))
 			}
 		</ul>
-
 		<div class="nav-drawer-footer">
-			<a href="mailto:oi@gepetojj.com" class="btn btn-primary magnetic nav-drawer-cta">
-				{t.nav.cta}
+			<a href="mailto:oi@gepetojj.com" class="btn btn-accent">
+				oi@gepetojj.com
 				<ArrowIcon />
 			</a>
-			<span class="nav-drawer-email">oi@gepetojj.com</span>
+			<div class="locale-switcher" role="navigation" aria-label={t.nav.localeSwitcher}>
+				{
+					LOCALES.map((code) => (
+						<a
+							href={getRelativeLocaleUrl(code)}
+							class:list={["locale-link", { active: code === locale }]}
+							hreflang={code}
+							aria-current={code === locale ? "page" : undefined}
+						>
+							{LOCALE_LABELS[code]}
+						</a>
+					))
+				}
+			</div>
 		</div>
 	</div>
 </div>

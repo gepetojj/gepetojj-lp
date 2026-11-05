@@ -2,15 +2,14 @@
 @import "./portfolio.css";
 
 @theme {
-	--font-sans: "Source Sans 3", sans-serif;
-	--font-display: "Bricolage Grotesque", sans-serif;
+	--font-sans: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+	--font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
 
-	--color-bg: #08080a;
-	--color-bg-soft: #0f0f12;
-	--color-bg-card: #121215;
-	--color-text: #f2f2ed;
-	--color-text-dim: #a8a8ad;
-	--color-text-dimmer: #78787e;
-	--color-accent: #d6ff3f;
-	--color-accent-2: #8b6cf7;
+	--color-bg: oklch(0.165 0.005 55);
+	--color-bg-raise: oklch(0.205 0.006 55);
+	--color-ink: oklch(0.945 0.008 80);
+	--color-ink-2: oklch(0.79 0.008 70);
+	--color-ink-3: oklch(0.66 0.008 70);
+	--color-accent: oklch(0.7 0.19 42);
+	--color-accent-ink: oklch(0.18 0.03 40);
 }

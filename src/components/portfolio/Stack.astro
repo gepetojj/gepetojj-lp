@@ -9,48 +9,46 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<section
-	id="skills"
-	class="section-pad"
-	style="background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);"
->
+<section id="skills" class="section stack">
 	<div class="wrap">
-		<div class="s-head" data-reveal>
+		<header class="section-head" data-reveal>
 			<h2 class="section-title">{t.stack.title}</h2>
-			<p>{t.stack.subtitle}</p>
-		</div>
+			<p class="section-sub">{t.stack.subtitle}</p>
+		</header>
 
-		<div class="skills-group" data-reveal>
-			<h3 class="skills-group-label">{t.stack.technicalLabel}</h3>
-			<div class="stack-grid">
-				{
-					t.stack.categories.map((category) => (
-						<div class="stack-card tilt" data-reveal>
-							<SkillIcon icon={category.icon} />
-							<h4>{category.title}</h4>
-							<div class="sdesc">{category.description}</div>
-							<div class="tags">
-								{category.tags.map((tag) => (
-									<span class="tag">{tag}</span>
-								))}
-							</div>
-						</div>
-					))
-				}
+		<div class="stack-layout">
+			<div class="stack-block" data-reveal>
+				<h3 class="sub-label">{t.stack.technicalLabel}</h3>
+				<ul class="stack-table">
+					{
+						t.stack.categories.map((category) => (
+							<li class="stack-row">
+								<span class="stack-icon">
+									<SkillIcon icon={category.icon} />
+								</span>
+								<span class="stack-cat">
+									<span class="stack-title">{category.title}</span>
+									<span class="stack-desc">{category.description}</span>
+								</span>
+								<span class="stack-tags">{category.tags.join(" / ")}</span>
+							</li>
+						))
+					}
+				</ul>
 			</div>
-		</div>
 
-		<div class="skills-group skills-group--leadership" data-reveal>
-			<h3 class="skills-group-label">{t.stack.leadershipLabel}</h3>
-			<div class="skills-leadership">
-				{
-					t.stack.leadership.map((item) => (
-						<div class="skills-leadership-item" data-reveal>
-							<h4>{item.title}</h4>
-							<p>{item.description}</p>
-						</div>
-					))
-				}
+			<div class="stack-block" data-reveal>
+				<h3 class="sub-label">{t.stack.leadershipLabel}</h3>
+				<dl class="leadership">
+					{
+						t.stack.leadership.map((item) => (
+							<div class="leadership-item">
+								<dt>{item.title}</dt>
+								<dd>{item.description}</dd>
+							</div>
+						))
+					}
+				</dl>
 			</div>
 		</div>
 	</div>
