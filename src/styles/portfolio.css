@@ -229,9 +229,13 @@ figure {
 }
 
 .nav-mark {
-	width: 16px;
+	width: 15px;
 	height: auto;
-	color: var(--color-accent);
+	color: var(--color-ink);
+}
+
+.nav-mark-grain {
+	fill: var(--color-accent);
 }
 
 .nav-wordmark {

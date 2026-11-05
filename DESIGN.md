@@ -38,6 +38,22 @@ of `src/styles/portfolio.css` records every decision, waiver and dropped item. R
 `node ~/.claude/skills/hallmark/scripts/sloplint.mjs src/styles/portfolio.css --render --url http://localhost:4321/`
 before shipping a change.
 
+## The mark ("laço")
+
+The J and the P share one stem: the P's bowl opens top right, the curve runs through the
+middle of the stem and becomes the J's hook bottom left, closing back on the stem. Where the
+curve crosses the stem, the old mark's hourglass idea survives as the waist, and an ember grain
+sits there.
+
+- Source: `src/assets/brand/mark.svg` (viewBox `12 2 42 60`, stroke 6 on a 64 grid, grain r 3.4).
+- In the nav it is inline, stroke `currentColor` (ink) and the grain `--color-accent`.
+- `public/favicon.svg` switches the stroke for light and dark tabs; `public/favicon.ico`
+  (16/32/48) and `public/apple-touch-icon.png` sit on the graphite tile and are rebuilt with
+  `node scripts/build-icons.mjs`.
+- `public/og-image.png` (1200×630): mark + wordmark, the name, the hero sentence and the
+  dithered portrait.
+- Never recolour the stroke ember; the grain is the only ember in the mark.
+
 ## The page (job: hire)
 
 1. **Hero, Settled 6/6.** The name, one sentence, two actions (email filled, "see work" quiet);
