@@ -1,0 +1,25 @@
+---
+import type { Translations } from "../../i18n";
+
+interface Props {
+	t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section leadership" aria-labelledby="leadership-title">
+	<div class="container">
+		<h2 id="leadership-title" data-reveal>{t.stack.leadershipLabel}</h2>
+		<dl class="lead-grid" data-reveal>
+			{
+				t.stack.leadership.map((item) => (
+					<div>
+						<dt>{item.title}</dt>
+						<dd>{item.description}</dd>
+					</div>
+				))
+			}
+		</dl>
+	</div>
+</section>

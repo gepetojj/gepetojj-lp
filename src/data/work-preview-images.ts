@@ -6,7 +6,7 @@ import disppa from "../assets/work/disppa.jpg";
 import linkSolucoes from "../assets/work/link-solucoes.jpg";
 import rifa from "../assets/work/rifa.jpg";
 import scFinance from "../assets/work/sc-finance.jpg";
-import spark from "../assets/work/spark.png";
+import spark from "../assets/work/spark.jpg";
 import triglit from "../assets/work/triglit.jpg";
 
 export const workPreviewImages = {

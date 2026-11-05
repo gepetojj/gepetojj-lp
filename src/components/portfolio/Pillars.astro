@@ -8,23 +8,21 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<section class="pillars-band" aria-labelledby="pillars-title">
-	<div class="wrap">
-		<div class="pillars-panel" data-reveal>
-			<header class="pillars-head">
-				<h2 id="pillars-title" class="section-title">{t.pillars.title}</h2>
-				<p class="section-sub">{t.pillars.subtitle}</p>
-			</header>
-			<ol class="pillars-list">
-				{
-					t.pillars.items.map((item) => (
-						<li class="pillar">
-							<h3>{item.title}</h3>
-							<p>{item.description}</p>
-						</li>
-					))
-				}
-			</ol>
+<section class="band" aria-labelledby="pillars-title">
+	<div class="container">
+		<div class="head-split" data-reveal>
+			<h2 id="pillars-title">{t.pillars.title}</h2>
+			<p class="lead">{t.pillars.subtitle}</p>
 		</div>
+		<ul class="rows rows--field" data-reveal>
+			{
+				t.pillars.items.map((item) => (
+					<li>
+						<h3>{item.title}</h3>
+						<p>{item.description}</p>
+					</li>
+				))
+			}
+		</ul>
 	</div>
 </section>

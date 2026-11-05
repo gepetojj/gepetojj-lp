@@ -1,6 +1,5 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import ArrowIcon from "../icons/ArrowIcon.astro";
 import {
 	LOCALE_LABELS,
 	LOCALES,
@@ -16,16 +15,16 @@ interface Props {
 const { t, locale } = Astro.props;
 
 const navLinks = [
-	{ href: "#sobre", label: t.nav.about },
 	{ href: "#trabalho", label: t.nav.work },
+	{ href: "#sobre", label: t.nav.about },
 	{ href: "#skills", label: t.nav.stack },
 	{ href: "#opensource", label: t.nav.openSource },
 ] as const;
 ---
 
 <nav id="nav" class="nav">
-	<div class="wrap nav-inner">
-		<a href="#top" class="nav-brand" aria-label="gepetojj — João Nobre">
+	<div class="container nav-inner">
+		<a href="#top" class="nav-brand" aria-label="gepetojj, João Nobre">
 			<svg class="nav-mark" viewBox="0 0 67 85" fill="none" aria-hidden="true">
 				<path
 					d="M6.52779 23.9671L33.6132 5.72298C32.7334 45.7847 37.4865 70.9082 4.89391 72.2662M59.8939 43.7477L32.3822 61.402C32.3822 60.2587 31.8938 56.8752 32.7939 43.3838M32.3822 61.8918V84.7546"
@@ -60,7 +59,7 @@ const navLinks = [
 					))
 				}
 			</div>
-			<a href="#contato" class="btn btn-accent btn-sm nav-cta">{t.nav.cta}</a>
+			<a href="#contato" class="btn btn--quiet nav-cta">{t.nav.cta}</a>
 			<button
 				type="button"
 				class="nav-toggle"
@@ -76,7 +75,7 @@ const navLinks = [
 </nav>
 
 <div class="nav-drawer" id="navDrawer" aria-hidden="true" inert>
-	<div class="wrap nav-drawer-inner">
+	<div class="container nav-drawer-inner">
 		<ul class="nav-drawer-list">
 			{
 				[...navLinks, { href: "#contato", label: t.nav.contact }].map((link, index) => (
@@ -89,10 +88,7 @@ const navLinks = [
 			}
 		</ul>
 		<div class="nav-drawer-footer">
-			<a href="mailto:oi@gepetojj.com" class="btn btn-accent">
-				oi@gepetojj.com
-				<ArrowIcon />
-			</a>
+			<a href="mailto:oi@gepetojj.com" class="nav-drawer-email">oi@gepetojj.com</a>
 			<div class="locale-switcher" role="navigation" aria-label={t.nav.localeSwitcher}>
 				{
 					LOCALES.map((code) => (

@@ -1,0 +1,34 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "page",
+  "shape": "Portfolio Grid, index-led",
+  "theme": "brand",
+  "axes": "dark/grotesk-sans/warm",
+  "hero": "Settled",
+  "nav": "edge-aligned",
+  "footer": "statement",
+  "imagery": "screenshots 6 (capture.mjs) + 2 older, dithered portrait",
+  "photos": [],
+  "entry": "settle",
+  "fingerprint": "showcase-index-statement-band-table-grid-rows-statement",
+  "sections": [
+   "hero",
+   "showcase",
+   "index",
+   "statement+figures",
+   "band rows",
+   "table",
+   "grid",
+   "rows",
+   "footer statement"
+  ],
+  "signature": "1-bit dithered portrait that wipes to the photograph",
+  "waived": [
+   "59"
+  ],
+  "prompt": "CTO portfolio, hire, premium",
+  "date": "2026-11-05"
+ }
+]

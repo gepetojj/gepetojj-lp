@@ -13,7 +13,10 @@
 			"!dist",
 			"!build",
 			"!.cursor",
-			"!.agents"
+			"!.agents",
+			"!src/styles/base.css",
+			"!src/styles/tokens.css",
+			"!.hallmark"
 		]
 	},
 	"formatter": {

@@ -1,5 +1,4 @@
 ---
-import ArrowIcon from "../icons/ArrowIcon.astro";
 import NpmIcon from "../icons/NpmIcon.astro";
 import type { Translations } from "../../i18n";
 
@@ -11,11 +10,11 @@ const { t } = Astro.props;
 ---
 
 <section id="opensource" class="section oss">
-	<div class="wrap">
-		<header class="section-head" data-reveal>
-			<h2 class="section-title">{t.openSource.title}</h2>
-			<p class="section-sub">{t.openSource.subtitle}</p>
-		</header>
+	<div class="container">
+		<div class="head-split" data-reveal>
+			<h2>{t.openSource.title}</h2>
+			<p class="lead">{t.openSource.subtitle}</p>
+		</div>
 
 		<ul class="repo-list" data-reveal>
 			{
@@ -24,31 +23,18 @@ const { t } = Astro.props;
 						<a href={repo.href} target="_blank" rel="noopener" class="repo">
 							<span class="repo-name">
 								{repo.npm && <NpmIcon size={16} className="repo-npm" />}
-								{repo.name}
+								<code>{repo.name}</code>
 							</span>
 							<span class="repo-desc">{repo.description}</span>
-							<span class="repo-lang">
-								<i style={`background:${repo.langColor}`} aria-hidden="true" />
-								{repo.lang}
-							</span>
-							<span class="repo-arrow" aria-hidden="true">
-								<ArrowIcon size={16} />
-							</span>
+							<span class="repo-lang">{repo.lang}</span>
 						</a>
 					</li>
 				))
 			}
 		</ul>
 
-		<a
-			href="https://github.com/gepetojj"
-			target="_blank"
-			rel="noopener"
-			class="link-arrow oss-more"
-			data-reveal
-		>
+		<a href="https://github.com/gepetojj" target="_blank" rel="noopener" class="text-link oss-more" data-reveal>
 			{t.openSource.githubCta}
-			<ArrowIcon size={14} />
 		</a>
 	</div>
 </section>

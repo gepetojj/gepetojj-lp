@@ -99,22 +99,13 @@ export interface Translations {
 	};
 	ui: {
 		skip: string;
-		greeting: string;
-		role: string;
-		status: string;
-		location: string;
-		localTime: string;
-		proofTitle: string;
 		copy: string;
 		copied: string;
-		footerNav: string;
-		footerStart: string;
-		footerElsewhere: string;
-		statusLabel: string;
-		viewProject: string;
-		capabilitiesLabel: string;
-		stackLabel: string;
-		moreWork: string;
+		location: string;
+		indexTitle: string;
+		colArea: string;
+		colWhat: string;
+		colTools: string;
 	};
 	footer: {
 		copyright: string;

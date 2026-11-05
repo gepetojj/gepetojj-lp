@@ -37,24 +37,24 @@ const es: Translations = {
 	hero: {
 		name: "João Nobre",
 		alias: "conocido como",
-		lead: "Alineo la tecnología con los objetivos de negocio, transformando tiempo, esfuerzo y recursos en resultados tangibles. Actúo de punta a punta, del diagnóstico a la operación en producción, en estrategia y ejecución.",
+		lead: "CTO de Link Soluções. Tecnología alineada con resultados de negocio.",
 		ctaWork: "Ver trayectoria",
 		portraitAlt: "João Nobre, CTO, retrato de estudio mirando al horizonte",
 	},
 	about: {
 		title: "Tecnología al servicio del resultado, no al revés.",
 		paragraphs: [
-			"Soy <strong>CTO de Link Soluções</strong>, donde lidero la estrategia técnica y la entrega de software a medida y soluciones con inteligencia artificial. Mi enfoque es de punta a punta: del diagnóstico y la priorización a la entrega y la operación en producción.",
-			"Trabajo directamente en las áreas donde la tecnología genera valor real: estrategia de producto, automatización de procesos, integraciones críticas y confiabilidad de sistemas a escala. Con base en <strong>Arapiraca, Alagoas</strong>, construyo software que funciona con equipos que entregan.",
-			"Para mí, la tecnología solo tiene sentido cuando nace del flujo real de quien la usa. Antes de cualquier decisión de arquitectura, mapeo la jornada del usuario y el impacto en el negocio; solo después diseño la solución técnica que sostiene esa experiencia. <strong>La visión de producto y la ejecución técnica van juntas</strong>, no en paralelo.",
+			"Soy <strong>CTO de Link Soluções</strong>. Lidero la estrategia técnica y la entrega de software a medida e IA, del diagnóstico a la operación en producción.",
+			"Trabajo donde la tecnología genera valor real: producto, automatización, integraciones críticas y confiabilidad a escala, desde <strong>Arapiraca, Alagoas</strong>.",
+			"Antes de la arquitectura, mapeo la jornada del usuario y el impacto en el negocio. <strong>La visión de producto y la ejecución técnica van juntas.</strong>",
 		],
 		proofLine:
-			"34+ empresas en 4 continentes · R$600k+ movilizados en plataformas · picos de 50k+ usuarios simultáneos",
+			"34+ empresas en 4 continentes · R$600k+ movilizados en plataformas · 50k+ usuarios simultáneos en picos",
 	},
 	pillars: {
 		title: "Cuatro frentes, un mismo objetivo.",
 		subtitle:
-			"Las áreas en las que mi actuación como liderazgo técnico suele marcar más diferencia para el negocio.",
+			"Donde el liderazgo técnico marca más diferencia para el negocio.",
 		items: [
 			{
 				title: "Estrategia de producto y ejecución",
@@ -81,7 +81,7 @@ const es: Translations = {
 	stack: {
 		title: "De la interfaz al hardware.",
 		subtitle:
-			"Tecnologías y competencias que aplico del diagnóstico a la entrega, en código, operación y liderazgo de equipos.",
+			"Del diagnóstico a la entrega: en el código, la operación y el liderazgo de equipos.",
 		technicalLabel: "Técnicas",
 		categories: [
 			{
@@ -262,7 +262,7 @@ const es: Translations = {
 				href: "https://github.com/gepetojj/carrinho-wireless",
 				name: "carrinho-wireless",
 				description:
-					"Prueba de concepto que une IoT y gamificación en el control a distancia de un carrito de control remoto construido en hardware propio.",
+					"IoT y gamificación para controlar a distancia un carrito con hardware propio.",
 				lang: "C++",
 				langColor: "#f34b7d",
 			},
@@ -270,7 +270,7 @@ const es: Translations = {
 				href: "https://github.com/gepetojj/lite-deploy-helper",
 				name: "lite-deploy-helper",
 				description:
-					"Automatiza publicaciones en el servidor: cada actualización de código sale al aire en minutos, sin procesos manuales repetitivos ni equipo dedicado solo al deploy.",
+					"Cada actualización del código sale en minutos, sin deploy manual.",
 				lang: "Go",
 				langColor: "#00add8",
 			},
@@ -303,26 +303,16 @@ const es: Translations = {
 	},
 	ui: {
 		skip: "Saltar al contenido",
-		greeting: "Hola, soy",
-		role: "CTO en Link Soluções",
-		status: "Abierto a conversaciones y alianzas",
-		location: "Arapiraca, AL — Brasil",
-		localTime: "hora local",
-		proofTitle: "Prueba de ejecución",
 		copy: "Copiar correo",
-		copied: "Copiado",
-		footerNav: "Navegación",
-		footerStart: "Empieza aquí",
-		footerElsewhere: "En otros lugares",
-		statusLabel: "Estado",
-		viewProject: "Ver proyecto",
-		capabilitiesLabel: "Frentes",
-		stackLabel: "Stack",
-		moreWork: "Más productos",
+		copied: "Correo copiado",
+		location: "Arapiraca, Alagoas, Brasil",
+		indexTitle: "Todos los productos",
+		colArea: "Área",
+		colWhat: "Para qué",
+		colTools: "Herramientas",
 	},
 	footer: {
-		copyright:
-			"© 2026 João Nobre · gepetojj. Todos los derechos reservados.",
+		copyright: "© 2026 João Nobre (gepetojj)",
 		backToTop: "Volver arriba",
 	},
 };

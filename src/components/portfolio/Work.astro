@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import ArrowIcon from "../icons/ArrowIcon.astro";
 import { getWorkPreviewImage } from "../../data/work-preview-images";
 import type { Translations } from "../../i18n";
 
@@ -9,108 +8,72 @@ interface Props {
 }
 
 const { t } = Astro.props;
-const featured = t.work.projects.slice(0, 4);
-const more = t.work.projects.slice(4);
+const [lead, ...pair] = t.work.projects.slice(0, 3);
 ---
 
-<section id="trabalho" class="section work">
-	<div class="wrap">
-		<header class="section-head" data-reveal>
-			<h2 class="section-title">{t.work.title}</h2>
-			<p class="section-sub">{t.work.subtitle}</p>
-		</header>
-
-		<div class="cases">
-			{
-				featured.map((project, index) => (
-					<article
-						class:list={["case", { "case--flip": index % 2 === 1 }]}
-						style={`--work-accent: ${project.accent}`}
-						data-reveal
-					>
-						<a
-							href={project.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="case-stage"
-							data-cursor={t.ui.viewProject}
-							tabindex="-1"
-							aria-hidden="true"
-						>
-							<span class="case-window">
-								<span class="case-bar">
-									<span class="case-url">{project.domain}</span>
-								</span>
-								<Image
-									src={getWorkPreviewImage(project.domain)}
-									alt=""
-									class="case-img"
-									widths={[560, 840, 1120, 1440]}
-									sizes="(max-width: 900px) 92vw, 760px"
-									loading={index === 0 ? "eager" : "lazy"}
-									decoding="async"
-								/>
-							</span>
-						</a>
-
-						<div class="case-body">
-							<p class="case-meta">
-								<span>{project.tag}</span>
-								<span class="case-meta-dot" aria-hidden="true" />
-								<span>{project.domain}</span>
-							</p>
-							<h3 class="case-name">{project.name}</h3>
-							<p class="case-highlight">{project.highlight}</p>
-							<p class="case-desc">{project.description}</p>
-							<ul class="case-tags">
-								{project.tags.map((tag) => <li>{tag}</li>)}
-							</ul>
-							<a
-								href={project.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="link-arrow"
-								aria-label={`${project.name}: ${t.work.visitLive}`}
-							>
-								{t.work.visitLive}
-								<ArrowIcon size={14} />
-							</a>
-						</div>
-					</article>
-				))
-			}
+<section id="trabalho" class="section showcase">
+	<div class="container">
+		<div class="head-split" data-reveal>
+			<h2>{t.work.title}</h2>
+			<p class="lead">{t.work.subtitle}</p>
 		</div>
 
-		<h3 class="sub-label" data-reveal>{t.ui.moreWork}</h3>
-		<div class="more-grid">
+		<a
+			href={lead.href}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="shot shot--lead"
+			style={`--work-accent: ${lead.accent}`}
+			data-reveal
+		>
+			<figure class="shot-frame" data-slot="work-lead" data-kind="product" data-alt={`${lead.name}, página inicial`}>
+				<Image
+					src={getWorkPreviewImage(lead.domain)}
+					alt={`${lead.name}, ${lead.domain}`}
+					widths={[960, 1440, 2400]}
+					sizes="(max-width: 60rem) 92vw, 1312px"
+					loading="lazy"
+					decoding="async"
+				/>
+			</figure>
+			<span class="shot-caption">
+				<span class="shot-name">{lead.name}</span>
+				<span class="shot-fact">{lead.highlight}</span>
+				<span class="shot-visit">{t.work.visitLive}</span>
+			</span>
+		</a>
+
+		<div class="shot-pair">
 			{
-				more.map((project) => (
+				pair.map((project, i) => (
 					<a
 						href={project.href}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="more-item"
-						style={`--work-accent: ${project.accent}`}
-						data-cursor={t.ui.viewProject}
+						class:list={["shot", i === 0 ? "shot--wide" : "shot--narrow"]}
+						style={`--work-accent: ${project.accent}; --i: ${i}`}
 						data-reveal
 					>
-						<span class="more-stage">
+						<figure
+							class="shot-frame"
+							data-slot={`work-${i + 2}`}
+							data-kind="product"
+							data-alt={`${project.name}, página inicial`}
+						>
 							<Image
 								src={getWorkPreviewImage(project.domain)}
-								alt=""
-								class="more-img"
-								widths={[480, 720, 960]}
-								sizes="(max-width: 700px) 92vw, 46vw"
+								alt={`${project.name}, ${project.domain}`}
+								widths={[720, 1080, 1440]}
+								sizes="(max-width: 60rem) 92vw, 760px"
 								loading="lazy"
 								decoding="async"
 							/>
+						</figure>
+						<span class="shot-caption">
+							<span class="shot-name">{project.name}</span>
+							<span class="shot-fact">{project.highlight}</span>
+							<span class="shot-visit">{t.work.visitLive}</span>
 						</span>
-						<span class="more-row">
-							<span class="more-name">{project.name}</span>
-							<span class="more-tag">{project.tag}</span>
-							<ArrowIcon size={16} />
-						</span>
-						<span class="more-desc">{project.highlight}</span>
 					</a>
 				))
 			}

@@ -6,8 +6,10 @@ import Nav from "./portfolio/Nav.astro";
 import Hero from "./portfolio/Hero.astro";
 import About from "./portfolio/About.astro";
 import Work from "./portfolio/Work.astro";
+import WorkIndex from "./portfolio/WorkIndex.astro";
 import Pillars from "./portfolio/Pillars.astro";
 import Stack from "./portfolio/Stack.astro";
+import Leadership from "./portfolio/Leadership.astro";
 import OpenSource from "./portfolio/OpenSource.astro";
 import Contact from "./portfolio/Contact.astro";
 
@@ -25,10 +27,12 @@ const canonical = getLocaleUrl(locale);
 	<Nav t={t} locale={locale} />
 	<main id="conteudo">
 		<Hero t={t} />
-		<About t={t} />
 		<Work t={t} />
+		<WorkIndex t={t} />
+		<About t={t} />
 		<Pillars t={t} />
 		<Stack t={t} />
+		<Leadership t={t} />
 		<OpenSource t={t} />
 	</main>
 	<Contact t={t} />

@@ -6,50 +6,30 @@ interface Props {
 }
 
 const { t } = Astro.props;
-const proofs = t.about.proofLine.split(" · ").map((line) => {
-	const match = line.match(/\S*\d\S*/);
-	if (!match || match.index === undefined) {
-		return { before: line, figure: "", after: "" };
-	}
-	return {
-		before: line.slice(0, match.index),
-		figure: match[0],
-		after: line.slice(match.index + match[0].length),
-	};
+const figures = t.about.proofLine.split(" · ").map((line) => {
+	const [figure, ...rest] = line.split(" ");
+	return { figure, label: rest.join(" ") };
 });
 ---
 
 <section id="sobre" class="section about">
-	<div class="wrap">
+	<div class="container">
 		<h2 class="statement" data-reveal>{t.about.title}</h2>
 
 		<div class="about-grid">
 			<div class="about-prose" data-reveal>
 				{t.about.paragraphs.map((paragraph) => <p set:html={paragraph} />)}
 			</div>
-
-			<aside class="ledger" data-reveal aria-label={t.ui.proofTitle}>
-				<div class="ledger-head">
-					<span class="ledger-title">{t.ui.proofTitle}</span>
-					<span class="ledger-count">{String(proofs.length).padStart(2, "0")}</span>
-				</div>
-				<ul class="ledger-rows">
-					{
-						proofs.map((proof) => (
-							<li>
-								<svg class="ledger-check" viewBox="0 0 16 16" aria-hidden="true">
-									<path d="M4 8.5l2.5 2.5L12 5.5" fill="none" stroke="currentColor" stroke-width="1.6" />
-								</svg>
-								<span class="ledger-label">
-									{proof.before}
-									{proof.figure && <span class="ledger-figure">{proof.figure}</span>}
-									{proof.after}
-								</span>
-							</li>
-						))
-					}
-				</ul>
-			</aside>
+			<dl class="figures" data-reveal>
+				{
+					figures.map((item) => (
+						<div>
+							<dt class="figure">{item.figure}</dt>
+							<dd>{item.label}</dd>
+						</div>
+					))
+				}
+			</dl>
 		</div>
 	</div>
 </section>

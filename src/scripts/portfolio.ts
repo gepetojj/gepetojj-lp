@@ -1,8 +1,9 @@
 const root = document.documentElement;
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+root.classList.add("js");
 
-/* ---------- nav: scrolled state + mobile drawer ---------- */
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+/* ---------- nav: solid on scroll, mobile drawer ---------- */
 
 const nav = document.getElementById("nav");
 const navToggle = document.getElementById("navToggle");
@@ -28,12 +29,18 @@ document.addEventListener("keydown", (e) => {
 	}
 });
 
-window.matchMedia("(min-width: 961px)").addEventListener("change", (e) => {
+window.matchMedia("(min-width: 60.0625rem)").addEventListener("change", (e) => {
 	if (e.matches) setMenu(false);
 });
 
+let ticking = false;
 const onScroll = () => {
-	nav?.classList.toggle("scrolled", window.scrollY > 24);
+	if (ticking) return;
+	ticking = true;
+	requestAnimationFrame(() => {
+		nav?.classList.toggle("scrolled", window.scrollY > 24);
+		ticking = false;
+	});
 };
 document.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
@@ -47,8 +54,7 @@ for (const anchor of document.querySelectorAll<HTMLAnchorElement>(
 		const id = anchor.getAttribute("href");
 		if (!id) return;
 
-		const wasOpen = nav?.classList.contains("menu-open");
-		if (wasOpen) setMenu(false);
+		if (nav?.classList.contains("menu-open")) setMenu(false);
 
 		const behavior: ScrollBehavior = reduceMotion.matches
 			? "auto"
@@ -69,20 +75,11 @@ for (const anchor of document.querySelectorAll<HTMLAnchorElement>(
 	});
 }
 
-/* ---------- reveal (progressive: content is visible without JS) ---------- */
+/* ---------- one reveal (content is visible without script) ---------- */
 
-if ("IntersectionObserver" in window && !reduceMotion.matches) {
-	const revealEls = document.querySelectorAll<HTMLElement>("[data-reveal]");
+const revealEls = document.querySelectorAll<HTMLElement>("[data-reveal]");
 
-	// Elements already in view on load stay visible: no flash.
-	const vh = window.innerHeight;
-	for (const el of revealEls) {
-		if (el.getBoundingClientRect().top < vh * 0.9)
-			el.classList.add("is-in");
-	}
-
-	root.classList.add("reveal-ready");
-
+if ("IntersectionObserver" in window) {
 	const io = new IntersectionObserver(
 		(entries) => {
 			for (const entry of entries) {
@@ -91,22 +88,11 @@ if ("IntersectionObserver" in window && !reduceMotion.matches) {
 				io.unobserve(entry.target);
 			}
 		},
-		{ threshold: 0.1, rootMargin: "0px 0px -6% 0px" },
+		{ rootMargin: "0px 0px -10% 0px" },
 	);
-
-	for (const el of revealEls) {
-		if (!el.classList.contains("is-in")) io.observe(el);
-	}
-
-	// Stagger siblings inside grids/lists
-	for (const group of document.querySelectorAll(".more-grid")) {
-		[...group.children].forEach((child, i) => {
-			(child as HTMLElement).style.setProperty(
-				"--reveal-delay",
-				`${(i % 2) * 0.1}s`,
-			);
-		});
-	}
+	for (const el of revealEls) io.observe(el);
+} else {
+	for (const el of revealEls) el.classList.add("is-in");
 }
 
 /* ---------- scroll spy ---------- */
@@ -129,29 +115,9 @@ if (spyLinks.length && "IntersectionObserver" in window) {
 		{ rootMargin: "-45% 0px -50% 0px" },
 	);
 
-	for (const section of document.querySelectorAll("section[id], .hero")) {
+	for (const section of document.querySelectorAll("section, .hero")) {
 		spy.observe(section);
 	}
-}
-
-/* ---------- local clock ---------- */
-
-const clock = document.getElementById("localClock");
-
-if (clock) {
-	const fmt = new Intl.DateTimeFormat(root.lang || "pt-BR", {
-		hour: "2-digit",
-		minute: "2-digit",
-		hour12: false,
-		timeZone: clock.dataset.tz || "America/Maceio",
-	});
-	const tick = () => {
-		const now = new Date();
-		clock.textContent = fmt.format(now);
-		clock.setAttribute("datetime", now.toISOString());
-	};
-	tick();
-	setInterval(tick, 15_000);
 }
 
 /* ---------- copy email ---------- */
@@ -175,51 +141,27 @@ for (const btn of document.querySelectorAll<HTMLButtonElement>("[data-copy]")) {
 	});
 }
 
-/* ---------- cursor label over work (fine pointers only) ---------- */
+/* ---------- signature: on touch, the portrait wipes to the photo once in view ---------- */
 
-if (finePointer.matches && !reduceMotion.matches) {
-	const targets = document.querySelectorAll<HTMLElement>("[data-cursor]");
+const portrait = document.querySelector<HTMLElement>(".portrait");
+const touch = window.matchMedia("(hover: none), (pointer: coarse)");
 
-	if (targets.length) {
-		const label = document.createElement("div");
-		label.className = "cursor-label";
-		label.setAttribute("aria-hidden", "true");
-		document.body.append(label);
-
-		let x = 0;
-		let y = 0;
-		let lx = 0;
-		let ly = 0;
-		let raf = 0;
-
-		const loop = () => {
-			lx += (x - lx) * 0.2;
-			ly += (y - ly) * 0.2;
-			label.style.transform = `translate3d(${lx + 16}px, ${ly + 16}px, 0)`;
-			raf =
-				Math.abs(x - lx) + Math.abs(y - ly) > 0.2
-					? requestAnimationFrame(loop)
-					: 0;
-		};
-
-		window.addEventListener(
-			"pointermove",
-			(e) => {
-				x = e.clientX;
-				y = e.clientY;
-				if (!raf) raf = requestAnimationFrame(loop);
-			},
-			{ passive: true },
-		);
-
-		for (const el of targets) {
-			el.addEventListener("pointerenter", () => {
-				label.textContent = el.dataset.cursor ?? "";
-				label.classList.add("is-on");
-			});
-			el.addEventListener("pointerleave", () => {
-				label.classList.remove("is-on");
-			});
-		}
-	}
+if (
+	portrait &&
+	touch.matches &&
+	!reduceMotion.matches &&
+	"IntersectionObserver" in window
+) {
+	const once = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) continue;
+				once.disconnect();
+				setTimeout(() => portrait.classList.add("is-wiped"), 900);
+				setTimeout(() => portrait.classList.remove("is-wiped"), 3400);
+			}
+		},
+		{ threshold: 0.6 },
+	);
+	once.observe(portrait);
 }

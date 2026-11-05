@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import ArrowIcon from "../icons/ArrowIcon.astro";
 import portraitDither from "../../assets/eu-dither.png";
 import portrait from "../../assets/eu.png";
 import type { Translations } from "../../i18n";
@@ -13,14 +12,27 @@ const { t } = Astro.props;
 ---
 
 <header class="hero">
-	<div class="wrap hero-grid">
-		<figure class="hero-portrait" data-portrait>
+	<div class="container stage-grid">
+		<div class="stage-copy settle">
+			<h1 class="stage-name">{t.hero.name}</h1>
+			<p class="lead stage-lead">{t.hero.lead}</p>
+			<div class="stage-actions">
+				<a href="mailto:oi@gepetojj.com" class="btn">oi@gepetojj.com</a>
+				<a href="#trabalho" class="btn btn--quiet">{t.hero.ctaWork}</a>
+			</div>
+		</div>
+
+		<figure
+			class="portrait settle"
+			data-slot="hero"
+			data-alt="Retrato de João Nobre, tratado em pontilhado de 1 bit"
+		>
 			<Image
 				src={portraitDither}
 				alt={t.hero.portraitAlt}
-				class="hero-portrait-dither"
+				class="portrait-dither"
 				widths={[1040]}
-				sizes="(max-width: 900px) 80vw, 560px"
+				sizes="(max-width: 60rem) 90vw, 640px"
 				format="png"
 				loading="eager"
 				fetchpriority="high"
@@ -29,38 +41,11 @@ const { t } = Astro.props;
 				src={portrait}
 				alt=""
 				aria-hidden="true"
-				class="hero-portrait-photo"
-				widths={[480, 800]}
-				sizes="(max-width: 900px) 80vw, 560px"
+				class="portrait-photo"
+				widths={[640, 1040]}
+				sizes="(max-width: 60rem) 90vw, 640px"
 				loading="lazy"
 			/>
 		</figure>
-
-		<div class="hero-copy">
-			<p class="hero-greeting rise" style="--d: 0">{t.ui.greeting}</p>
-			<h1 class="hero-name rise" style="--d: 1">{t.hero.name}</h1>
-			<p class="hero-role rise" style="--d: 2">
-				{t.ui.role} <span class="hero-alias">· {t.hero.alias} <b>gepetojj</b></span>
-			</p>
-			<p class="hero-lead rise" style="--d: 3">{t.hero.lead}</p>
-			<div class="hero-actions rise" style="--d: 4">
-				<a href="#trabalho" class="btn btn-accent">
-					{t.hero.ctaWork}
-					<ArrowIcon />
-				</a>
-				<a href="mailto:oi@gepetojj.com" class="btn btn-quiet">oi@gepetojj.com</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="wrap rise" style="--d: 5">
-		<div class="hero-meta">
-		<span class="status"><i class="status-dot" aria-hidden="true"></i>{t.ui.status}</span>
-		<span>{t.ui.location}</span>
-		<span class="hero-clock">
-			<time id="localClock" data-tz="America/Maceio">--:--</time>
-			<span class="hero-clock-label">BRT · {t.ui.localTime}</span>
-		</span>
-		</div>
 	</div>
 </header>

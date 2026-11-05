@@ -37,7 +37,7 @@ const en: Translations = {
 	hero: {
 		name: "João Nobre",
 		alias: "known as",
-		lead: "I align technology with business goals, turning time, effort, and resources into tangible results. I work end to end, from diagnosis to production operations, across strategy and execution.",
+		lead: "CTO at Link Soluções. Technology aligned with business results.",
 		ctaWork: "See my work",
 		portraitAlt:
 			"João Nobre, CTO, studio portrait looking toward the horizon",
@@ -45,17 +45,17 @@ const en: Translations = {
 	about: {
 		title: "Technology in service of outcomes, not the other way around.",
 		paragraphs: [
-			"I'm <strong>CTO at Link Soluções</strong>, where I lead technical strategy and the delivery of custom software and AI-powered solutions. My approach is end to end: from diagnosis and prioritization to delivery and production operations.",
-			"I work directly where technology creates real value: product strategy, process automation, critical integrations, and system reliability at scale. Based in <strong>Arapiraca, Alagoas</strong>, I build software that works with teams that ship.",
-			"For me, technology only makes sense when it comes from the real flow of the people who use it. Before any architecture decision, I map the user journey and business impact; only then do I design the technical solution that supports that experience. <strong>Product vision and technical execution go together</strong>, not in parallel.",
+			"I'm <strong>CTO at Link Soluções</strong>. I lead technical strategy and the delivery of custom software and AI, from diagnosis to production.",
+			"I work where technology creates real value: product, automation, critical integrations and reliability at scale, from <strong>Arapiraca, Alagoas</strong>.",
+			"Before any architecture, I map the user journey and the business impact. <strong>Product vision and technical execution go together.</strong>",
 		],
 		proofLine:
-			"34+ companies across 4 continents · R$600k+ processed through platforms · peaks of 50k+ concurrent users",
+			"34+ companies across 4 continents · R$600k+ processed through platforms · 50k+ concurrent users at peak",
 	},
 	pillars: {
 		title: "Four fronts, one goal.",
 		subtitle:
-			"The areas where my work as technical leadership tends to make the biggest difference for the business.",
+			"Where technical leadership makes the biggest difference for the business.",
 		items: [
 			{
 				title: "Product strategy & execution",
@@ -82,7 +82,7 @@ const en: Translations = {
 	stack: {
 		title: "From interface to hardware.",
 		subtitle:
-			"Technologies and competencies I apply from diagnosis to delivery, in code, operations, and team leadership.",
+			"From diagnosis to delivery: in code, operations and team leadership.",
 		technicalLabel: "Technical",
 		categories: [
 			{
@@ -264,7 +264,7 @@ const en: Translations = {
 				href: "https://github.com/gepetojj/carrinho-wireless",
 				name: "carrinho-wireless",
 				description:
-					"Proof of concept combining IoT and gamification for remotely controlling a custom-built RC cart.",
+					"IoT and gamification to remotely drive a car built on custom hardware.",
 				lang: "C++",
 				langColor: "#f34b7d",
 			},
@@ -272,7 +272,7 @@ const en: Translations = {
 				href: "https://github.com/gepetojj/lite-deploy-helper",
 				name: "lite-deploy-helper",
 				description:
-					"Automates server releases: every code update goes live in minutes, without repetitive manual steps or a team dedicated only to deployments.",
+					"Every code update goes live in minutes, with no manual deploys.",
 				lang: "Go",
 				langColor: "#00add8",
 			},
@@ -305,25 +305,16 @@ const en: Translations = {
 	},
 	ui: {
 		skip: "Skip to content",
-		greeting: "Hi, I'm",
-		role: "CTO at Link Soluções",
-		status: "Open to conversations & partnerships",
-		location: "Arapiraca, AL — Brazil",
-		localTime: "local time",
-		proofTitle: "Proof of execution",
 		copy: "Copy email",
-		copied: "Copied",
-		footerNav: "Navigation",
-		footerStart: "Start here",
-		footerElsewhere: "Elsewhere",
-		statusLabel: "Status",
-		viewProject: "View project",
-		capabilitiesLabel: "Focus areas",
-		stackLabel: "Stack",
-		moreWork: "More products",
+		copied: "Email copied",
+		location: "Arapiraca, Alagoas, Brazil",
+		indexTitle: "Every product",
+		colArea: "Area",
+		colWhat: "What for",
+		colTools: "Tools",
 	},
 	footer: {
-		copyright: "© 2026 João Nobre · gepetojj. All rights reserved.",
+		copyright: "© 2026 João Nobre (gepetojj)",
 		backToTop: "Back to top",
 	},
 };
