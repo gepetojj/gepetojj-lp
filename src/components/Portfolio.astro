@@ -2,18 +2,16 @@
 import type { Locale } from "../i18n";
 import { getLocaleUrl, useTranslations } from "../i18n";
 import Layout from "../layouts/Layout.astro";
-import NoiseOverlay from "./portfolio/NoiseOverlay.astro";
-import Cursor from "./portfolio/Cursor.astro";
 import Nav from "./portfolio/Nav.astro";
 import Hero from "./portfolio/Hero.astro";
-import Marquee from "./portfolio/Marquee.astro";
 import About from "./portfolio/About.astro";
+import Work from "./portfolio/Work.astro";
+import WorkIndex from "./portfolio/WorkIndex.astro";
 import Pillars from "./portfolio/Pillars.astro";
 import Stack from "./portfolio/Stack.astro";
-import Work from "./portfolio/Work.astro";
+import Leadership from "./portfolio/Leadership.astro";
 import OpenSource from "./portfolio/OpenSource.astro";
 import Contact from "./portfolio/Contact.astro";
-import Footer from "./portfolio/Footer.astro";
 
 interface Props {
 	locale: Locale;
@@ -25,21 +23,19 @@ const canonical = getLocaleUrl(locale);
 ---
 
 <Layout locale={locale} t={t} canonical={canonical}>
-	<NoiseOverlay />
-	<Cursor />
-	<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+	<a href="#conteudo" class="skip-link">{t.ui.skip}</a>
 	<Nav t={t} locale={locale} />
 	<main id="conteudo">
 		<Hero t={t} />
-		<Marquee t={t} />
+		<Work t={t} />
+		<WorkIndex t={t} />
 		<About t={t} />
 		<Pillars t={t} />
 		<Stack t={t} />
-		<Work t={t} />
+		<Leadership t={t} />
 		<OpenSource t={t} />
-		<Contact t={t} />
 	</main>
-	<Footer t={t} />
+	<Contact t={t} />
 
 	<script>
 		import "../scripts/portfolio.ts";

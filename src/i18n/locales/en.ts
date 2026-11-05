@@ -4,7 +4,7 @@ const en: Translations = {
 	meta: {
 		title: "João Nobre, CTO & Technology Leadership | gepetojj",
 		description:
-			"João Nobre (gepetojj) is CTO at Link Soluções. Technical leadership, product strategy, automation, platforms, and AI, from diagnosis to production operations. Based in Arapiraca, Alagoas, Brazil.",
+			"João Nobre (gepetojj) is CTO at Link Soluções. Technical leadership, product strategy, automation, platforms, and AI, from diagnosis to production operations. Based in Alagoas, Brazil.",
 		shortDescription:
 			"CTO and technical leadership. Product strategy, automation, platforms, and AI focused on business outcomes.",
 		keywords: [
@@ -17,7 +17,6 @@ const en: Translations = {
 			"artificial intelligence",
 			"process automation",
 			"Link Soluções",
-			"Arapiraca",
 			"Brazil",
 			"software development",
 			"SaaS platforms",
@@ -37,34 +36,25 @@ const en: Translations = {
 	hero: {
 		name: "João Nobre",
 		alias: "known as",
-		lead: "I align technology with business goals, turning time, effort, and resources into tangible results. I work end to end, from diagnosis to production operations, across strategy and execution.",
+		lead: "CTO at Link Soluções. Technology aligned with business results.",
 		ctaWork: "See my work",
-		scroll: "scroll",
 		portraitAlt:
 			"João Nobre, CTO, studio portrait looking toward the horizon",
-	},
-	marquee: {
-		phrases: [
-			"PRODUCT STRATEGY",
-			"PROCESS AUTOMATION",
-			"PLATFORMS & INTEGRATIONS",
-			"RELIABILITY & SCALE",
-		],
 	},
 	about: {
 		title: "Technology in service of outcomes, not the other way around.",
 		paragraphs: [
-			"I'm <strong>CTO at Link Soluções</strong>, where I lead technical strategy and the delivery of custom software and AI-powered solutions. My approach is end to end: from diagnosis and prioritization to delivery and production operations.",
-			"I work directly where technology creates real value: product strategy, process automation, critical integrations, and system reliability at scale. Based in <strong>Arapiraca, Alagoas</strong>, I build software that works with teams that ship.",
-			"For me, technology only makes sense when it comes from the real flow of the people who use it. Before any architecture decision, I map the user journey and business impact; only then do I design the technical solution that supports that experience. <strong>Product vision and technical execution go together</strong>, not in parallel.",
+			"I'm <strong>CTO at Link Soluções</strong>. I lead technical strategy and the delivery of custom software and AI, from diagnosis to production.",
+			"I work where technology creates real value: product, automation, critical integrations and reliability at scale, from <strong>Alagoas, Brazil</strong>.",
+			"Before any architecture, I map the user journey and the business impact. <strong>Product vision and technical execution go together.</strong>",
 		],
 		proofLine:
-			"34+ companies across 4 continents · R$600k+ processed through platforms · peaks of 50k+ concurrent users",
+			"34+ companies across 4 continents · R$600k+ processed through platforms · 50k+ concurrent users at peak",
 	},
 	pillars: {
 		title: "Four fronts, one goal.",
 		subtitle:
-			"The areas where my work as technical leadership tends to make the biggest difference for the business.",
+			"Where technical leadership makes the biggest difference for the business.",
 		items: [
 			{
 				title: "Product strategy & execution",
@@ -91,7 +81,7 @@ const en: Translations = {
 	stack: {
 		title: "From interface to hardware.",
 		subtitle:
-			"Technologies and competencies I apply from diagnosis to delivery, in code, operations, and team leadership.",
+			"From diagnosis to delivery: in code, operations and team leadership.",
 		technicalLabel: "Technical",
 		categories: [
 			{
@@ -172,7 +162,7 @@ const en: Translations = {
 					"As CTO, I lead technical strategy and the delivery of custom software and AI solutions, serving companies across four continents with agile development and a focus on real outcomes.",
 				tags: ["CTO", "Custom software", "AI", "Product teams"],
 				domain: "linksolucoesbr.com",
-				accent: "#d6ff3f",
+				accent: "#ff6a2b",
 				highlight: "34+ companies · 4 continents",
 			},
 			{
@@ -185,6 +175,33 @@ const en: Translations = {
 				domain: "crmspark.com.br",
 				accent: "#8b6cf7",
 				highlight: "AI agent · WhatsApp & Instagram",
+			},
+			{
+				href: "https://disppa.com/?utm_source=gepetojj.com&utm_medium=referral",
+				tag: "Product",
+				name: "Disppa",
+				description:
+					"The official WhatsApp API without the headache: webhooks, templates, and sandbox set up in minutes, with documentation built for developers and AI agents, searchable logs, and reliable delivery.",
+				tags: ["WhatsApp API", "DX", "Webhooks", "MCP"],
+				domain: "disppa.com",
+				accent: "#6d5efc",
+				highlight: "Zero to first message in minutes",
+			},
+			{
+				href: "https://comentta.com.br/?utm_source=gepetojj.com&utm_medium=referral",
+				tag: "Product",
+				name: "Comentta",
+				description:
+					"Instagram automation platform that uses AI to reply to comments, DMs, stories, and lives in the brand's voice, with no flowcharts or code, turning interactions into conversations and sales.",
+				tags: [
+					"Instagram",
+					"Applied AI",
+					"Automation",
+					"Social commerce",
+				],
+				domain: "comentta.com.br",
+				accent: "#3b82f6",
+				highlight: "AI replies to comments, DMs & lives",
 			},
 			{
 				href: "https://scfinance.linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -246,7 +263,7 @@ const en: Translations = {
 				href: "https://github.com/gepetojj/carrinho-wireless",
 				name: "carrinho-wireless",
 				description:
-					"Proof of concept combining IoT and gamification for remotely controlling a custom-built RC cart.",
+					"IoT and gamification to remotely drive a car built on custom hardware.",
 				lang: "C++",
 				langColor: "#f34b7d",
 			},
@@ -254,7 +271,7 @@ const en: Translations = {
 				href: "https://github.com/gepetojj/lite-deploy-helper",
 				name: "lite-deploy-helper",
 				description:
-					"Automates server releases: every code update goes live in minutes, without repetitive manual steps or a team dedicated only to deployments.",
+					"Every code update goes live in minutes, with no manual deploys.",
 				lang: "Go",
 				langColor: "#00add8",
 			},
@@ -285,8 +302,18 @@ const en: Translations = {
 		subtitle:
 			"Open to conversations about technology, technical leadership, and partnerships.",
 	},
+	ui: {
+		skip: "Skip to content",
+		copy: "Copy email",
+		copied: "Email copied",
+		location: "Alagoas, Brazil",
+		indexTitle: "Every product",
+		colArea: "Area",
+		colWhat: "What for",
+		colTools: "Tools",
+	},
 	footer: {
-		copyright: "© 2026 João Nobre · gepetojj. All rights reserved.",
+		copyright: "© 2026 João Nobre (gepetojj)",
 		backToTop: "Back to top",
 	},
 };

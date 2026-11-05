@@ -10,7 +10,7 @@ brand
 
 - Founders and executives evaluating CTO-level technical leadership for partnerships, consulting, or hiring
 - Recruiters and talent scouts assessing senior engineering leadership fit
-- Potential clients for Link Soluções or product companies (Spark, SC Finance, Triglit, etc.)
+- Potential clients for Link Soluções or product companies (Spark, Disppa, Comentta, SC Finance, Triglit, etc.)
 - Technical peers reviewing open source work and engineering credibility
 
 **Context**

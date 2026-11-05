@@ -1,267 +1,250 @@
-document.documentElement.classList.add("js");
+const root = document.documentElement;
+root.classList.add("js");
 
-document.addEventListener("keydown", (e) => {
-	if (e.key === "Tab") {
-		document.documentElement.classList.add("keyboard-nav");
-	}
-});
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-document.addEventListener("mousedown", () => {
-	document.documentElement.classList.remove("keyboard-nav");
-});
+/* ---------- nav: solid on scroll, mobile drawer ---------- */
 
-const isTouch = window.matchMedia("(pointer: coarse)").matches;
-
-if (isTouch) {
-	document.body.classList.add("touch-device");
-}
-
-if (!isTouch) {
-	const dot = document.getElementById("cursor-dot");
-	const ring = document.getElementById("cursor-ring");
-
-	if (dot && ring) {
-		let mx = window.innerWidth / 2;
-		let my = window.innerHeight / 2;
-		let rx = mx;
-		let ry = my;
-
-		window.addEventListener("mousemove", (e: MouseEvent) => {
-			mx = e.clientX;
-			my = e.clientY;
-			dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
-		});
-
-		const loop = () => {
-			rx += (mx - rx) * 0.16;
-			ry += (my - ry) * 0.16;
-			ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
-			requestAnimationFrame(loop);
-		};
-		loop();
-
-		const hoverables = document.querySelectorAll(
-			"a, button, .tilt, .magnetic",
-		);
-		for (const el of hoverables) {
-			el.addEventListener("mouseenter", () =>
-				ring.classList.add("hovered"),
-			);
-			el.addEventListener("mouseleave", () =>
-				ring.classList.remove("hovered"),
-			);
-		}
-	}
-}
-
-const progress = document.getElementById("progress");
 const nav = document.getElementById("nav");
 const navToggle = document.getElementById("navToggle");
 const navDrawer = document.getElementById("navDrawer");
 
-const closeMenu = () => {
-	nav?.classList.remove("menu-open");
-	navDrawer?.classList.remove("is-open");
-	navDrawer?.setAttribute("aria-hidden", "true");
-	navDrawer?.setAttribute("inert", "");
-	navToggle?.setAttribute("aria-expanded", "false");
-	document.body.classList.remove("nav-open");
+const setMenu = (open: boolean) => {
+	nav?.classList.toggle("menu-open", open);
+	navDrawer?.classList.toggle("is-open", open);
+	navDrawer?.setAttribute("aria-hidden", String(!open));
+	navDrawer?.toggleAttribute("inert", !open);
+	navToggle?.setAttribute("aria-expanded", String(open));
+	document.body.classList.toggle("nav-open", open);
 };
 
-const openMenu = () => {
-	nav?.classList.add("menu-open");
-	navDrawer?.classList.add("is-open");
-	navDrawer?.setAttribute("aria-hidden", "false");
-	navDrawer?.removeAttribute("inert");
-	navToggle?.setAttribute("aria-expanded", "true");
-	document.body.classList.add("nav-open");
-};
+navToggle?.addEventListener("click", () => {
+	setMenu(!nav?.classList.contains("menu-open"));
+});
 
-if (navToggle && nav && navDrawer) {
-	navToggle.addEventListener("click", () => {
-		if (nav.classList.contains("menu-open")) {
-			closeMenu();
-		} else {
-			openMenu();
-		}
-	});
+document.addEventListener("keydown", (e) => {
+	if (e.key === "Escape" && nav?.classList.contains("menu-open")) {
+		setMenu(false);
+		navToggle?.focus();
+	}
+});
 
-	document.addEventListener("keydown", (e) => {
-		if (e.key === "Escape" && nav.classList.contains("menu-open")) {
-			closeMenu();
-			navToggle.focus();
-		}
-	});
-}
+window.matchMedia("(min-width: 60.0625rem)").addEventListener("change", (e) => {
+	if (e.matches) setMenu(false);
+});
 
+let ticking = false;
 const onScroll = () => {
-	const h = document.documentElement;
-	const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-
-	if (progress) {
-		progress.style.width = `${scrolled}%`;
-	}
-
-	if (nav) {
-		nav.classList.toggle("scrolled", h.scrollTop > 40);
-	}
+	if (ticking) return;
+	ticking = true;
+	requestAnimationFrame(() => {
+		nav?.classList.toggle("scrolled", window.scrollY > 24);
+		ticking = false;
+	});
 };
-
 document.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
-const heroBg = document.getElementById("heroBg");
-const hero = document.querySelector(".hero");
-const heroPortrait = document.querySelector(".hero-portrait-img");
+/* ---------- in-page anchors ---------- */
 
-if (!isTouch && heroBg && hero instanceof HTMLElement) {
-	hero.addEventListener("mousemove", (e: MouseEvent) => {
-		const x = ((e.clientX / window.innerWidth) * 100).toFixed(1);
-		const y = ((e.clientY / window.innerHeight) * 100).toFixed(1);
-		heroBg.style.setProperty("--mx", `${x}%`);
-		heroBg.style.setProperty("--my", `${y}%`);
-		heroBg.style.setProperty("--mx2", `${100 - Number(x)}%`);
-
-		if (heroPortrait instanceof HTMLElement) {
-			const rect = hero.getBoundingClientRect();
-			const px = (e.clientX - rect.left) / rect.width - 0.5;
-			const py = (e.clientY - rect.top) / rect.height - 0.5;
-			heroPortrait.style.transform = `translate(${px * 10}px, ${py * 6}px)`;
-		}
-	});
-}
-
-const revealEls = document.querySelectorAll("[data-reveal]");
-
-const io = new IntersectionObserver(
-	(entries) => {
-		for (const entry of entries) {
-			if (entry.isIntersecting) {
-				const el = entry.target;
-				if (!(el instanceof HTMLElement)) continue;
-
-				const parent = el.parentElement;
-
-				if (parent) {
-					const siblings = Array.from(parent.children).filter(
-						(c): c is HTMLElement =>
-							c instanceof HTMLElement &&
-							c.hasAttribute("data-reveal"),
-					);
-					const order = siblings.indexOf(el);
-					el.style.transitionDelay = `${Math.min(order, 6) * 0.08}s`;
-				}
-
-				el.classList.add("visible");
-				io.unobserve(el);
-			}
-		}
-	},
-	{ threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
-);
-
-for (const el of revealEls) {
-	io.observe(el);
-}
-
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll("a[data-link]");
-
-const navIo = new IntersectionObserver(
-	(entries) => {
-		for (const entry of entries) {
-			if (entry.isIntersecting) {
-				for (const link of navLinks) {
-					link.classList.remove("active");
-				}
-
-				const matches = document.querySelectorAll(
-					`a[data-link][href="#${entry.target.id}"]`,
-				);
-
-				for (const match of matches) {
-					match.classList.add("active");
-				}
-			}
-		}
-	},
-	{ threshold: 0, rootMargin: "-45% 0px -45% 0px" },
-);
-
-for (const section of sections) {
-	navIo.observe(section);
-}
-
-if (!isTouch) {
-	for (const el of document.querySelectorAll(".magnetic")) {
-		el.addEventListener("mousemove", (e) => {
-			if (!(el instanceof HTMLElement) || !(e instanceof MouseEvent))
-				return;
-
-			const r = el.getBoundingClientRect();
-			const relX = e.clientX - r.left - r.width / 2;
-			const relY = e.clientY - r.top - r.height / 2;
-			el.style.transform = `translate(${relX * 0.25}px,${relY * 0.3}px)`;
-		});
-
-		el.addEventListener("mouseleave", () => {
-			if (!(el instanceof HTMLElement)) return;
-
-			el.style.transition = "transform .4s cubic-bezier(.16,.8,.3,1)";
-			el.style.transform = "translate(0,0)";
-			setTimeout(() => {
-				el.style.transition = "";
-			}, 400);
-		});
-	}
-}
-
-if (!isTouch) {
-	for (const el of document.querySelectorAll(".tilt")) {
-		if (!(el instanceof HTMLElement)) continue;
-
-		el.style.transition = "transform .15s ease";
-
-		el.addEventListener("mousemove", (e) => {
-			if (!(e instanceof MouseEvent)) return;
-
-			const r = el.getBoundingClientRect();
-			const px = (e.clientX - r.left) / r.width - 0.5;
-			const py = (e.clientY - r.top) / r.height - 0.5;
-			el.style.transform = `perspective(800px) rotateX(${py * -6}deg) rotateY(${px * 6}deg) translateY(-2px)`;
-		});
-
-		el.addEventListener("mouseleave", () => {
-			el.style.transition = "transform .5s cubic-bezier(.16,.8,.3,1)";
-			el.style.transform =
-				"perspective(800px) rotateX(0) rotateY(0) translateY(0)";
-			setTimeout(() => {
-				el.style.transition = "transform .15s ease";
-			}, 500);
-		});
-	}
-}
-
-for (const anchor of document.querySelectorAll('a[href^="#"]')) {
+for (const anchor of document.querySelectorAll<HTMLAnchorElement>(
+	'a[href^="#"]',
+)) {
 	anchor.addEventListener("click", (e) => {
 		const id = anchor.getAttribute("href");
-
 		if (!id) return;
 
-		if (nav?.classList.contains("menu-open")) {
-			closeMenu();
-		}
+		if (nav?.classList.contains("menu-open")) setMenu(false);
 
-		if (id.length > 1) {
-			const target = document.querySelector(id);
+		const behavior: ScrollBehavior = reduceMotion.matches
+			? "auto"
+			: "smooth";
 
-			if (target) {
-				e.preventDefault();
-				target.scrollIntoView({ behavior: "smooth", block: "start" });
-			}
-		} else if (id === "#top") {
+		if (id === "#top" || id === "#") {
 			e.preventDefault();
-			window.scrollTo({ top: 0, behavior: "smooth" });
+			window.scrollTo({ top: 0, behavior });
+			return;
 		}
+
+		const target = document.querySelector(id);
+		if (!target) return;
+
+		e.preventDefault();
+		target.scrollIntoView({ behavior, block: "start" });
+		history.replaceState(null, "", id);
 	});
+}
+
+/* ---------- one reveal (content is visible without script) ---------- */
+
+const revealEls = document.querySelectorAll<HTMLElement>("[data-reveal]");
+
+if ("IntersectionObserver" in window) {
+	const io = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) continue;
+				entry.target.classList.add("is-in");
+				io.unobserve(entry.target);
+			}
+		},
+		{ rootMargin: "0px 0px -10% 0px" },
+	);
+	for (const el of revealEls) io.observe(el);
+} else {
+	for (const el of revealEls) el.classList.add("is-in");
+}
+
+/* ---------- scroll spy ---------- */
+
+const spyLinks = document.querySelectorAll<HTMLAnchorElement>("a[data-link]");
+
+if (spyLinks.length && "IntersectionObserver" in window) {
+	const spy = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) continue;
+				for (const link of spyLinks) {
+					link.classList.toggle(
+						"active",
+						link.getAttribute("href") === `#${entry.target.id}`,
+					);
+				}
+			}
+		},
+		{ rootMargin: "-45% 0px -50% 0px" },
+	);
+
+	for (const section of document.querySelectorAll("section, .hero")) {
+		spy.observe(section);
+	}
+}
+
+/* ---------- copy email ---------- */
+
+for (const btn of document.querySelectorAll<HTMLButtonElement>("[data-copy]")) {
+	const label = btn.querySelector(".copy-label");
+	const original = label?.textContent ?? "";
+
+	btn.addEventListener("click", async () => {
+		try {
+			await navigator.clipboard.writeText(btn.dataset.copy ?? "");
+		} catch {
+			return;
+		}
+		btn.classList.add("is-copied");
+		if (label) label.textContent = btn.dataset.copiedLabel ?? original;
+		setTimeout(() => {
+			btn.classList.remove("is-copied");
+			if (label) label.textContent = original;
+		}, 1800);
+	});
+}
+
+/* ---------- signature: the two-wave lens on the portrait ---------- */
+
+const lens = document.querySelector<HTMLElement>("[data-lens]");
+
+if (lens) {
+	const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+	const state = { x: 0.5, y: 0.35, r: 0, tx: 0.5, ty: 0.35, tr: 0 };
+	let raf = 0;
+	let start = performance.now();
+
+	const radius = () => lens.getBoundingClientRect().width * 0.17;
+
+	const paint = (now: number) => {
+		const still = reduceMotion.matches;
+		const k = still ? 1 : 0.16;
+		state.x += (state.tx - state.x) * k;
+		state.y += (state.ty - state.y) * k;
+		state.r += (state.tr - state.r) * (still ? 1 : 0.12);
+
+		// two waves out of phase, so the rings breathe like water
+		const t = (now - start) / 1000;
+		const w1 = still ? 1 : 1 + 0.05 * Math.sin(t * 2.4);
+		const w2 = still ? 1 : 1 + 0.07 * Math.sin(t * 1.7 + 1.3);
+		const r1 = state.r * w1;
+		const r2 = state.r * 1.8 * w2;
+
+		lens.style.setProperty("--lx", `${(state.x * 100).toFixed(2)}%`);
+		lens.style.setProperty("--ly", `${(state.y * 100).toFixed(2)}%`);
+		lens.style.setProperty("--r1", `${r1.toFixed(1)}px`);
+		lens.style.setProperty("--r2", `${r2.toFixed(1)}px`);
+
+		const settled =
+			state.tr === 0 &&
+			state.r < 0.5 &&
+			Math.abs(state.tx - state.x) < 0.001 &&
+			Math.abs(state.ty - state.y) < 0.001;
+		if (settled) {
+			state.r = 0;
+			lens.style.removeProperty("--r1");
+			lens.style.removeProperty("--r2");
+			raf = 0;
+			return;
+		}
+		raf = requestAnimationFrame(paint);
+	};
+
+	const run = () => {
+		if (!raf) {
+			start = performance.now();
+			raf = requestAnimationFrame(paint);
+		}
+	};
+
+	const aim = (clientX: number, clientY: number) => {
+		const box = lens.getBoundingClientRect();
+		state.tx = (clientX - box.left) / box.width;
+		state.ty = (clientY - box.top) / box.height;
+	};
+
+	if (finePointer.matches) {
+		lens.addEventListener("pointerenter", (e) => {
+			aim(e.clientX, e.clientY);
+			state.x = state.tx;
+			state.y = state.ty;
+			state.tr = radius();
+			run();
+		});
+		lens.addEventListener("pointermove", (e) => {
+			aim(e.clientX, e.clientY);
+			run();
+		});
+		lens.addEventListener("pointerleave", () => {
+			state.tr = 0;
+			run();
+		});
+	} else {
+		// touch: open once on the face when the portrait is in view, and on each tap
+		const pulse = (x: number, y: number) => {
+			state.tx = state.x = x;
+			state.ty = state.y = y;
+			state.tr = radius();
+			run();
+			window.setTimeout(() => {
+				state.tr = 0;
+				run();
+			}, 2400);
+		};
+		lens.addEventListener("click", (e) => {
+			const box = lens.getBoundingClientRect();
+			pulse(
+				(e.clientX - box.left) / box.width,
+				(e.clientY - box.top) / box.height,
+			);
+		});
+		if ("IntersectionObserver" in window) {
+			const once = new IntersectionObserver(
+				(entries) => {
+					if (!entries.some((e) => e.isIntersecting)) return;
+					once.disconnect();
+					window.setTimeout(() => pulse(0.47, 0.33), 700);
+				},
+				{ threshold: 0.6 },
+			);
+			once.observe(lens);
+		}
+	}
 }

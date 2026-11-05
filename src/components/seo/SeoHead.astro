@@ -49,8 +49,7 @@ const alternates = getLocaleAlternates();
 <meta name="format-detection" content="telephone=no" />
 
 <meta name="geo.region" content={`${SITE.author.location.country}-${SITE.author.location.region}`} />
-<meta name="geo.placename" content={SITE.author.location.city} />
-<meta name="ICBM" content="-9.7548,-36.6611" />
+<meta name="geo.placename" content={`${SITE.author.location.regionName}, ${SITE.author.location.countryName}`} />
 
 <link rel="canonical" href={canonical} />
 {

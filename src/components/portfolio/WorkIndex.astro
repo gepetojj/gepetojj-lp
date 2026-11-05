@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import { getWorkPreviewImage } from "../../data/work-preview-images";
+import type { Translations } from "../../i18n";
+
+interface Props {
+	t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section index" aria-labelledby="index-title">
+	<div class="container index-grid">
+		<h2 id="index-title" class="index-title" data-reveal>{t.ui.indexTitle}</h2>
+
+		<ul class="index-list" data-reveal>
+			{
+				t.work.projects.map((project) => (
+					<li style={`--work-accent: ${project.accent}`}>
+						<details class="case">
+							<summary class="case-row">
+								<span class="case-name">{project.name}</span>
+								<span class="case-fact">{project.highlight}</span>
+								<span class="case-tag">{project.tag}</span>
+								<span class="case-toggle" aria-hidden="true">
+									<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
+										<path d="M5 12h14" />
+										<path class="case-toggle-v" d="M12 5v14" />
+									</svg>
+								</span>
+							</summary>
+							<div class="case-body">
+								<figure class="case-shot" data-slot={`case-${project.domain}`} data-kind="product" data-alt={`${project.name}, página inicial`}>
+									<Image
+										src={getWorkPreviewImage(project.domain)}
+										alt=""
+										widths={[480, 800]}
+										sizes="(max-width: 60rem) 92vw, 400px"
+										loading="lazy"
+										decoding="async"
+									/>
+								</figure>
+								<div class="case-text">
+									<p>{project.description}</p>
+									<ul class="case-tags">
+										{project.tags.map((tag) => <li>{tag}</li>)}
+									</ul>
+									<a href={project.href} target="_blank" rel="noopener noreferrer" class="text-link">
+										{t.work.visitLive}
+										<span class="visually-hidden">: {project.name}</span>
+									</a>
+								</div>
+							</div>
+						</details>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

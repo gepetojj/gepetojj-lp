@@ -4,7 +4,7 @@ const es: Translations = {
 	meta: {
 		title: "João Nobre, CTO y Liderazgo Tecnológico | gepetojj",
 		description:
-			"João Nobre (gepetojj) es CTO de Link Soluções. Liderazgo técnico, estrategia de producto, automatización, plataformas e IA, del diagnóstico a la operación en producción. Con base en Arapiraca, Alagoas, Brasil.",
+			"João Nobre (gepetojj) es CTO de Link Soluções. Liderazgo técnico, estrategia de producto, automatización, plataformas e IA, del diagnóstico a la operación en producción. Con base en Alagoas, Brasil.",
 		shortDescription:
 			"CTO y liderazgo técnico. Estrategia de producto, automatización, plataformas e IA con foco en resultados de negocio.",
 		keywords: [
@@ -17,7 +17,6 @@ const es: Translations = {
 			"inteligencia artificial",
 			"automatización de procesos",
 			"Link Soluções",
-			"Arapiraca",
 			"Brasil",
 			"desarrollo de software",
 			"plataformas SaaS",
@@ -37,33 +36,24 @@ const es: Translations = {
 	hero: {
 		name: "João Nobre",
 		alias: "conocido como",
-		lead: "Alineo la tecnología con los objetivos de negocio, transformando tiempo, esfuerzo y recursos en resultados tangibles. Actúo de punta a punta, del diagnóstico a la operación en producción, en estrategia y ejecución.",
+		lead: "CTO de Link Soluções. Tecnología alineada con resultados de negocio.",
 		ctaWork: "Ver trayectoria",
-		scroll: "scroll",
 		portraitAlt: "João Nobre, CTO, retrato de estudio mirando al horizonte",
-	},
-	marquee: {
-		phrases: [
-			"ESTRATEGIA DE PRODUCTO",
-			"AUTOMATIZACIÓN DE PROCESOS",
-			"PLATAFORMAS E INTEGRACIONES",
-			"CONFIABILIDAD Y ESCALA",
-		],
 	},
 	about: {
 		title: "Tecnología al servicio del resultado, no al revés.",
 		paragraphs: [
-			"Soy <strong>CTO de Link Soluções</strong>, donde lidero la estrategia técnica y la entrega de software a medida y soluciones con inteligencia artificial. Mi enfoque es de punta a punta: del diagnóstico y la priorización a la entrega y la operación en producción.",
-			"Trabajo directamente en las áreas donde la tecnología genera valor real: estrategia de producto, automatización de procesos, integraciones críticas y confiabilidad de sistemas a escala. Con base en <strong>Arapiraca, Alagoas</strong>, construyo software que funciona con equipos que entregan.",
-			"Para mí, la tecnología solo tiene sentido cuando nace del flujo real de quien la usa. Antes de cualquier decisión de arquitectura, mapeo la jornada del usuario y el impacto en el negocio; solo después diseño la solución técnica que sostiene esa experiencia. <strong>La visión de producto y la ejecución técnica van juntas</strong>, no en paralelo.",
+			"Soy <strong>CTO de Link Soluções</strong>. Lidero la estrategia técnica y la entrega de software a medida e IA, del diagnóstico a la operación en producción.",
+			"Trabajo donde la tecnología genera valor real: producto, automatización, integraciones críticas y confiabilidad a escala, desde <strong>Alagoas, Brasil</strong>.",
+			"Antes de la arquitectura, mapeo la jornada del usuario y el impacto en el negocio. <strong>La visión de producto y la ejecución técnica van juntas.</strong>",
 		],
 		proofLine:
-			"34+ empresas en 4 continentes · R$600k+ movilizados en plataformas · picos de 50k+ usuarios simultáneos",
+			"34+ empresas en 4 continentes · R$600k+ movilizados en plataformas · 50k+ usuarios simultáneos en picos",
 	},
 	pillars: {
 		title: "Cuatro frentes, un mismo objetivo.",
 		subtitle:
-			"Las áreas en las que mi actuación como liderazgo técnico suele marcar más diferencia para el negocio.",
+			"Donde el liderazgo técnico marca más diferencia para el negocio.",
 		items: [
 			{
 				title: "Estrategia de producto y ejecución",
@@ -90,7 +80,7 @@ const es: Translations = {
 	stack: {
 		title: "De la interfaz al hardware.",
 		subtitle:
-			"Tecnologías y competencias que aplico del diagnóstico a la entrega, en código, operación y liderazgo de equipos.",
+			"Del diagnóstico a la entrega: en el código, la operación y el liderazgo de equipos.",
 		technicalLabel: "Técnicas",
 		categories: [
 			{
@@ -170,7 +160,7 @@ const es: Translations = {
 					"Como CTO, lidero la estrategia técnica y la entrega de software a medida y soluciones con inteligencia artificial, atendiendo empresas en cuatro continentes con desarrollo ágil y foco en resultados reales.",
 				tags: ["CTO", "Software a medida", "IA", "Equipos de producto"],
 				domain: "linksolucoesbr.com",
-				accent: "#d6ff3f",
+				accent: "#ff6a2b",
 				highlight: "34+ empresas · 4 continentes",
 			},
 			{
@@ -183,6 +173,33 @@ const es: Translations = {
 				domain: "crmspark.com.br",
 				accent: "#8b6cf7",
 				highlight: "Agente IA · WhatsApp e Instagram",
+			},
+			{
+				href: "https://disppa.com/?utm_source=gepetojj.com&utm_medium=referral",
+				tag: "Producto",
+				name: "Disppa",
+				description:
+					"La API oficial de WhatsApp sin dolores de cabeza: webhooks, plantillas y sandbox configurados en minutos, con documentación pensada para desarrolladores y agentes de IA, logs con búsqueda y entrega confiable.",
+				tags: ["WhatsApp API", "DX", "Webhooks", "MCP"],
+				domain: "disppa.com",
+				accent: "#6d5efc",
+				highlight: "De cero al primer mensaje en minutos",
+			},
+			{
+				href: "https://comentta.com.br/?utm_source=gepetojj.com&utm_medium=referral",
+				tag: "Producto",
+				name: "Comentta",
+				description:
+					"Plataforma de automatización para Instagram que usa IA para responder comentarios, DMs, stories y lives con el tono de la marca, sin diagramas ni código, convirtiendo interacciones en conversaciones y ventas.",
+				tags: [
+					"Instagram",
+					"IA aplicada",
+					"Automatización",
+					"Social commerce",
+				],
+				domain: "comentta.com.br",
+				accent: "#3b82f6",
+				highlight: "Comentarios, DMs y lives respondidos por IA",
 			},
 			{
 				href: "https://scfinance.linksolucoesbr.com/?utm_source=gepetojj.com&utm_medium=referral",
@@ -244,7 +261,7 @@ const es: Translations = {
 				href: "https://github.com/gepetojj/carrinho-wireless",
 				name: "carrinho-wireless",
 				description:
-					"Prueba de concepto que une IoT y gamificación en el control a distancia de un carrito de control remoto construido en hardware propio.",
+					"IoT y gamificación para controlar a distancia un carrito con hardware propio.",
 				lang: "C++",
 				langColor: "#f34b7d",
 			},
@@ -252,7 +269,7 @@ const es: Translations = {
 				href: "https://github.com/gepetojj/lite-deploy-helper",
 				name: "lite-deploy-helper",
 				description:
-					"Automatiza publicaciones en el servidor: cada actualización de código sale al aire en minutos, sin procesos manuales repetitivos ni equipo dedicado solo al deploy.",
+					"Cada actualización del código sale en minutos, sin deploy manual.",
 				lang: "Go",
 				langColor: "#00add8",
 			},
@@ -283,9 +300,18 @@ const es: Translations = {
 		subtitle:
 			"Abierto a conversaciones sobre tecnología, liderazgo técnico y alianzas.",
 	},
+	ui: {
+		skip: "Saltar al contenido",
+		copy: "Copiar correo",
+		copied: "Correo copiado",
+		location: "Alagoas, Brasil",
+		indexTitle: "Todos los productos",
+		colArea: "Área",
+		colWhat: "Para qué",
+		colTools: "Herramientas",
+	},
 	footer: {
-		copyright:
-			"© 2026 João Nobre · gepetojj. Todos los derechos reservados.",
+		copyright: "© 2026 João Nobre (gepetojj)",
 		backToTop: "Volver arriba",
 	},
 };

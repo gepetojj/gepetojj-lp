@@ -9,49 +9,38 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<section
-	id="skills"
-	class="section-pad"
-	style="background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);"
->
-	<div class="wrap">
-		<div class="s-head" data-reveal>
-			<h2 class="section-title">{t.stack.title}</h2>
-			<p>{t.stack.subtitle}</p>
+<section id="skills" class="section stack">
+	<div class="container">
+		<div class="head-split" data-reveal>
+			<h2>{t.stack.title}</h2>
+			<p class="lead">{t.stack.subtitle}</p>
 		</div>
 
-		<div class="skills-group" data-reveal>
-			<h3 class="skills-group-label">{t.stack.technicalLabel}</h3>
-			<div class="stack-grid">
+		<table class="stack-table" data-reveal>
+			<caption class="visually-hidden">{t.stack.technicalLabel}</caption>
+			<thead>
+				<tr>
+					<th scope="col">{t.ui.colArea}</th>
+					<th scope="col">{t.ui.colWhat}</th>
+					<th scope="col">{t.ui.colTools}</th>
+				</tr>
+			</thead>
+			<tbody>
 				{
 					t.stack.categories.map((category) => (
-						<div class="stack-card tilt" data-reveal>
-							<SkillIcon icon={category.icon} />
-							<h4>{category.title}</h4>
-							<div class="sdesc">{category.description}</div>
-							<div class="tags">
-								{category.tags.map((tag) => (
-									<span class="tag">{tag}</span>
-								))}
-							</div>
-						</div>
+						<tr>
+							<th scope="row">
+								<span class="stack-area">
+									<SkillIcon icon={category.icon} />
+									{category.title}
+								</span>
+							</th>
+							<td data-label={t.ui.colWhat}>{category.description}</td>
+							<td data-label={t.ui.colTools} class="stack-tools">{category.tags.join(", ")}</td>
+						</tr>
 					))
 				}
-			</div>
-		</div>
-
-		<div class="skills-group skills-group--leadership" data-reveal>
-			<h3 class="skills-group-label">{t.stack.leadershipLabel}</h3>
-			<div class="skills-leadership">
-				{
-					t.stack.leadership.map((item) => (
-						<div class="skills-leadership-item" data-reveal>
-							<h4>{item.title}</h4>
-							<p>{item.description}</p>
-						</div>
-					))
-				}
-			</div>
-		</div>
+			</tbody>
+		</table>
 	</div>
 </section>

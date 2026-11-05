@@ -6,18 +6,30 @@ interface Props {
 }
 
 const { t } = Astro.props;
+const figures = t.about.proofLine.split(" · ").map((line) => {
+	const [figure, ...rest] = line.split(" ");
+	return { figure, label: rest.join(" ") };
+});
 ---
 
-<section id="sobre" class="section-pad">
-	<div class="wrap about-grid">
-		<div class="about-text" data-reveal>
-			<h2 class="section-title">{t.about.title}</h2>
-			{
-				t.about.paragraphs.map((paragraph) => (
-					<p set:html={paragraph} />
-				))
-			}
-			<p class="about-proof" data-reveal>{t.about.proofLine}</p>
+<section id="sobre" class="section about">
+	<div class="container">
+		<h2 class="statement" data-reveal>{t.about.title}</h2>
+
+		<div class="about-grid">
+			<div class="about-prose" data-reveal>
+				{t.about.paragraphs.map((paragraph) => <p set:html={paragraph} />)}
+			</div>
+			<dl class="figures" data-reveal>
+				{
+					figures.map((item) => (
+						<div>
+							<dt class="figure">{item.figure}</dt>
+							<dd>{item.label}</dd>
+						</div>
+					))
+				}
+			</dl>
 		</div>
 	</div>
 </section>
