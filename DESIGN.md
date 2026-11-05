@@ -41,9 +41,10 @@ before shipping a change.
 ## The page (job: hire)
 
 1. **Hero, Settled 6/6.** The name, one sentence, two actions (email filled, "see work" quiet);
-   the 1-bit dithered portrait beside it. Hovering opens a two-wave lens around the pointer:
-   inside the small wave the photograph shows in colour, the ring out to the large wave turns
-   the dither dots ember. On touch it opens once on the face when in view, and on each tap.
+   the 1-bit dithered portrait beside it. Under the pointer, waves start and run out across the
+   whole portrait like a swell (canvas, `[data-waves]`): each leads with ember dots and carries
+   the photograph in colour just behind. A resting pointer keeps sending a wave every ~1.1s; a
+   moving one leaves a wake. On touch, two waves from the face when in view and one per tap.
 2. **Showcase.** One capture across (Link Soluções), two beneath at 7 and 5 (Spark, Disppa), each
    with its fact and a visible "Visitar site".
 3. **Index.** Every product as a hairline row (name, fact, role) that opens in place with its

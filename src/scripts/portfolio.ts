@@ -141,110 +141,195 @@ for (const btn of document.querySelectorAll<HTMLButtonElement>("[data-copy]")) {
 	});
 }
 
-/* ---------- signature: the two-wave lens on the portrait ---------- */
+/* ---------- signature: waves on the portrait ---------- */
 
-const lens = document.querySelector<HTMLElement>("[data-lens]");
+const waves = document.querySelector<HTMLElement>("[data-waves]");
+const waveCanvas = waves?.querySelector<HTMLCanvasElement>(".portrait-waves");
+const ditherImg = waves?.querySelector<HTMLImageElement>(".portrait-dither");
+const photoImg = waves?.querySelector<HTMLImageElement>(".portrait-photo");
 
-if (lens) {
-	const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-	const state = { x: 0.5, y: 0.35, r: 0, tx: 0.5, ty: 0.35, tr: 0 };
-	let raf = 0;
-	let start = performance.now();
+type Wave = { x: number; y: number; born: number };
 
-	const radius = () => lens.getBoundingClientRect().width * 0.17;
+const ready = (img: HTMLImageElement) =>
+	img.complete && img.naturalWidth
+		? Promise.resolve()
+		: new Promise<void>((res) =>
+				img.addEventListener("load", () => res(), { once: true }),
+			);
 
-	const paint = (now: number) => {
-		const still = reduceMotion.matches;
-		const k = still ? 1 : 0.16;
-		state.x += (state.tx - state.x) * k;
-		state.y += (state.ty - state.y) * k;
-		state.r += (state.tr - state.r) * (still ? 1 : 0.12);
+if (waves && waveCanvas && ditherImg && photoImg && !reduceMotion.matches) {
+	Promise.all([ready(ditherImg), ready(photoImg)]).then(() => {
+		const ctx = waveCanvas.getContext("2d");
+		const crest = document.createElement("canvas");
+		const body = document.createElement("canvas");
+		const ember = document.createElement("canvas");
+		const cctx = crest.getContext("2d");
+		const bctx = body.getContext("2d");
+		const ectx = ember.getContext("2d");
+		if (!ctx || !cctx || !bctx || !ectx) return;
 
-		// two waves out of phase, so the rings breathe like water
-		const t = (now - start) / 1000;
-		const w1 = still ? 1 : 1 + 0.05 * Math.sin(t * 2.4);
-		const w2 = still ? 1 : 1 + 0.07 * Math.sin(t * 1.7 + 1.3);
-		const r1 = state.r * w1;
-		const r2 = state.r * 1.8 * w2;
+		const accent =
+			getComputedStyle(waves).getPropertyValue("--color-accent").trim() ||
+			"orangered";
 
-		lens.style.setProperty("--lx", `${(state.x * 100).toFixed(2)}%`);
-		lens.style.setProperty("--ly", `${(state.y * 100).toFixed(2)}%`);
-		lens.style.setProperty("--r1", `${r1.toFixed(1)}px`);
-		lens.style.setProperty("--r2", `${r2.toFixed(1)}px`);
-
-		const settled =
-			state.tr === 0 &&
-			state.r < 0.5 &&
-			Math.abs(state.tx - state.x) < 0.001 &&
-			Math.abs(state.ty - state.y) < 0.001;
-		if (settled) {
-			state.r = 0;
-			lens.style.removeProperty("--r1");
-			lens.style.removeProperty("--r2");
-			raf = 0;
-			return;
-		}
-		raf = requestAnimationFrame(paint);
-	};
-
-	const run = () => {
-		if (!raf) {
-			start = performance.now();
-			raf = requestAnimationFrame(paint);
-		}
-	};
-
-	const aim = (clientX: number, clientY: number) => {
-		const box = lens.getBoundingClientRect();
-		state.tx = (clientX - box.left) / box.width;
-		state.ty = (clientY - box.top) / box.height;
-	};
-
-	if (finePointer.matches) {
-		lens.addEventListener("pointerenter", (e) => {
-			aim(e.clientX, e.clientY);
-			state.x = state.tx;
-			state.y = state.ty;
-			state.tr = radius();
-			run();
-		});
-		lens.addEventListener("pointermove", (e) => {
-			aim(e.clientX, e.clientY);
-			run();
-		});
-		lens.addEventListener("pointerleave", () => {
-			state.tr = 0;
-			run();
-		});
-	} else {
-		// touch: open once on the face when the portrait is in view, and on each tap
-		const pulse = (x: number, y: number) => {
-			state.tx = state.x = x;
-			state.ty = state.y = y;
-			state.tr = radius();
-			run();
-			window.setTimeout(() => {
-				state.tr = 0;
-				run();
-			}, 2400);
+		let size = 0;
+		const fit = () => {
+			const dpr = Math.min(window.devicePixelRatio || 1, 2);
+			size = Math.round(waves.getBoundingClientRect().width * dpr);
+			for (const c of [waveCanvas, crest, body, ember]) {
+				c.width = size;
+				c.height = size;
+			}
+			// the dither dots, recoloured ember once per size
+			ectx.clearRect(0, 0, size, size);
+			ectx.globalCompositeOperation = "source-over";
+			ectx.drawImage(ditherImg, 0, 0, size, size);
+			ectx.globalCompositeOperation = "source-in";
+			ectx.fillStyle = accent;
+			ectx.fillRect(0, 0, size, size);
 		};
-		lens.addEventListener("click", (e) => {
-			const box = lens.getBoundingClientRect();
-			pulse(
-				(e.clientX - box.left) / box.width,
-				(e.clientY - box.top) / box.height,
+		fit();
+		new ResizeObserver(fit).observe(waves);
+
+		const list: Wave[] = [];
+		const LIFE = 2600; // ms for a wave to cross the portrait
+		let hovering = false;
+		let pointer = { x: 0.5, y: 0.35 };
+		let lastEmit = 0;
+		let raf = 0;
+
+		const emit = (x: number, y: number, now = performance.now()) => {
+			list.push({ x, y, born: now });
+			if (list.length > 7) list.shift();
+			lastEmit = now;
+			if (!raf) raf = requestAnimationFrame(frame);
+		};
+
+		// one soft band between two radii, added onto a mask canvas
+		const band = (
+			c: CanvasRenderingContext2D,
+			x: number,
+			y: number,
+			inner: number,
+			outer: number,
+			alpha: number,
+		) => {
+			if (outer <= 0 || alpha <= 0) return;
+			const g = c.createRadialGradient(
+				x,
+				y,
+				Math.max(0, inner),
+				x,
+				y,
+				outer,
 			);
-		});
-		if ("IntersectionObserver" in window) {
-			const once = new IntersectionObserver(
-				(entries) => {
-					if (!entries.some((e) => e.isIntersecting)) return;
-					once.disconnect();
-					window.setTimeout(() => pulse(0.47, 0.33), 700);
-				},
-				{ threshold: 0.6 },
-			);
-			once.observe(lens);
+			g.addColorStop(0, "rgba(0,0,0,0)");
+			g.addColorStop(0.35, `rgba(0,0,0,${alpha})`);
+			g.addColorStop(0.65, `rgba(0,0,0,${alpha})`);
+			g.addColorStop(1, "rgba(0,0,0,0)");
+			c.fillStyle = g;
+			c.fillRect(0, 0, size, size);
+		};
+
+		const frame = (now: number) => {
+			// while the pointer rests on the portrait, the swell keeps coming
+			if (hovering && now - lastEmit > 1100)
+				emit(pointer.x, pointer.y, now);
+
+			cctx.globalCompositeOperation = "source-over";
+			bctx.globalCompositeOperation = "source-over";
+			cctx.clearRect(0, 0, size, size);
+			bctx.clearRect(0, 0, size, size);
+
+			const reach = size * 1.45;
+			for (let i = list.length - 1; i >= 0; i--) {
+				const w = list[i];
+				const p = (now - w.born) / LIFE;
+				if (p >= 1) {
+					list.splice(i, 1);
+					continue;
+				}
+				const x = w.x * size;
+				const y = w.y * size;
+				const r = reach * p;
+				const fade = (1 - p) ** 1.4;
+				const crestW = size * (0.05 + 0.05 * p);
+				const bodyW = size * (0.1 + 0.1 * p);
+				cctx.globalCompositeOperation = "lighter";
+				bctx.globalCompositeOperation = "lighter";
+				band(cctx, x, y, r - crestW, r, 0.8 * fade);
+				band(bctx, x, y, r - crestW - bodyW, r - crestW * 0.4, fade);
+			}
+
+			cctx.globalCompositeOperation = "source-in";
+			cctx.drawImage(ember, 0, 0);
+			bctx.globalCompositeOperation = "source-in";
+			bctx.drawImage(photoImg, 0, 0, size, size);
+
+			ctx.clearRect(0, 0, size, size);
+			ctx.drawImage(crest, 0, 0);
+			ctx.drawImage(body, 0, 0);
+
+			if (list.length || hovering) {
+				raf = requestAnimationFrame(frame);
+			} else {
+				ctx.clearRect(0, 0, size, size);
+				raf = 0;
+			}
+		};
+
+		const local = (e: PointerEvent) => {
+			const box = waves.getBoundingClientRect();
+			return {
+				x: (e.clientX - box.left) / box.width,
+				y: (e.clientY - box.top) / box.height,
+			};
+		};
+
+		const finePointer = window.matchMedia(
+			"(hover: hover) and (pointer: fine)",
+		);
+
+		if (finePointer.matches) {
+			waves.addEventListener("pointerenter", (e) => {
+				hovering = true;
+				pointer = local(e);
+				emit(pointer.x, pointer.y);
+			});
+			waves.addEventListener("pointermove", (e) => {
+				const next = local(e);
+				const moved = Math.hypot(
+					next.x - pointer.x,
+					next.y - pointer.y,
+				);
+				pointer = next;
+				// a moving pointer drops a new wave every so often, like a wake
+				if (moved > 0.08 || performance.now() - lastEmit > 420) {
+					if (moved > 0.02) emit(pointer.x, pointer.y);
+				}
+			});
+			waves.addEventListener("pointerleave", () => {
+				hovering = false;
+			});
+		} else {
+			// touch: two waves from the face when the portrait comes into view,
+			// and one from every tap
+			waves.addEventListener("click", (e) => {
+				const at = local(e as PointerEvent);
+				emit(at.x, at.y);
+			});
+			if ("IntersectionObserver" in window) {
+				const once = new IntersectionObserver(
+					(entries) => {
+						if (!entries.some((e) => e.isIntersecting)) return;
+						once.disconnect();
+						window.setTimeout(() => emit(0.47, 0.33), 600);
+						window.setTimeout(() => emit(0.47, 0.33), 1500);
+					},
+					{ threshold: 0.6 },
+				);
+				once.observe(waves);
+			}
 		}
-	}
+	});
 }
