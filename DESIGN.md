@@ -41,9 +41,11 @@ before shipping a change.
 ## The page (job: hire)
 
 1. **Hero, Settled 6/6.** The name, one sentence, two actions (email filled, "see work" quiet);
-   the 1-bit dithered portrait beside it. Hovering opens a two-wave lens around the pointer:
-   inside the small wave the photograph shows in colour, the ring out to the large wave turns
-   the dither dots ember. On touch it opens once on the face when in view, and on each tap.
+   the portrait beside it as a halftone on water (`src/scripts/portrait-waves.ts`, WebGL2 + ogl,
+   loaded on demand): a wave equation runs under the dots, the pointer pushes the surface and a
+   click splashes; ripples travel, cross and bounce off the edges. Crests turn the dots ember,
+   the wake shows the photograph in colour and dries back to ink. The pre-rendered dither
+   (`scripts/dither-portrait.mjs`) is the LCP and the fallback (no WebGL2, reduced motion).
 2. **Showcase.** One capture across (Link Soluções), two beneath at 7 and 5 (Spark, Disppa), each
    with its fact and a visible "Visitar site".
 3. **Index.** Every product as a hairline row (name, fact, role) that opens in place with its

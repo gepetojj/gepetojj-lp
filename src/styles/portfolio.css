@@ -1,17 +1,16 @@
 /* Hallmark · shape: Portfolio Grid, index-led · genre: editorial · theme: brand · redesign: full
- * paper: oklch(16.5% 0.009 55) · accent: oklch(70% 0.19 42) · display: Schibsted Grotesk · body: Schibsted Grotesk · hero: Settled, the name on six columns, the portrait on six · job: hire · nav: edge-aligned, wordmark, four destinations, locale, one quiet action · footer: statement, the closing line large over the links · signature: the 1-bit dithered portrait with a two-wave lens (colour inside, ember dots in the ring)
+ * paper: oklch(16.5% 0.009 55) · accent: oklch(70% 0.19 42) · display: Schibsted Grotesk · body: Schibsted Grotesk · hero: Settled, the name on six columns, the portrait on six · job: hire · nav: edge-aligned, wordmark, four destinations, locale, one quiet action · footer: statement, the closing line large over the links · signature: the portrait as a halftone on water: the pointer pushes a simulated surface, crests turn the dots ember, the wake shows the photograph in colour
  * axes: dark/grotesk-sans/warm · posture: Restrained, one accent field band (Frentes) · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, the brand palette and faces are locked by DESIGN.md; the variety comes from the shape: work leads as a showcase plus an index, the stack is a table, the close is a statement */
 /* Hallmark · hero-review: ship · 4 findings · 2 resolved (the name set larger on six columns, contact made the filled action), 1 to the owner (a lead only he could write), 1 answered (the dither at 375 still reads) */
 /* Hallmark · finish-review: subagent · fix · 7 findings · 5 resolved (the name holds one line at 1440, the pair shares one frame ratio, the portrait wipes once in view on touch, every shot shows Visitar site, the gap after the index evened) · 2 to the owner (pictures stay inside the index rows by intent, two section heads are his words) · gap: availability and the handle left the hero for the close */
-/* Hallmark · answered the portrait lens · the owner asked for a pointer lens on the portrait; it lives inside the figure only, the system cursor stays, it runs on transform-free mask variables, holds still under reduced motion and plays once on touch */
+/* Hallmark · answered the portrait water · the owner asked for waves that echo across the portrait, after React Bits PatternWaves; a WebGL wave simulation inside the figure only, the system cursor stays, it pauses off screen and in hidden tabs, and under reduced motion or without WebGL2 the pre-rendered dither stays with hover showing the photograph */
 /* Hallmark · dropped 18:18 · the live local clock: 66 names a locale strip under the hero; the place moved to the footer */
 /* Hallmark · dropped Navegação, Comece por aqui, Em outros lugares, Status · the footer column heads: the statement footer sets its links in one row */
 /* Hallmark · reworded "Link Soluções", "Spark", "Disppa", "Comentta" from h3 to captions and index rows · the names are kept word for word; the work is a showcase and an index */
 /* Hallmark · reworded "Mais produtos" to "Todos os produtos" and "Técnicas" to a table caption · the index now lists every product; the stack is a table with its own heads */
 /* Hallmark · reworded the hero lead, the about paragraphs, two repo lines and two section sublines · 58 names the screen budget and the hero's two text blocks */
 /* Hallmark · waive 59 · the 68px gap is measured from the closed details bodies of the index rows · painted, the index ends 240px above the about statement, the same step as the other seams */
-/* Hallmark · waive 23 · .portrait-ember is a full-box field whose mask leaves only the ring of dots under the pointer · at rest both lens radii sit at -48px, so no ember paints until the visitor hovers the portrait */
 /* Hallmark · dismissed 58 · the window at y=2500 counts the bodies of the closed details rows in the index; closed, the index shows about 70 words, one opened row adds about 45 */
 /* Hallmark · reworded "Arapiraca, AL — Brasil" to "Alagoas, Brasil" (the owner asked to drop the city) and dropped "Todos os direitos reservados" · 19 names the dash and the stock footer line */
 
@@ -487,61 +486,42 @@ figure {
 	object-fit: contain;
 }
 
-/* The lens: two waves around the pointer. Inside the small one the
-   photograph shows in colour; the ring between them turns the dither
-   dots ember. --lx/--ly/--r1/--r2 come from the script; at rest both
-   radii sit below zero and only the dither shows. */
-.portrait {
-	--lx: 50%;
-	--ly: 35%;
-	--r1: -48px;
-	--r2: -48px;
+/* Water on the portrait: src/scripts/portrait-waves.ts draws the dots
+   with WebGL from the photograph and a wave simulation; once its first
+   frame is up the figure gets .is-gl and the pre-rendered dither steps
+   back. Without WebGL2, or under reduced motion, the dither stays. */
+.portrait > .portrait-photo {
+	opacity: 0;
+	pointer-events: none;
 }
 
-.portrait-ember {
+.portrait-gl {
 	position: absolute;
 	inset: 0;
 	z-index: 2;
-	background: var(--color-field);
-	opacity: 0.78;
+	width: 100%;
+	height: 100%;
 	pointer-events: none;
-	-webkit-mask-image:
-		radial-gradient(
-			circle at var(--lx) var(--ly),
-			transparent calc(var(--r1) - 10px),
-			var(--color-ink) calc(var(--r1) + 6px),
-			var(--color-ink) calc(var(--r2) - 28px),
-			transparent var(--r2)
-		),
-		var(--dither);
-	-webkit-mask-size: 100% 100%;
-	-webkit-mask-composite: source-in;
-	mask-image:
-		radial-gradient(
-			circle at var(--lx) var(--ly),
-			transparent calc(var(--r1) - 10px),
-			var(--color-ink) calc(var(--r1) + 6px),
-			var(--color-ink) calc(var(--r2) - 28px),
-			transparent var(--r2)
-		),
-		var(--dither);
-	mask-size: 100% 100%;
-	mask-composite: intersect;
+	opacity: 0;
+	transition: opacity var(--dur-long) var(--ease-out);
 }
 
-.portrait > .portrait-photo {
-	z-index: 3;
-	pointer-events: none;
-	-webkit-mask-image: radial-gradient(
-		circle at var(--lx) var(--ly),
-		var(--color-ink) calc(var(--r1) - 22px),
-		transparent var(--r1)
-	);
-	mask-image: radial-gradient(
-		circle at var(--lx) var(--ly),
-		var(--color-ink) calc(var(--r1) - 22px),
-		transparent var(--r1)
-	);
+.portrait.is-gl .portrait-gl {
+	opacity: 1;
+}
+
+.portrait > .portrait-dither {
+	transition: opacity var(--dur-long) var(--ease-out);
+}
+
+.portrait.is-gl > .portrait-dither {
+	opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) and (hover: hover) {
+	.portrait:hover > .portrait-photo {
+		opacity: 1;
+	}
 }
 
 .settle {

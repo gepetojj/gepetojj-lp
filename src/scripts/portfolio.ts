@@ -141,110 +141,14 @@ for (const btn of document.querySelectorAll<HTMLButtonElement>("[data-copy]")) {
 	});
 }
 
-/* ---------- signature: the two-wave lens on the portrait ---------- */
+/* ---------- signature: water on the portrait (WebGL, loaded on demand) ---------- */
 
-const lens = document.querySelector<HTMLElement>("[data-lens]");
+const waterFigure = document.querySelector<HTMLElement>("[data-waves]");
 
-if (lens) {
-	const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-	const state = { x: 0.5, y: 0.35, r: 0, tx: 0.5, ty: 0.35, tr: 0 };
-	let raf = 0;
-	let start = performance.now();
-
-	const radius = () => lens.getBoundingClientRect().width * 0.17;
-
-	const paint = (now: number) => {
-		const still = reduceMotion.matches;
-		const k = still ? 1 : 0.16;
-		state.x += (state.tx - state.x) * k;
-		state.y += (state.ty - state.y) * k;
-		state.r += (state.tr - state.r) * (still ? 1 : 0.12);
-
-		// two waves out of phase, so the rings breathe like water
-		const t = (now - start) / 1000;
-		const w1 = still ? 1 : 1 + 0.05 * Math.sin(t * 2.4);
-		const w2 = still ? 1 : 1 + 0.07 * Math.sin(t * 1.7 + 1.3);
-		const r1 = state.r * w1;
-		const r2 = state.r * 1.8 * w2;
-
-		lens.style.setProperty("--lx", `${(state.x * 100).toFixed(2)}%`);
-		lens.style.setProperty("--ly", `${(state.y * 100).toFixed(2)}%`);
-		lens.style.setProperty("--r1", `${r1.toFixed(1)}px`);
-		lens.style.setProperty("--r2", `${r2.toFixed(1)}px`);
-
-		const settled =
-			state.tr === 0 &&
-			state.r < 0.5 &&
-			Math.abs(state.tx - state.x) < 0.001 &&
-			Math.abs(state.ty - state.y) < 0.001;
-		if (settled) {
-			state.r = 0;
-			lens.style.removeProperty("--r1");
-			lens.style.removeProperty("--r2");
-			raf = 0;
-			return;
-		}
-		raf = requestAnimationFrame(paint);
-	};
-
-	const run = () => {
-		if (!raf) {
-			start = performance.now();
-			raf = requestAnimationFrame(paint);
-		}
-	};
-
-	const aim = (clientX: number, clientY: number) => {
-		const box = lens.getBoundingClientRect();
-		state.tx = (clientX - box.left) / box.width;
-		state.ty = (clientY - box.top) / box.height;
-	};
-
-	if (finePointer.matches) {
-		lens.addEventListener("pointerenter", (e) => {
-			aim(e.clientX, e.clientY);
-			state.x = state.tx;
-			state.y = state.ty;
-			state.tr = radius();
-			run();
+if (waterFigure && !reduceMotion.matches) {
+	import("./portrait-waves")
+		.then(({ startPortraitWaves }) => startPortraitWaves(waterFigure))
+		.catch(() => {
+			// the dither <img> stays; nothing to undo
 		});
-		lens.addEventListener("pointermove", (e) => {
-			aim(e.clientX, e.clientY);
-			run();
-		});
-		lens.addEventListener("pointerleave", () => {
-			state.tr = 0;
-			run();
-		});
-	} else {
-		// touch: open once on the face when the portrait is in view, and on each tap
-		const pulse = (x: number, y: number) => {
-			state.tx = state.x = x;
-			state.ty = state.y = y;
-			state.tr = radius();
-			run();
-			window.setTimeout(() => {
-				state.tr = 0;
-				run();
-			}, 2400);
-		};
-		lens.addEventListener("click", (e) => {
-			const box = lens.getBoundingClientRect();
-			pulse(
-				(e.clientX - box.left) / box.width,
-				(e.clientY - box.top) / box.height,
-			);
-		});
-		if ("IntersectionObserver" in window) {
-			const once = new IntersectionObserver(
-				(entries) => {
-					if (!entries.some((e) => e.isIntersecting)) return;
-					once.disconnect();
-					window.setTimeout(() => pulse(0.47, 0.33), 700);
-				},
-				{ threshold: 0.6 },
-			);
-			once.observe(lens);
-		}
-	}
 }
