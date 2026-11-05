@@ -26,6 +26,8 @@ const { t } = Astro.props;
 			class="portrait settle"
 			data-slot="hero"
 			data-alt="Retrato de João Nobre, tratado em pontilhado de 1 bit"
+			data-lens
+			style={`--dither: url("${portraitDither.src}")`}
 		>
 			<Image
 				src={portraitDither}
@@ -37,6 +39,7 @@ const { t } = Astro.props;
 				loading="eager"
 				fetchpriority="high"
 			/>
+			<span class="portrait-ember" aria-hidden="true" data-keep></span>
 			<Image
 				src={portrait}
 				alt=""
@@ -44,7 +47,7 @@ const { t } = Astro.props;
 				class="portrait-photo"
 				widths={[640, 1040]}
 				sizes="(max-width: 60rem) 90vw, 640px"
-				loading="lazy"
+				loading="eager"
 			/>
 		</figure>
 	</div>

@@ -4,7 +4,7 @@ const en: Translations = {
 	meta: {
 		title: "João Nobre, CTO & Technology Leadership | gepetojj",
 		description:
-			"João Nobre (gepetojj) is CTO at Link Soluções. Technical leadership, product strategy, automation, platforms, and AI, from diagnosis to production operations. Based in Arapiraca, Alagoas, Brazil.",
+			"João Nobre (gepetojj) is CTO at Link Soluções. Technical leadership, product strategy, automation, platforms, and AI, from diagnosis to production operations. Based in Alagoas, Brazil.",
 		shortDescription:
 			"CTO and technical leadership. Product strategy, automation, platforms, and AI focused on business outcomes.",
 		keywords: [
@@ -17,7 +17,6 @@ const en: Translations = {
 			"artificial intelligence",
 			"process automation",
 			"Link Soluções",
-			"Arapiraca",
 			"Brazil",
 			"software development",
 			"SaaS platforms",
@@ -46,7 +45,7 @@ const en: Translations = {
 		title: "Technology in service of outcomes, not the other way around.",
 		paragraphs: [
 			"I'm <strong>CTO at Link Soluções</strong>. I lead technical strategy and the delivery of custom software and AI, from diagnosis to production.",
-			"I work where technology creates real value: product, automation, critical integrations and reliability at scale, from <strong>Arapiraca, Alagoas</strong>.",
+			"I work where technology creates real value: product, automation, critical integrations and reliability at scale, from <strong>Alagoas, Brazil</strong>.",
 			"Before any architecture, I map the user journey and the business impact. <strong>Product vision and technical execution go together.</strong>",
 		],
 		proofLine:
@@ -307,7 +306,7 @@ const en: Translations = {
 		skip: "Skip to content",
 		copy: "Copy email",
 		copied: "Email copied",
-		location: "Arapiraca, Alagoas, Brazil",
+		location: "Alagoas, Brazil",
 		indexTitle: "Every product",
 		colArea: "Area",
 		colWhat: "What for",

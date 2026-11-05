@@ -4,7 +4,7 @@ const ptBr: Translations = {
 	meta: {
 		title: "João Nobre, CTO & Liderança em Tecnologia | gepetojj",
 		description:
-			"João Nobre (gepetojj) é CTO da Link Soluções. Liderança técnica, estratégia de produto, automação, plataformas e IA, do diagnóstico à operação em produção. Baseado em Arapiraca, Alagoas.",
+			"João Nobre (gepetojj) é CTO da Link Soluções. Liderança técnica, estratégia de produto, automação, plataformas e IA, do diagnóstico à operação em produção. Baseado em Alagoas.",
 		shortDescription:
 			"CTO e liderança técnica. Estratégia de produto, automação, plataformas e IA com foco em resultado de negócio.",
 		keywords: [
@@ -17,7 +17,6 @@ const ptBr: Translations = {
 			"inteligência artificial",
 			"automação de processos",
 			"Link Soluções",
-			"Arapiraca",
 			"Alagoas",
 			"desenvolvimento de software",
 			"plataformas SaaS",
@@ -46,7 +45,7 @@ const ptBr: Translations = {
 		title: "Tecnologia a serviço de resultado, não o contrário.",
 		paragraphs: [
 			"Sou <strong>CTO da Link Soluções</strong>. Lidero a estratégia técnica e a entrega de software sob medida e IA, do diagnóstico à operação em produção.",
-			"Atuo onde tecnologia gera valor real: produto, automação, integrações críticas e confiabilidade em escala, a partir de <strong>Arapiraca, Alagoas</strong>.",
+			"Atuo onde tecnologia gera valor real: produto, automação, integrações críticas e confiabilidade em escala, a partir de <strong>Alagoas</strong>.",
 			"Antes da arquitetura, mapeio a jornada do usuário e o impacto no negócio. <strong>Visão de produto e execução técnica andam juntas.</strong>",
 		],
 		proofLine:
@@ -305,7 +304,7 @@ const ptBr: Translations = {
 		skip: "Pular para o conteúdo",
 		copy: "Copiar e-mail",
 		copied: "E-mail copiado",
-		location: "Arapiraca, Alagoas, Brasil",
+		location: "Alagoas, Brasil",
 		indexTitle: "Todos os produtos",
 		colArea: "Área",
 		colWhat: "Para quê",

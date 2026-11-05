@@ -15,7 +15,7 @@ export const SITE = {
 			url: "https://linksolucoesbr.com",
 		},
 		location: {
-			city: "Arapiraca",
+			regionName: "Alagoas",
 			region: "AL",
 			country: "BR",
 			countryName: "Brasil",
